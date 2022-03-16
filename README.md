@@ -1,4 +1,4 @@
-# nesttemplate
+# tern.rbmi
 
 ## Overview
 

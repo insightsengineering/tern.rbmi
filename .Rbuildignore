@@ -6,3 +6,4 @@
 ^\.Rproj\.user$
 ^\.github$
 ^\.git$
+^\.pre-commit-config.yaml

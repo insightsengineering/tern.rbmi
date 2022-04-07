@@ -1,6 +1,6 @@
 Package: tern.rbmi
 Title: Create TLGs using rbmi and tern
-Version: 0.0.0.9003
+Version: 0.0.0.9003.1
 Authors@R: 
     person("NEST", , , "basel.nestcicd@roche.com", role = c("aut", "cre"))
 Description: This is a private template for use by core NEST packages.
@@ -11,7 +11,8 @@ URL: https://github.com/insightsengineering/tern.rbmi,
 BugReports: https://github.com/insightsengineering/tern.rbmi/issues
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 VignetteBuilder: 
     knitr
 Encoding: UTF-8

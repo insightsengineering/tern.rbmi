@@ -1,6 +1,6 @@
 Package: tern.rbmi
 Title: Create TLGs using rbmi and tern
-Version: 0.0.0.9003.1
+Version: 0.0.0.9004
 Authors@R: 
     person("NEST", , , "basel.nestcicd@roche.com", role = c("aut", "cre"))
 Description: This is a private template for use by core NEST packages.

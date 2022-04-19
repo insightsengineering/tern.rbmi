@@ -14,4 +14,7 @@ upstream_repos:
   insightsengineering/formatters:
     repo: insightsengineering/formatters
     host: https://github.com
+  Roche/rtables:
+    repo: Roche/rtables
+    host: https://github.com
 downstream_repos:

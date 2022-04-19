@@ -21,5 +21,17 @@ Useful links:
 \author{
 \strong{Maintainer}: NEST \email{basel.nestcicd@roche.com}
 
+Authors:
+\itemize{
+  \item Jana Stoilova \email{jana.stoilova@roche.com}
+  \item Joe Zhu \email{joe.zhu@roche.com}
+  \item Pawel Rucki \email{pawel.rucki@roche.com}
+}
+
+Other contributors:
+\itemize{
+  \item Roche [copyright holder, funder]
+}
+
 }
 \keyword{internal}

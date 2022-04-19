@@ -1,19 +1,48 @@
 Package: tern.rbmi
 Title: Create TLGs using rbmi and tern
 Version: 0.0.0.9004
-Authors@R: 
-    person("NEST", , , "basel.nestcicd@roche.com", role = c("aut", "cre"))
-Description: This is a private template for use by core NEST packages.
-    Please don't use for your own code.
+Authors@R: c(
+    person("NEST", , , "basel.nestcicd@roche.com", role = c("aut", "cre")),
+    person("Roche", role = c("cph", "fnd")),
+    person("Jana", "Stoilova", , "jana.stoilova@roche.com", role = "aut"),
+    person("Joe", "Zhu", , "joe.zhu@roche.com", role = "aut"),
+    person("Pawel", "Rucki", , "pawel.rucki@roche.com", role = "aut")
+  )
+Description: RBMI tabulation with rtables and tern packages.
 License: MIT + file LICENSE
 URL: https://github.com/insightsengineering/tern.rbmi,
     https://insightsengineering.github.io/tern.rbmi/
 BugReports: https://github.com/insightsengineering/tern.rbmi/issues
-Suggests: 
+Depends:
+    R (>= 3.6),
+    rbmi,
+    tern (>= 0.7.7)
+Imports:
+    assertthat,
+    dfoptim,
+    dplyr,
+    emmeans (>= 1.4.5),
+    formatters,
+    generics,
+    ggplot2,
+    lme4 (>= 1.1-21),
+    lmerTest (>= 3.1-1),
+    magrittr,
+    optimx,
+    parallel,
+    rlang,
+    stats,
+    tibble,
+    utils
+Suggests:
+    broom,
     knitr,
+    Matrix,
     rmarkdown,
-    testthat
-VignetteBuilder: 
+    scda (>= 0.1.3),
+    scda.2022,
+    testthat (>= 2.0)
+VignetteBuilder:
     knitr
 Encoding: UTF-8
 LazyData: true

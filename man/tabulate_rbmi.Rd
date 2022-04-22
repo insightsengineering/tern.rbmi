@@ -61,15 +61,142 @@ rbmi \code{pool} results.
 \dontrun{
 s_rbmi_lsmeans(df[8, ], .in_ref_col = FALSE)
 }
-
-\dontrun{
 library(rtables)
 library(dplyr)
 library(broom)
 library(rbmi)
 
-path <- "~/NEST/rbmi_rds-export"
-pool_obj <- readRDS(file.path(path, "pool_obj.RDS"))
+x <- antidepressant_data
+levels(x$THERAPY) <- c("PLACEBO", "DRUG") # This is important! The order defines the computation order later
+missing_var = "CHANGE"
+vars = list(
+  id = "PATIENT",
+  visit = "VISIT",
+  expand_vars = c("BASVAL", "THERAPY"),
+  group = "THERAPY"
+)
+covariates = list(
+  draws = c("BASVAL*VISIT", "THERAPY*VISIT"),
+  analyse = c("BASVAL")
+)
+draws_vars = rbmi::set_vars(
+outcome = missing_var,
+visit = vars$visit,
+group = vars$group,
+covariates = covariates$draws
+)
+impute_references = c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
+draws_method = rbmi::method_bayes()
+analyse_fun = rbmi::ancova
+analyse_fun_args = list(
+  vars = rbmi::set_vars(
+    outcome = missing_var,
+    visit = vars$visit,
+    group = vars$group,
+    covariates = covariates$analyse
+  )
+)
+pool_args = list(
+  conf.level = formals(rbmi::pool)$conf.level,
+  alternative = formals(rbmi::pool)$alternative,
+  type = formals(rbmi::pool)$type
+)
+debug_mode = FALSE
+
+data <- data \%>\%
+  dplyr::select(dplyr::all_of(c(vars$id, vars$group, vars$visit, vars$expand_vars, missing_var))) \%>\%
+  dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) \%>\%
+  dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
+data_full <- do.call(
+  rbmi::expand_locf,
+  args = list(
+    data = data,
+    vars = c(vars$expand_vars, vars$group),
+    group = vars$id,
+    order = c(vars$id, vars$visit)
+  ) \%>\%
+    append(lapply(data[c(vars$id, vars$visit)], levels))
+)
+
+# for patients with missings at the beggining of the visit sequence we still have missings - LOCF does not work in such case
+data_full <- data_full \%>\%
+  dplyr::group_by(dplyr::across(vars$id)) \%>\%
+  dplyr::mutate(!!vars$group := Filter(Negate(is.na), .data[[vars$group]])[1])
+
+# there are duplicates - use first value
+data_full <- data_full \%>\%
+  dplyr::group_by(dplyr::across(c(vars$id, vars$group, vars$visit))) \%>\%
+  dplyr::slice(1) \%>\%
+  dplyr::ungroup()
+
+data <- data \%>\%
+  dplyr::select(dplyr::all_of(c(vars$id, vars$group, vars$visit, vars$expand_vars, missing_var))) \%>\%
+  dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) \%>\%
+  dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
+data_full <- do.call(
+  rbmi::expand_locf,
+  args = list(
+    data = data,
+    vars = c(vars$expand_vars, vars$group),
+    group = vars$id,
+    order = c(vars$id, vars$visit)
+  ) \%>\%
+  append(lapply(data[c(vars$id, vars$visit)], levels))
+)
+# for patients with missings at the beggining of the visit sequence we still have missings - LOCF does not work in such case
+data_full <- data_full \%>\%
+  dplyr::group_by(dplyr::across(vars$id)) \%>\%
+  dplyr::mutate(!!vars$group := Filter(Negate(is.na), .data[[vars$group]])[1])
+
+# there are duplicates - use first value
+data_full <- data_full \%>\%
+  dplyr::group_by(dplyr::across(c(vars$id, vars$group, vars$visit))) \%>\%
+  dplyr::slice(1) \%>\%
+  dplyr::ungroup()
+# need to have a single ID column
+data_full <- data_full \%>\%
+ tidyr::unite("TMP_ID", dplyr::all_of(vars$id), sep = "_#_", remove = FALSE) \%>\%
+ dplyr::mutate(TMP_ID = as.factor(TMP_ID))
+draws_vars$subjid <- "TMP_ID"
+
+data_ice <- data_full \%>\%
+  dplyr::arrange(dplyr::across(.cols = c("TMP_ID", vars$visit))) \%>\%
+  dplyr::filter(is.na(.data[[missing_var]])) \%>\%
+  dplyr::group_by(TMP_ID) \%>\%
+  dplyr::slice(1) \%>\%
+  dplyr::ungroup() \%>\%
+  dplyr::select(all_of(c("TMP_ID", vars$visit))) \%>\%
+  dplyr::mutate(strategy = "MAR")
+
+draws_obj <- rbmi::draws(
+  data = data_full,
+  data_ice = data_ice,
+  vars = draws_vars,
+  method = draws_method
+)
+impute_obj <- rbmi::impute( # @TODO: add support of `update_stategy` argument
+draws_obj,
+references = impute_references
+)
+
+ref_levels <- levels(impute_obj$data$group[[1]])
+names(ref_levels) <- c("ref", "alt")
+analyse_fun_args$vars$subjid <- "TMP_ID"
+analyse_obj <- do.call(
+  rbmi::analyse, # @TODO: add support of `delta` argument
+  args = list(
+    imputations = impute_obj,
+    fun = analyse_fun
+  ) \%>\%
+    append(analyse_fun_args)
+)
+pool_obj <- do.call(
+rbmi::pool,
+args = list(
+  results = analyse_obj
+) \%>\%
+  append(pool_args)
+)
 
 h_tidy_pool(pool_obj$pars[1:3])
 df <- tidy(pool_obj)
@@ -85,6 +212,5 @@ basic_table() \%>\%
   split_rows_by("visit", split_label = "Visit", label_pos = "topleft") \%>\%
   summarize_rbmi() \%>\%
   build_table(df)
-}
 
 }

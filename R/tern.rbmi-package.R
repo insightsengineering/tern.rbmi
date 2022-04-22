@@ -4,5 +4,8 @@
 #'
 #' @keywords internal
 "_PACKAGE"
-
+#' @importFrom lifecycle badge
+#' @importFrom broom tidy
+#' @importFrom magrittr %>%
+#' @importFrom tern f_conf_level
 NULL

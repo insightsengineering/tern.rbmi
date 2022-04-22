@@ -36,7 +36,8 @@ Imports:
     rtables (>= 0.5.0),
     stats,
     tibble,
-    utils
+    utils,
+    tidyr
 Suggests:
     broom,
     knitr,

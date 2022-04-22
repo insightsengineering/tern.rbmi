@@ -98,9 +98,9 @@ s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "incr
   if_not_ref <- function(x) `if`(.in_ref_col, character(), x)
   list(
     adj_mean_se = c(df$est, df$se_est),
-    adj_mean_ci = with_label(c(df$lower_cl_est, df$upper_cl_est), tern:::f_conf_level(df$conf_level)),
+    adj_mean_ci = with_label(c(df$lower_cl_est, df$upper_cl_est), f_conf_level(df$conf_level)),
     diff_mean_se = if_not_ref(c(df$est_contr, df$se_contr)),
-    diff_mean_ci = with_label(if_not_ref(c(df$lower_cl_contr, df$upper_cl_contr)), tern:::f_conf_level(df$conf_level)),
+    diff_mean_ci = with_label(if_not_ref(c(df$lower_cl_contr, df$upper_cl_contr)), f_conf_level(df$conf_level)),
     change = switch(show_relative,
       reduction = with_label(if_not_ref(df$relative_reduc), "Relative Reduction (%)"),
       increase = with_label(if_not_ref(-df$relative_reduc), "Relative Increase (%)")
@@ -147,8 +147,8 @@ a_rbmi_lsmeans <- make_afun(
 #' library(broom)
 #' library(rbmi)
 #'
-#' x <- antidepressant_data
-#' levels(x$THERAPY) <- c("PLACEBO", "DRUG") # This is important! The order defines the computation order later
+#' data <- antidepressant_data
+#' levels(data$THERAPY) <- c("PLACEBO", "DRUG") # This is important! The order defines the computation order later
 #' missing_var <- "CHANGE"
 #' vars <- list(
 #'   id = "PATIENT",
@@ -183,32 +183,6 @@ a_rbmi_lsmeans <- make_afun(
 #'   type = formals(rbmi::pool)$type
 #' )
 #' debug_mode <- FALSE
-#'
-#' data <- data %>%
-#'   dplyr::select(dplyr::all_of(c(vars$id, vars$group, vars$visit, vars$expand_vars, missing_var))) %>%
-#'   dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) %>%
-#'   dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
-#' data_full <- do.call(
-#'   rbmi::expand_locf,
-#'   args = list(
-#'     data = data,
-#'     vars = c(vars$expand_vars, vars$group),
-#'     group = vars$id,
-#'     order = c(vars$id, vars$visit)
-#'   ) %>%
-#'     append(lapply(data[c(vars$id, vars$visit)], levels))
-#' )
-#'
-#' # for patients with missings at the beggining of the visit sequence we still have missings - LOCF does not work in such case
-#' data_full <- data_full %>%
-#'   dplyr::group_by(dplyr::across(vars$id)) %>%
-#'   dplyr::mutate(!!vars$group := Filter(Negate(is.na), .data[[vars$group]])[1])
-#'
-#' # there are duplicates - use first value
-#' data_full <- data_full %>%
-#'   dplyr::group_by(dplyr::across(c(vars$id, vars$group, vars$visit))) %>%
-#'   dplyr::slice(1) %>%
-#'   dplyr::ungroup()
 #'
 #' data <- data %>%
 #'   dplyr::select(dplyr::all_of(c(vars$id, vars$group, vars$visit, vars$expand_vars, missing_var))) %>%

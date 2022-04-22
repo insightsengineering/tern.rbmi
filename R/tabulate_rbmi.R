@@ -7,7 +7,7 @@
 NULL
 
 #' @describeIn tabulate_rbmi Helper function to produce data frame with results
-#' of rbmi::pool for a single visit
+#' of pool for a single visit
 #' @param x (`list`)
 #' @export
 #'
@@ -86,13 +86,13 @@ tidy.pool <- function(x) { # nolint #nousage
 
 #' @describeIn tabulate_rbmi Statistics function which is extracting estimates from a tidied LS means
 #'   data frame.
+#'
+#' @param df inpute dataframe
+#' @param .in_ref_col boolean variable, if reference column is specified
 #' @param show_relative should the "reduction" (`control - treatment`, default) or the "increase"
 #'   (`treatment - control`) be shown for the relative change from baseline?
 #' @export
-#' @examples
-#' \dontrun{
-#' s_rbmi_lsmeans(df[8, ], .in_ref_col = FALSE)
-#' }
+#'
 s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "increase")) {
   show_relative <- match.arg(show_relative)
   if_not_ref <- function(x) `if`(.in_ref_col, character(), x)
@@ -140,6 +140,14 @@ a_rbmi_lsmeans <- make_afun(
 
 #' @describeIn tabulate_rbmi Analyze function for tabulating LS means estimates from tidied
 #'   rbmi `pool` results.
+#' @param lyt (`layout`)\cr input layout where analyses will be added to.
+#' @param table_names (`character`)\cr this can be customized in case that the same `vars` are analyzed multiple times,
+#'   to avoid warnings from `rtables`.
+#' @param .stats (`character`)\cr statistics to select for the table.
+#' @param .formats (named `character` or `list`)\cr formats for the statistics.
+#' @param .indent_mods (named `integer`)\cr indent modifiers for the labels.
+#' @param .labels (named `character`)\cr labels for the statistics (without indent).
+#' @param ... additional argument.
 #' @export
 #' @examples
 #' library(rtables)
@@ -160,17 +168,17 @@ a_rbmi_lsmeans <- make_afun(
 #'   draws = c("BASVAL*VISIT", "THERAPY*VISIT"),
 #'   analyse = c("BASVAL")
 #' )
-#' draws_vars <- rbmi::set_vars(
+#' draws_vars <- set_vars(
 #'   outcome = missing_var,
 #'   visit = vars$visit,
 #'   group = vars$group,
 #'   covariates = covariates$draws
 #' )
 #' impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
-#' draws_method <- rbmi::method_bayes()
-#' analyse_fun <- rbmi::ancova
+#' draws_method <- method_bayes()
+#' analyse_fun <- ancova
 #' analyse_fun_args <- list(
-#'   vars = rbmi::set_vars(
+#'   vars = set_vars(
 #'     outcome = missing_var,
 #'     visit = vars$visit,
 #'     group = vars$group,
@@ -178,9 +186,9 @@ a_rbmi_lsmeans <- make_afun(
 #'   )
 #' )
 #' pool_args <- list(
-#'   conf.level = formals(rbmi::pool)$conf.level,
-#'   alternative = formals(rbmi::pool)$alternative,
-#'   type = formals(rbmi::pool)$type
+#'   conf.level = formals(pool)$conf.level,
+#'   alternative = formals(pool)$alternative,
+#'   type = formals(pool)$type
 #' )
 #' debug_mode <- FALSE
 #'
@@ -189,7 +197,7 @@ a_rbmi_lsmeans <- make_afun(
 #'   dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) %>%
 #'   dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
 #' data_full <- do.call(
-#'   rbmi::expand_locf,
+#'   expand_locf,
 #'   args = list(
 #'     data = data,
 #'     vars = c(vars$expand_vars, vars$group),
@@ -198,7 +206,7 @@ a_rbmi_lsmeans <- make_afun(
 #'   ) %>%
 #'     append(lapply(data[c(vars$id, vars$visit)], levels))
 #' )
-#' # for patients with missings at the beggining of the visit sequence we still have missings - LOCF does not work in such case
+#'
 #' data_full <- data_full %>%
 #'   dplyr::group_by(dplyr::across(vars$id)) %>%
 #'   dplyr::mutate(!!vars$group := Filter(Negate(is.na), .data[[vars$group]])[1])
@@ -223,13 +231,13 @@ a_rbmi_lsmeans <- make_afun(
 #'   dplyr::select(all_of(c("TMP_ID", vars$visit))) %>%
 #'   dplyr::mutate(strategy = "MAR")
 #'
-#' draws_obj <- rbmi::draws(
+#' draws_obj <- draws(
 #'   data = data_full,
 #'   data_ice = data_ice,
 #'   vars = draws_vars,
 #'   method = draws_method
 #' )
-#' impute_obj <- rbmi::impute( # @TODO: add support of `update_stategy` argument
+#' impute_obj <- impute( # @TODO: add support of `update_stategy` argument
 #'   draws_obj,
 #'   references = impute_references
 #' )
@@ -238,7 +246,7 @@ a_rbmi_lsmeans <- make_afun(
 #' names(ref_levels) <- c("ref", "alt")
 #' analyse_fun_args$vars$subjid <- "TMP_ID"
 #' analyse_obj <- do.call(
-#'   rbmi::analyse, # @TODO: add support of `delta` argument
+#'   analyse, # @TODO: add support of `delta` argument
 #'   args = list(
 #'     imputations = impute_obj,
 #'     fun = analyse_fun
@@ -246,7 +254,7 @@ a_rbmi_lsmeans <- make_afun(
 #'     append(analyse_fun_args)
 #' )
 #' pool_obj <- do.call(
-#'   rbmi::pool,
+#'   pool,
 #'   args = list(
 #'     results = analyse_obj
 #'   ) %>%

@@ -30,8 +30,27 @@ summarize_rbmi(
 \arguments{
 \item{x}{(\code{pool})}
 
+\item{df}{inpute dataframe}
+
+\item{.in_ref_col}{boolean variable, if reference column is specified}
+
 \item{show_relative}{should the "reduction" (\code{control - treatment}, default) or the "increase"
 (\code{treatment - control}) be shown for the relative change from baseline?}
+
+\item{lyt}{(\code{layout})\cr input layout where analyses will be added to.}
+
+\item{...}{additional argument.}
+
+\item{table_names}{(\code{character})\cr this can be customized in case that the same \code{vars} are analyzed multiple times,
+to avoid warnings from \code{rtables}.}
+
+\item{.stats}{(\code{character})\cr statistics to select for the table.}
+
+\item{.formats}{(named \code{character} or \code{list})\cr formats for the statistics.}
+
+\item{.indent_mods}{(named \code{integer})\cr indent modifiers for the labels.}
+
+\item{.labels}{(named \code{character})\cr labels for the statistics (without indent).}
 }
 \value{
 A dataframe
@@ -42,7 +61,7 @@ These functions can be used to produce tables from a fitted RBMI produced
 \section{Functions}{
 \itemize{
 \item \code{h_tidy_pool}: Helper function to produce data frame with results
-of rbmi::pool for a single visit
+of pool for a single visit
 
 \item \code{tidy.pool}: Helper method (for \code{\link[broom:reexports]{broom::tidy()}}) to prepare a data frame from an
 \code{pool} rbmi object containing the LS means and contrasts and multiple visits
@@ -58,9 +77,6 @@ rbmi \code{pool} results.
 }}
 
 \examples{
-\dontrun{
-s_rbmi_lsmeans(df[8, ], .in_ref_col = FALSE)
-}
 library(rtables)
 library(dplyr)
 library(broom)
@@ -79,17 +95,17 @@ covariates <- list(
   draws = c("BASVAL*VISIT", "THERAPY*VISIT"),
   analyse = c("BASVAL")
 )
-draws_vars <- rbmi::set_vars(
+draws_vars <- set_vars(
   outcome = missing_var,
   visit = vars$visit,
   group = vars$group,
   covariates = covariates$draws
 )
 impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
-draws_method <- rbmi::method_bayes()
-analyse_fun <- rbmi::ancova
+draws_method <- method_bayes()
+analyse_fun <- ancova
 analyse_fun_args <- list(
-  vars = rbmi::set_vars(
+  vars = set_vars(
     outcome = missing_var,
     visit = vars$visit,
     group = vars$group,
@@ -97,9 +113,9 @@ analyse_fun_args <- list(
   )
 )
 pool_args <- list(
-  conf.level = formals(rbmi::pool)$conf.level,
-  alternative = formals(rbmi::pool)$alternative,
-  type = formals(rbmi::pool)$type
+  conf.level = formals(pool)$conf.level,
+  alternative = formals(pool)$alternative,
+  type = formals(pool)$type
 )
 debug_mode <- FALSE
 
@@ -108,7 +124,7 @@ data <- data \%>\%
   dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) \%>\%
   dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
 data_full <- do.call(
-  rbmi::expand_locf,
+  expand_locf,
   args = list(
     data = data,
     vars = c(vars$expand_vars, vars$group),
@@ -117,7 +133,7 @@ data_full <- do.call(
   ) \%>\%
     append(lapply(data[c(vars$id, vars$visit)], levels))
 )
-# for patients with missings at the beggining of the visit sequence we still have missings - LOCF does not work in such case
+
 data_full <- data_full \%>\%
   dplyr::group_by(dplyr::across(vars$id)) \%>\%
   dplyr::mutate(!!vars$group := Filter(Negate(is.na), .data[[vars$group]])[1])
@@ -142,13 +158,13 @@ data_ice <- data_full \%>\%
   dplyr::select(all_of(c("TMP_ID", vars$visit))) \%>\%
   dplyr::mutate(strategy = "MAR")
 
-draws_obj <- rbmi::draws(
+draws_obj <- draws(
   data = data_full,
   data_ice = data_ice,
   vars = draws_vars,
   method = draws_method
 )
-impute_obj <- rbmi::impute( # @TODO: add support of `update_stategy` argument
+impute_obj <- impute( # @TODO: add support of `update_stategy` argument
   draws_obj,
   references = impute_references
 )
@@ -157,7 +173,7 @@ ref_levels <- levels(impute_obj$data$group[[1]])
 names(ref_levels) <- c("ref", "alt")
 analyse_fun_args$vars$subjid <- "TMP_ID"
 analyse_obj <- do.call(
-  rbmi::analyse, # @TODO: add support of `delta` argument
+  analyse, # @TODO: add support of `delta` argument
   args = list(
     imputations = impute_obj,
     fun = analyse_fun
@@ -165,7 +181,7 @@ analyse_obj <- do.call(
     append(analyse_fun_args)
 )
 pool_obj <- do.call(
-  rbmi::pool,
+  pool,
   args = list(
     results = analyse_obj
   ) \%>\%

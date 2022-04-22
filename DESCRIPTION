@@ -18,33 +18,17 @@ Depends:
     rbmi,
     tern (>= 0.7.7)
 Imports:
-    assertthat,
     broom,
-    dfoptim,
-    dplyr,
-    emmeans (>= 1.4.5),
     formatters,
-    generics,
-    ggplot2,
-    lme4 (>= 1.1-21),
-    lmerTest (>= 3.1-1),
     lifecycle,
     magrittr,
-    optimx,
-    parallel,
-    rlang,
-    rtables (>= 0.5.0),
-    stats,
-    tibble,
-    utils,
-    tidyr
+    rtables (>= 0.5.0)
 Suggests:
-    broom,
+    dplyr,
+    tidyr,
     knitr,
     Matrix,
     rmarkdown,
-    scda (>= 0.1.3),
-    scda.2022,
     testthat (>= 2.0)
 VignetteBuilder:
     knitr

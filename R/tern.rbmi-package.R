@@ -4,6 +4,8 @@
 #'
 #' @keywords internal
 "_PACKAGE"
+#' @importFrom rtables make_afun analyze
+#' @importFrom formatters with_label
 #' @importFrom lifecycle badge
 #' @importFrom broom tidy
 #' @importFrom magrittr %>%

@@ -30,7 +30,7 @@ summarize_rbmi(
 \arguments{
 \item{x}{(\code{pool})}
 
-\item{df}{inpute dataframe}
+\item{df}{input dataframe}
 
 \item{.in_ref_col}{boolean variable, if reference column is specified}
 

@@ -107,7 +107,10 @@ s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "incr
       f_conf_level(df$conf_level)
     ),
     diff_mean_se = if_not_ref(c(df$est_contr, df$se_contr)),
-    diff_mean_ci = formatters::with_label(if_not_ref(c(df$lower_cl_contr, df$upper_cl_contr)), f_conf_level(df$conf_level)),
+    diff_mean_ci = formatters::with_label(
+      if_not_ref(c(df$lower_cl_contr, df$upper_cl_contr)),
+      f_conf_level(df$conf_level)
+    ),
     change = switch(show_relative,
       reduction = formatters::with_label(if_not_ref(df$relative_reduc), "Relative Reduction (%)"),
       increase = formatters::with_label(if_not_ref(-df$relative_reduc), "Relative Increase (%)")

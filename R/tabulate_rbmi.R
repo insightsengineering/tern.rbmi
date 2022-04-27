@@ -110,7 +110,7 @@ s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "incr
 }
 
 #' @describeIn tabulate_rbmi Formatted Analysis function which can be further customized by calling
-#'   [rtables::make_afun()] on it. It is used as `afun` in [rtables::analyze()].
+#'   [`rtables::make_afun()`] on it. It is used as `afun` in [`rtables::analyze()`].
 #' @export
 #'
 a_rbmi_lsmeans <- make_afun(

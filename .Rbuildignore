@@ -7,3 +7,4 @@
 ^\.github$
 ^\.git$
 ^\.pre-commit-config.yaml
+^\.lintr$

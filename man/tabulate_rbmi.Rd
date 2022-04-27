@@ -174,7 +174,7 @@ ref_levels <- levels(impute_obj$data$group[[1]])
 names(ref_levels) <- c("ref", "alt")
 analyse_fun_args$vars$subjid <- "TMP_ID"
 analyse_obj <- do.call(
-  analyse, # @TODO: add support of `delta` argument
+  analyse,
   args = list(
     imputations = impute_obj,
     fun = analyse_fun
@@ -193,10 +193,7 @@ h_tidy_pool(pool_obj$pars[1:3])
 df <- tidy(pool_obj)
 df
 
-s_rbmi_lsmeans(df[2, ], .in_ref_col = FALSE)
-
 afun <- make_afun(a_rbmi_lsmeans)
-afun(df[2, ], .in_ref_col = FALSE)
 
 basic_table() \%>\%
   split_cols_by("group", ref_group = levels(df$group)[1]) \%>\%

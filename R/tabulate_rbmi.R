@@ -97,7 +97,6 @@ tidy.pool <- function(x) { # nolint
 #'
 s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "increase")) {
   checkmate::assert_flag(.in_ref_col)
-  checkmate::assert_choice(show_relative, choices = c("reduction", "increase"))
   show_relative <- match.arg(show_relative)
   if_not_ref <- function(x) `if`(.in_ref_col, character(), x)
   list(

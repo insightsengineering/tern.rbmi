@@ -7,7 +7,7 @@
 \alias{s_rbmi_lsmeans}
 \alias{a_rbmi_lsmeans}
 \alias{summarize_rbmi}
-\title{Tabulation of RBMI Results}
+\title{Tabulation of \code{RBMI} Results}
 \usage{
 h_tidy_pool(x)
 
@@ -56,7 +56,7 @@ to avoid warnings from \code{rtables}.}
 A dataframe
 }
 \description{
-These functions can be used to produce tables from a fitted RBMI produced
+These functions can be used to produce tables from a fitted \code{RBMI} produced
 }
 \section{Functions}{
 \itemize{
@@ -73,7 +73,7 @@ data frame.
 \code{\link[rtables:make_afun]{rtables::make_afun()}} on it. It is used as \code{afun} in \code{\link[rtables:analyze]{rtables::analyze()}}.
 
 \item \code{summarize_rbmi}: Analyze function for tabulating LS means estimates from tidied
-rbmi \code{pool} results.
+\code{rbmi} \code{pool} results.
 }}
 
 \examples{

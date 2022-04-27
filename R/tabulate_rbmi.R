@@ -1,6 +1,6 @@
-#' Tabulation of RBMI Results
+#' Tabulation of `RBMI` Results
 #'
-#' These functions can be used to produce tables from a fitted RBMI produced
+#' These functions can be used to produce tables from a fitted `RBMI` produced
 #'
 #' @name tabulate_rbmi
 #'
@@ -54,14 +54,14 @@ h_tidy_pool <- function(x) {
   result
 }
 
-#' @describeIn tabulate_rbmi Helper method (for [broom::tidy()]) to prepare a data frame from an
+#' @describeIn tabulate_rbmi Helper method (for [`broom::tidy()`]) to prepare a data frame from an
 #'   `pool` rbmi object containing the LS means and contrasts and multiple visits
 #' @method tidy pool
 #' @param x (`pool`)
 #' @export
 #' @return A dataframe
 #'
-tidy.pool <- function(x) { # nolint #nousage
+tidy.pool <- function(x) { # nolint
 
   ls_raw <- x$pars
 
@@ -98,12 +98,12 @@ s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "incr
   if_not_ref <- function(x) `if`(.in_ref_col, character(), x)
   list(
     adj_mean_se = c(df$est, df$se_est),
-    adj_mean_ci = with_label(c(df$lower_cl_est, df$upper_cl_est), f_conf_level(df$conf_level)),
+    adj_mean_ci = formatters::with_label(c(df$lower_cl_est, df$upper_cl_est), f_conf_level(df$conf_level)),
     diff_mean_se = if_not_ref(c(df$est_contr, df$se_contr)),
-    diff_mean_ci = with_label(if_not_ref(c(df$lower_cl_contr, df$upper_cl_contr)), f_conf_level(df$conf_level)),
+    diff_mean_ci = formatters::with_label(if_not_ref(c(df$lower_cl_contr, df$upper_cl_contr)), f_conf_level(df$conf_level)),
     change = switch(show_relative,
-      reduction = with_label(if_not_ref(df$relative_reduc), "Relative Reduction (%)"),
-      increase = with_label(if_not_ref(-df$relative_reduc), "Relative Increase (%)")
+      reduction = formatters::with_label(if_not_ref(df$relative_reduc), "Relative Reduction (%)"),
+      increase = formatters::with_label(if_not_ref(-df$relative_reduc), "Relative Increase (%)")
     ),
     p_value = if_not_ref(df$p_value)
   )
@@ -121,7 +121,7 @@ a_rbmi_lsmeans <- make_afun(
     p_value = "p-value (RBMI)"
   ),
   .formats = c(
-    # n = "xx.", # note we don't have N from rbmi result
+    # n = "xx.", # note we don't have N from `rbmi` result
     adj_mean_se = sprintf_format("%.3f (%.3f)"),
     adj_mean_ci = "(xx.xxx, xx.xxx)",
     diff_mean_se = sprintf_format("%.3f (%.3f)"),
@@ -139,7 +139,7 @@ a_rbmi_lsmeans <- make_afun(
 )
 
 #' @describeIn tabulate_rbmi Analyze function for tabulating LS means estimates from tidied
-#'   rbmi `pool` results.
+#'   `rbmi` `pool` results.
 #' @param lyt (`layout`)\cr input layout where analyses will be added to.
 #' @param table_names (`character`)\cr this can be customized in case that the same `vars` are analyzed multiple times,
 #'   to avoid warnings from `rtables`.

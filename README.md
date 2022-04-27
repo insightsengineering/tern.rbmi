@@ -1,4 +1,4 @@
-# tern.rbmi
+# `tern.rbmi`
 
 ## Overview
 

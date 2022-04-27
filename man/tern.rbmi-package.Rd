@@ -4,7 +4,7 @@
 \name{tern.rbmi-package}
 \alias{tern.rbmi}
 \alias{tern.rbmi-package}
-\title{\code{tern.rbmi} Package}
+\title{tern.rbmi Package}
 \description{
 \code{tern.rbmi} is an analysis package to create tables, listings and graphs to analyze clinical trials data.
 }

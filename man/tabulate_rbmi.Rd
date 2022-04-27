@@ -28,7 +28,8 @@ summarize_rbmi(
 )
 }
 \arguments{
-\item{x}{(\code{pool})}
+\item{x}{(\code{pool}) is a list of pooled object from \code{rbmi} analysis results. This list includes
+analysis results, confidence level, hypothesis testing type.}
 
 \item{df}{input dataframe}
 
@@ -64,7 +65,7 @@ These functions can be used to produce tables from a fitted \code{RBMI} produced
 of pool for a single visit
 
 \item \code{tidy.pool}: Helper method (for \code{\link[broom:reexports]{broom::tidy()}}) to prepare a data frame from an
-\code{pool} rbmi object containing the LS means and contrasts and multiple visits
+\code{pool} \code{rbmi} object containing the LS means and contrasts and multiple visits
 
 \item \code{s_rbmi_lsmeans}: Statistics function which is extracting estimates from a tidied LS means
 data frame.
@@ -120,7 +121,7 @@ pool_args <- list(
 debug_mode <- FALSE
 
 data <- data \%>\%
-  dplyr::select(dplyr::all_of(c(vars$id, vars$group, vars$visit, vars$expand_vars, missing_var))) \%>\%
+  dplyr::select(PATIENT, THERAPY, VISIT, BASVAL, THERAPY, CHANGE) \%>\%
   dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) \%>\%
   dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
 data_full <- do.call(

@@ -8,7 +8,8 @@ NULL
 
 #' @describeIn tabulate_rbmi Helper function to produce data frame with results
 #' of pool for a single visit
-#' @param x (`list`)
+#' @param x (`pool`) is a list of pooled object from `rbmi` analysis results. This list includes
+#' analysis results, confidence level, hypothesis testing type.
 #' @export
 #'
 h_tidy_pool <- function(x) {
@@ -55,9 +56,10 @@ h_tidy_pool <- function(x) {
 }
 
 #' @describeIn tabulate_rbmi Helper method (for [`broom::tidy()`]) to prepare a data frame from an
-#'   `pool` rbmi object containing the LS means and contrasts and multiple visits
+#'   `pool` `rbmi` object containing the LS means and contrasts and multiple visits
 #' @method tidy pool
-#' @param x (`pool`)
+#' @param x (`pool`) is a list of pooled object from `rbmi` analysis results. This list includes
+#' analysis results, confidence level, hypothesis testing type.
 #' @export
 #' @return A dataframe
 #'
@@ -94,6 +96,8 @@ tidy.pool <- function(x) { # nolint
 #' @export
 #'
 s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "increase")) {
+  checkmate::assert_flag(.in_ref_col)
+  checkmate::assert_choice(show_relative, choices = c("reduction", "increase"))
   show_relative <- match.arg(show_relative)
   if_not_ref <- function(x) `if`(.in_ref_col, character(), x)
   list(
@@ -196,7 +200,7 @@ a_rbmi_lsmeans <- make_afun(
 #' debug_mode <- FALSE
 #'
 #' data <- data %>%
-#'   dplyr::select(dplyr::all_of(c(vars$id, vars$group, vars$visit, vars$expand_vars, missing_var))) %>%
+#'   dplyr::select(PATIENT, THERAPY, VISIT, BASVAL, THERAPY, CHANGE) %>%
 #'   dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) %>%
 #'   dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
 #' data_full <- do.call(

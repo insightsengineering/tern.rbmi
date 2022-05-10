@@ -25,13 +25,13 @@ reference:
           customized by calling `rtables::make_afun()` on them. They are used as `afun` in
           `rtables::analyze()`.
     contents:
-       - a_rbmi_lsmeans
+      - a_rbmi_lsmeans
 
   - title: Analyze Functions
     desc: Analyze Functions are used in combination with the rtables layout functions, in the pipeline which creates
           the table.
     contents:
-       - summarize_rbmi
+      - summarize_rbmi
 
   - title: Analysis Helper Functions
     desc: these functions are useful to help definining the analysis

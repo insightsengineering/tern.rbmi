@@ -1,12 +1,4 @@
-#' Tabulation of `RBMI` Results
-#'
-#' These functions can be used to produce tables from a fitted `RBMI` produced
-#'
-#' @name tabulate_rbmi
-#'
-NULL
-
-#' @describeIn tabulate_rbmi Helper function to produce data frame with results
+#' Helper function to produce data frame with results
 #' of pool for a single visit
 #' @param x (`pool`) is a list of pooled object from `rbmi` analysis results. This list includes
 #' analysis results, confidence level, hypothesis testing type.
@@ -55,7 +47,7 @@ h_tidy_pool <- function(x) {
   result
 }
 
-#' @describeIn tabulate_rbmi Helper method (for [`broom::tidy()`]) to prepare a data frame from an
+#' Helper method (for [`broom::tidy()`]) to prepare a data frame from an
 #'   `pool` `rbmi` object containing the LS means and contrasts and multiple visits
 #' @method tidy pool
 #' @param x (`pool`) is a list of pooled object from `rbmi` analysis results. This list includes
@@ -86,13 +78,12 @@ tidy.pool <- function(x) { # nolint
   result
 }
 
-#' @describeIn tabulate_rbmi Statistics function which is extracting estimates from a tidied LS means
+#' Statistics function which is extracting estimates from a tidied LS means
 #'   data frame.
-#'
 #' @param df input dataframe
 #' @param .in_ref_col boolean variable, if reference column is specified
-#' @param show_relative should the "reduction" (`control - treatment`, default) or the "increase"
-#'   (`treatment - control`) be shown for the relative change from baseline?
+#' @param show_relative "reduction" if (`control - treatment`, default) or "increase"
+#'   (`treatment - control`) of relative change from baseline?
 #' @export
 #'
 s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "increase")) {
@@ -118,8 +109,12 @@ s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "incr
   )
 }
 
-#' @describeIn tabulate_rbmi Formatted Analysis function which can be further customized by calling
+#' Formatted Analysis function which can be further customized by calling
 #'   [`rtables::make_afun()`] on it. It is used as `afun` in [`rtables::analyze()`].
+#' @param df input dataframe
+#' @param .in_ref_col boolean variable, if reference column is specified
+#' @param show_relative "reduction" if (`control - treatment`, default) or "increase"
+#'   (`treatment - control`) of relative change from baseline?
 #' @export
 #'
 a_rbmi_lsmeans <- make_afun(
@@ -147,7 +142,7 @@ a_rbmi_lsmeans <- make_afun(
   .null_ref_cells = FALSE
 )
 
-#' @describeIn tabulate_rbmi Analyze function for tabulating LS means estimates from tidied
+#' Analyze function for tabulating LS means estimates from tidied
 #'   `rbmi` `pool` results.
 #' @param lyt (`layout`)\cr input layout where analyses will be added to.
 #' @param table_names (`character`)\cr this can be customized in case that the same `vars` are analyzed multiple times,

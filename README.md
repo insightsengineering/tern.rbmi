@@ -7,7 +7,7 @@
 ## Background
 
 For details of the `rbmi` package, please see [Reference Based Multiple Imputation (rbmi)](https://github.com/insightsengineering/rbmi). The basic usage of `rbmi` core functions is described
-in the quickstart vignette:
+in the `quickstart` vignette:
 
 ```R
 vignette(topic = "quickstart", package = "rbmi")

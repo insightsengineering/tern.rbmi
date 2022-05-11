@@ -1,6 +1,6 @@
 Package: tern.rbmi
 Title: Create TLGs using rbmi and tern
-Version: 0.0.0.9006
+Version: 0.0.0.9007
 Authors@R: c(
     person("NEST", , , "basel.nestcicd@roche.com", role = c("aut", "cre")),
     person("Roche", role = c("cph", "fnd")),
@@ -19,18 +19,18 @@ Depends:
     tern (>= 0.7.7)
 Imports:
     broom,
-    formatters,
     checkmate,
+    formatters,
     lifecycle,
     magrittr,
     rtables (>= 0.5.0)
 Suggests:
     dplyr,
-    tidyr,
     knitr,
     Matrix,
     rmarkdown,
-    testthat (>= 2.0)
+    testthat (>= 2.0),
+    tidyr
 VignetteBuilder:
     knitr
 Encoding: UTF-8

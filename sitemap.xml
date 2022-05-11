@@ -19,12 +19,24 @@
     <loc>https://insightsengineering.github.io/tern.rbmi/pull_request_template.html</loc>
   </url>
   <url>
+    <loc>https://insightsengineering.github.io/tern.rbmi/reference/a_rbmi_lsmeans.html</loc>
+  </url>
+  <url>
+    <loc>https://insightsengineering.github.io/tern.rbmi/reference/h_tidy_pool.html</loc>
+  </url>
+  <url>
     <loc>https://insightsengineering.github.io/tern.rbmi/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/reference/tabulate_rbmi.html</loc>
+    <loc>https://insightsengineering.github.io/tern.rbmi/reference/s_rbmi_lsmeans.html</loc>
+  </url>
+  <url>
+    <loc>https://insightsengineering.github.io/tern.rbmi/reference/summarize_rbmi.html</loc>
   </url>
   <url>
     <loc>https://insightsengineering.github.io/tern.rbmi/reference/tern.rbmi-package.html</loc>
+  </url>
+  <url>
+    <loc>https://insightsengineering.github.io/tern.rbmi/reference/tidy.pool.html</loc>
   </url>
 </urlset>

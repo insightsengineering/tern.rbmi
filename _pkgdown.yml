@@ -38,4 +38,8 @@ reference:
     contents:
       - h_tidy_pool
 
+  - title: Helper method
+    desc: Helper method
+    contents:
+      - tidy.pool
 

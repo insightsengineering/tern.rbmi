@@ -78,9 +78,8 @@ tidy.pool <- function(x) { # nolint
   result
 }
 
-#' @describeIn tabulate_rbmi Statistics function which is extracting estimates from a tidied LS means
+#' Statistics function which is extracting estimates from a tidied LS means
 #'   data frame.
-#'
 #' @param df input dataframe
 #' @param .in_ref_col boolean variable, if reference column is specified
 #' @param show_relative should the "reduction" (`control - treatment`, default) or the "increase"

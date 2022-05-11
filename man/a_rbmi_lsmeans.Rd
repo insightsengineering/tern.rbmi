@@ -7,6 +7,14 @@
 \usage{
 a_rbmi_lsmeans(df, .in_ref_col, show_relative = c("reduction", "increase"))
 }
+\arguments{
+\item{df}{input dataframe}
+
+\item{.in_ref_col}{boolean variable, if reference column is specified}
+
+\item{show_relative}{"reduction" if (\code{control - treatment}, default) or "increase"
+(\code{treatment - control}) of relative change from baseline?}
+}
 \description{
 Formatted Analysis function which can be further customized by calling
 \code{\link[rtables:make_afun]{rtables::make_afun()}} on it. It is used as \code{afun} in \code{\link[rtables:analyze]{rtables::analyze()}}.

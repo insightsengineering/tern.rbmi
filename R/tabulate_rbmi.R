@@ -82,8 +82,8 @@ tidy.pool <- function(x) { # nolint
 #'   data frame.
 #' @param df input dataframe
 #' @param .in_ref_col boolean variable, if reference column is specified
-#' @param show_relative should the "reduction" (`control - treatment`, default) or the "increase"
-#'   (`treatment - control`) be shown for the relative change from baseline?
+#' @param show_relative "reduction" if (`control - treatment`, default) or "increase"
+#'   (`treatment - control`) of relative change from baseline?
 #' @export
 #'
 s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "increase")) {
@@ -111,6 +111,10 @@ s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "incr
 
 #' Formatted Analysis function which can be further customized by calling
 #'   [`rtables::make_afun()`] on it. It is used as `afun` in [`rtables::analyze()`].
+#' @param df input dataframe
+#' @param .in_ref_col boolean variable, if reference column is specified
+#' @param show_relative "reduction" if (`control - treatment`, default) or "increase"
+#'   (`treatment - control`) of relative change from baseline?
 #' @export
 #'
 a_rbmi_lsmeans <- make_afun(

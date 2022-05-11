@@ -12,8 +12,8 @@ s_rbmi_lsmeans(df, .in_ref_col, show_relative = c("reduction", "increase"))
 
 \item{.in_ref_col}{boolean variable, if reference column is specified}
 
-\item{show_relative}{should the "reduction" (\code{control - treatment}, default) or the "increase"
-(\code{treatment - control}) be shown for the relative change from baseline?}
+\item{show_relative}{"reduction" if (\code{control - treatment}, default) or "increase"
+(\code{treatment - control}) of relative change from baseline?}
 }
 \description{
 Statistics function which is extracting estimates from a tidied LS means

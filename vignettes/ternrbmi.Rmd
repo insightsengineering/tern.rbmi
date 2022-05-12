@@ -1,0 +1,36 @@
+---
+title: "Introduction to tern.rbmi"
+date: "`r Sys.Date()`"
+output:
+    rmarkdown::html_document:
+        theme: "spacelab"
+        highlight: "kate"
+        toc: true
+        toc_float: true
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+editor_options:
+    markdown: 
+        wrap: 72
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction to tern.rbmi
+
+---------
+
+This vignette shows the general purpose and syntax of the `tern.rbmi` R package.  
+The `tern.rbmi` provides an interface for Reference Based Multiple Imputation (rbmi) within the tern framework. For details of the `rbmi` package, please see [Reference Based Multiple Imputation (rbmi)](https://github.com/insightsengineering/rbmi). The basic usage of `rbmi` core functions is described
+in the `quickstart` vignette:
+
+```R
+vignette(topic = "quickstart", package = "rbmi")
+```

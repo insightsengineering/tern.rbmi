@@ -144,7 +144,7 @@ The next step is to use the parameters from the imputation model to generate the
 ```{r}
 impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
 
-impute_obj <- impute( # @TODO: add support of `update_stategy` argument
+impute_obj <- impute(
   draws_obj,
   references = impute_references
 )

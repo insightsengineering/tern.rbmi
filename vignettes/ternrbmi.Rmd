@@ -44,23 +44,11 @@ We use a publicly available example dataset from an antidepressant clinical tria
 
 ```{r}
 library(tern.rbmi)
-library(rtables)
 library(dplyr)
-library(broom)
-library(rbmi)
 
 data <- antidepressant_data
 levels(data$THERAPY) <- c("PLACEBO", "DRUG") # This is important! The order defines the computation order later
-```
 
-### Draws
-
-The draws() function fits the imputation models and stores the corresponding parameter estimates or Bayesian posterior parameter draws. The three main inputs to the draws() function are:
-  *data - The primary longitudinal data.frame containing the outcome variable and all covariates.
-  *data_ice - A data.frame which specifies the first visit affected by an intercurrent event (ICE) and the imputation strategy for handling missing outcome data after the ICE. At most one ICE which is to be imputed by a non-MAR strategy is allowed per subject.
-  *method - The statistical method used to fit the imputation models and to create imputed datasets.
-
-```{r}
 missing_var <- "CHANGE"
 vars <- list(
   id = "PATIENT",
@@ -72,38 +60,6 @@ covariates <- list(
   draws = c("BASVAL*VISIT", "THERAPY*VISIT"),
   analyse = c("BASVAL")
 )
-
-# Define the names of key variables in our dataset and
-# the covariates included in the imputation model using `set_vars()`
-# Note that the covariates argument can also include interaction terms
-draws_vars <- set_vars(
-  outcome = missing_var,
-  visit = vars$visit,
-  group = vars$group,
-  covariates = covariates$draws
-)
-impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
-
-# Define which imputation method to use
-draws_method <- method_bayes()
-
-# Define analysis model
-analyse_fun <- ancova
-
-analyse_fun_args <- list(
-  vars = set_vars(
-    outcome = missing_var,
-    visit = vars$visit,
-    group = vars$group,
-    covariates = covariates$analyse
-  )
-)
-pool_args <- list(
-  conf.level = formals(pool)$conf.level,
-  alternative = formals(pool)$alternative,
-  type = formals(pool)$type
-)
-debug_mode <- FALSE
 
 data <- data %>%
   dplyr::select(PATIENT, THERAPY, VISIT, BASVAL, THERAPY, CHANGE) %>%
@@ -135,7 +91,6 @@ data_full <- data_full %>%
 data_full <- data_full %>%
   tidyr::unite("TMP_ID", dplyr::all_of(vars$id), sep = "_#_", remove = FALSE) %>%
   dplyr::mutate(TMP_ID = as.factor(TMP_ID))
-draws_vars$subjid <- "TMP_ID"
 
 # create data_ice and set the imputation strategy to MAR for
 # each patient with at least one missing observation
@@ -147,6 +102,31 @@ data_ice <- data_full %>%
   dplyr::ungroup() %>%
   dplyr::select(all_of(c("TMP_ID", vars$visit))) %>%
   dplyr::mutate(strategy = "MAR")
+```
+
+### Draws
+
+The draws() function fits the imputation models and stores the corresponding parameter estimates or Bayesian posterior parameter draws. The three main inputs to the draws() function are:
+  *data - The primary longitudinal data.frame containing the outcome variable and all covariates.
+  *data_ice - A data.frame which specifies the first visit affected by an intercurrent event (ICE) and the imputation strategy for handling missing outcome data after the ICE. At most one ICE which is to be imputed by a non-MAR strategy is allowed per subject.
+  *method - The statistical method used to fit the imputation models and to create imputed datasets.
+
+```{r}
+debug_mode <- FALSE
+
+# Define the names of key variables in our dataset and
+# the covariates included in the imputation model using `set_vars()`
+# Note that the covariates argument can also include interaction terms
+draws_vars <- set_vars(
+  outcome = missing_var,
+  visit = vars$visit,
+  group = vars$group,
+  covariates = covariates$draws
+)
+draws_vars$subjid <- "TMP_ID"
+
+# Define which imputation method to use
+draws_method <- method_bayes()
 
 # Create samples for the imputation parameters by running the draws() function
 draws_obj <- draws(
@@ -162,6 +142,8 @@ draws_obj <- draws(
 The next step is to use the parameters from the imputation model to generate the imputed datasets. This is done via the impute() function. The function only has two key inputs: the imputation model output from draws() and the reference groups relevant to reference-based imputation methods. It’s usage is thus:
 
 ```{r}
+impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
+
 impute_obj <- impute( # @TODO: add support of `update_stategy` argument
   draws_obj,
   references = impute_references
@@ -173,6 +155,18 @@ impute_obj <- impute( # @TODO: add support of `update_stategy` argument
 The next step is to run the analysis model on each imputed dataset. This is done by defining an analysis function and then calling analyse() to apply this function to each imputed dataset.
 
 ```{r}
+# Define analysis model
+analyse_fun <- ancova
+
+analyse_fun_args <- list(
+  vars = set_vars(
+    outcome = missing_var,
+    visit = vars$visit,
+    group = vars$group,
+    covariates = covariates$analyse
+  )
+)
+
 ref_levels <- levels(impute_obj$data$group[[1]])
 names(ref_levels) <- c("ref", "alt")
 analyse_fun_args$vars$subjid <- "TMP_ID"
@@ -191,6 +185,12 @@ analyse_obj <- do.call(
 The pool() function can be used to summarise the analysis results across multiple imputed datasets to provide an overall statistic with a standard error, confidence intervals and a p-value for the hypothesis test of the null hypothesis that the effect is equal to 0.
 
 ```{r}
+pool_args <- list(
+  conf.level = formals(pool)$conf.level,
+  alternative = formals(pool)$alternative,
+  type = formals(pool)$type
+)
+
 pool_obj <- do.call(
   pool,
   args = list(
@@ -204,6 +204,8 @@ pool_obj <- do.call(
 
 Finally create output with `rtables` and `tern` packages
 ```{r}
+library(broom)
+
 # produce data frame with results of pool for a single visit
 h_tidy_pool(pool_obj$pars[1:3])
 

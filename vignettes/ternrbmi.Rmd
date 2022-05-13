@@ -12,7 +12,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 editor_options:
-    markdown: 
+    markdown:
         wrap: 72
 ---
 
@@ -27,138 +27,195 @@ knitr::opts_chunk$set(
 
 ---------
 
-This vignette shows the general purpose and syntax of the `tern.rbmi` R package.  
+This vignette shows the general purpose and syntax of the `tern.rbmi` R package.
 The `tern.rbmi` provides an interface for Reference Based Multiple Imputation (rbmi) within the tern framework. For details of the `rbmi` package, please see [Reference Based Multiple Imputation (rbmi)](https://github.com/insightsengineering/rbmi). The basic usage of `rbmi` core functions is described
 in the `quickstart` vignette:
 
 ```{r}
 vignette(topic = "quickstart", package = "rbmi")
 ```
+---------
 
-##
+## Example of using tern.rbmi
+
+### The Data
+
+We use a publicly available example dataset from an antidepressant clinical trial of an active drug versus placebo. The relevant endpoint is the Hamilton 17-item depression rating scale (HAMD17) which was assessed at baseline and at weeks 1, 2, 4, and 6. Study drug discontinuation occurred in 24% of subjects from the active drug and 26% of subjects from placebo. All data after study drug discontinuation are missing and there is a single additional intermittent missing observation.
+
 ```{r}
- library(rtables)
- library(dplyr)
- library(broom)
- library(rbmi)
+library(tern.rbmi)
+library(rtables)
+library(dplyr)
+library(broom)
+library(rbmi)
 
- data <- antidepressant_data
- levels(data$THERAPY) <- c("PLACEBO", "DRUG") # This is important! The order defines the computation order later
- missing_var <- "CHANGE"
- vars <- list(
-   id = "PATIENT",
-   visit = "VISIT",
-   expand_vars = c("BASVAL", "THERAPY"),
-   group = "THERAPY"
- )
- covariates <- list(
-   draws = c("BASVAL*VISIT", "THERAPY*VISIT"),
-   analyse = c("BASVAL")
- )
- draws_vars <- set_vars(
-   outcome = missing_var,
-   visit = vars$visit,
-   group = vars$group,
-   covariates = covariates$draws
- )
- impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
- draws_method <- method_bayes()
- analyse_fun <- ancova
- analyse_fun_args <- list(
-   vars = set_vars(
-     outcome = missing_var,
-     visit = vars$visit,
-     group = vars$group,
-     covariates = covariates$analyse
-   )
- )
- pool_args <- list(
-   conf.level = formals(pool)$conf.level,
-   alternative = formals(pool)$alternative,
-   type = formals(pool)$type
- )
- debug_mode <- FALSE
+data <- antidepressant_data
+levels(data$THERAPY) <- c("PLACEBO", "DRUG") # This is important! The order defines the computation order later
+```
 
- data <- data %>%
-   dplyr::select(PATIENT, THERAPY, VISIT, BASVAL, THERAPY, CHANGE) %>%
-   dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) %>%
-   dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
- data_full <- do.call(
-   expand_locf,
-   args = list(
-     data = data,
-     vars = c(vars$expand_vars, vars$group),
-     group = vars$id,
-     order = c(vars$id, vars$visit)
-   ) %>%
-     append(lapply(data[c(vars$id, vars$visit)], levels))
- )
+### Draws
 
- data_full <- data_full %>%
-   dplyr::group_by(dplyr::across(vars$id)) %>%
-   dplyr::mutate(!!vars$group := Filter(Negate(is.na), .data[[vars$group]])[1])
+The draws() function fits the imputation models and stores the corresponding parameter estimates or Bayesian posterior parameter draws. The three main inputs to the draws() function are:
+  *data - The primary longitudinal data.frame containing the outcome variable and all covariates.
+  *data_ice - A data.frame which specifies the first visit affected by an intercurrent event (ICE) and the imputation strategy for handling missing outcome data after the ICE. At most one ICE which is to be imputed by a non-MAR strategy is allowed per subject.
+  *method - The statistical method used to fit the imputation models and to create imputed datasets.
 
- # there are duplicates - use first value
- data_full <- data_full %>%
-   dplyr::group_by(dplyr::across(c(vars$id, vars$group, vars$visit))) %>%
-   dplyr::slice(1) %>%
-   dplyr::ungroup()
- # need to have a single ID column
- data_full <- data_full %>%
-   tidyr::unite("TMP_ID", dplyr::all_of(vars$id), sep = "_#_", remove = FALSE) %>%
-   dplyr::mutate(TMP_ID = as.factor(TMP_ID))
- draws_vars$subjid <- "TMP_ID"
+```{r}
+missing_var <- "CHANGE"
+vars <- list(
+  id = "PATIENT",
+  visit = "VISIT",
+  expand_vars = c("BASVAL", "THERAPY"),
+  group = "THERAPY"
+)
+covariates <- list(
+  draws = c("BASVAL*VISIT", "THERAPY*VISIT"),
+  analyse = c("BASVAL")
+)
 
- data_ice <- data_full %>%
-   dplyr::arrange(dplyr::across(.cols = c("TMP_ID", vars$visit))) %>%
-   dplyr::filter(is.na(.data[[missing_var]])) %>%
-   dplyr::group_by(TMP_ID) %>%
-   dplyr::slice(1) %>%
-   dplyr::ungroup() %>%
-   dplyr::select(all_of(c("TMP_ID", vars$visit))) %>%
-   dplyr::mutate(strategy = "MAR")
+# Define the names of key variables in our dataset and
+# the covariates included in the imputation model using `set_vars()`
+# Note that the covariates argument can also include interaction terms
+draws_vars <- set_vars(
+  outcome = missing_var,
+  visit = vars$visit,
+  group = vars$group,
+  covariates = covariates$draws
+)
+impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
 
- draws_obj <- draws(
-   data = data_full,
-   data_ice = data_ice,
-   vars = draws_vars,
-   method = draws_method
- )
- impute_obj <- impute( # @TODO: add support of `update_stategy` argument
-   draws_obj,
-   references = impute_references
- )
+# Define which imputation method to use
+draws_method <- method_bayes()
 
- ref_levels <- levels(impute_obj$data$group[[1]])
- names(ref_levels) <- c("ref", "alt")
- analyse_fun_args$vars$subjid <- "TMP_ID"
- analyse_obj <- do.call(
-   analyse,
-   args = list(
-     imputations = impute_obj,
-     fun = analyse_fun
-   ) %>%
-     append(analyse_fun_args)
- )
- pool_obj <- do.call(
-   pool,
-   args = list(
-     results = analyse_obj
-   ) %>%
-     append(pool_args)
- )
+# Define analysis model
+analyse_fun <- ancova
 
- h_tidy_pool(pool_obj$pars[1:3])
- df <- tidy(pool_obj)
- df
+analyse_fun_args <- list(
+  vars = set_vars(
+    outcome = missing_var,
+    visit = vars$visit,
+    group = vars$group,
+    covariates = covariates$analyse
+  )
+)
+pool_args <- list(
+  conf.level = formals(pool)$conf.level,
+  alternative = formals(pool)$alternative,
+  type = formals(pool)$type
+)
+debug_mode <- FALSE
 
- afun <- make_afun(a_rbmi_lsmeans)
+data <- data %>%
+  dplyr::select(PATIENT, THERAPY, VISIT, BASVAL, THERAPY, CHANGE) %>%
+  dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) %>%
+  dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
 
- basic_table() %>%
-   split_cols_by("group", ref_group = levels(df$group)[1]) %>%
-   split_rows_by("visit", split_label = "Visit", label_pos = "topleft") %>%
-   summarize_rbmi() %>%
-   build_table(df)
+# Use expand_locf to add rows corresponding to visits with missing outcomes to the dataset
+data_full <- do.call(
+  expand_locf,
+  args = list(
+    data = data,
+    vars = c(vars$expand_vars, vars$group),
+    group = vars$id,
+    order = c(vars$id, vars$visit)
+  ) %>%
+    append(lapply(data[c(vars$id, vars$visit)], levels))
+)
 
+data_full <- data_full %>%
+  dplyr::group_by(dplyr::across(vars$id)) %>%
+  dplyr::mutate(!!vars$group := Filter(Negate(is.na), .data[[vars$group]])[1])
+
+# there are duplicates - use first value
+data_full <- data_full %>%
+  dplyr::group_by(dplyr::across(c(vars$id, vars$group, vars$visit))) %>%
+  dplyr::slice(1) %>%
+  dplyr::ungroup()
+# need to have a single ID column
+data_full <- data_full %>%
+  tidyr::unite("TMP_ID", dplyr::all_of(vars$id), sep = "_#_", remove = FALSE) %>%
+  dplyr::mutate(TMP_ID = as.factor(TMP_ID))
+draws_vars$subjid <- "TMP_ID"
+
+# create data_ice and set the imputation strategy to MAR for
+# each patient with at least one missing observation
+data_ice <- data_full %>%
+  dplyr::arrange(dplyr::across(.cols = c("TMP_ID", vars$visit))) %>%
+  dplyr::filter(is.na(.data[[missing_var]])) %>%
+  dplyr::group_by(TMP_ID) %>%
+  dplyr::slice(1) %>%
+  dplyr::ungroup() %>%
+  dplyr::select(all_of(c("TMP_ID", vars$visit))) %>%
+  dplyr::mutate(strategy = "MAR")
+
+# Create samples for the imputation parameters by running the draws() function
+draws_obj <- draws(
+  data = data_full,
+  data_ice = data_ice,
+  vars = draws_vars,
+  method = draws_method
+)
+```
+
+### Impute
+
+The next step is to use the parameters from the imputation model to generate the imputed datasets. This is done via the impute() function. The function only has two key inputs: the imputation model output from draws() and the reference groups relevant to reference-based imputation methods. It’s usage is thus:
+
+```{r}
+impute_obj <- impute( # @TODO: add support of `update_stategy` argument
+  draws_obj,
+  references = impute_references
+)
+```
+
+### Analyse
+
+The next step is to run the analysis model on each imputed dataset. This is done by defining an analysis function and then calling analyse() to apply this function to each imputed dataset.
+
+```{r}
+ref_levels <- levels(impute_obj$data$group[[1]])
+names(ref_levels) <- c("ref", "alt")
+analyse_fun_args$vars$subjid <- "TMP_ID"
+analyse_obj <- do.call(
+  analyse,
+  args = list(
+    imputations = impute_obj,
+    fun = analyse_fun
+  ) %>%
+    append(analyse_fun_args)
+)
+```
+
+### Pool
+
+The pool() function can be used to summarise the analysis results across multiple imputed datasets to provide an overall statistic with a standard error, confidence intervals and a p-value for the hypothesis test of the null hypothesis that the effect is equal to 0.
+
+```{r}
+pool_obj <- do.call(
+  pool,
+  args = list(
+    results = analyse_obj
+  ) %>%
+    append(pool_args)
+)
+```
+
+### Create output
+
+Finally create output with `rtables` and `tern` packages
+```{r}
+# produce data frame with results of pool for a single visit
+h_tidy_pool(pool_obj$pars[1:3])
+
+df <- tidy(pool_obj)
+df
+
+afun <- make_afun(a_rbmi_lsmeans)
+
+basic_table() %>%
+  split_cols_by("group", ref_group = levels(df$group)[1]) %>%
+  split_rows_by("visit", split_label = "Visit", label_pos = "topleft") %>%
+  summarize_rbmi() %>%
+  build_table(df)
 ```
 

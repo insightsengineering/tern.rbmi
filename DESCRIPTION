@@ -1,6 +1,6 @@
 Package: tern.rbmi
 Title: Create TLGs using rbmi and tern
-Version: 0.0.0.9007
+Version: 0.0.0.9008
 Authors@R: c(
     person("NEST", , , "basel.nestcicd@roche.com", role = c("aut", "cre")),
     person("Roche", role = c("cph", "fnd")),

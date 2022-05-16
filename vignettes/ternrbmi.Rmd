@@ -171,16 +171,16 @@ ref_levels <- levels(impute_obj$data$group[[1]])
 names(ref_levels) <- c("ref", "alt")
 
 analyse_obj <- rbmi::analyse(
-    imputations = impute_obj,
-    fun = analyse_fun,
-    vars = rbmi::set_vars(
-      subjid = "TMP_ID",
-      outcome = missing_var,
-      visit = vars$visit,
-      group = vars$group,
-      covariates = covariates$analyse)
+  imputations = impute_obj,
+  fun = analyse_fun,
+  vars = rbmi::set_vars(
+    subjid = "TMP_ID",
+    outcome = missing_var,
+    visit = vars$visit,
+    group = vars$group,
+    covariates = covariates$analyse
+  )
 )
-  
 ```
 
 ### Pool

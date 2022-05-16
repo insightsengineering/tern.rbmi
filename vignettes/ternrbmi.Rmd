@@ -1,6 +1,6 @@
 ---
 title: "Introduction to tern.rbmi"
-date: "`r Sys.Date()`"
+date: "2022-05-16"
 output:
     rmarkdown::html_document:
         theme: "spacelab"
@@ -38,6 +38,13 @@ vignette(topic = "quickstart", package = "rbmi")
 
 ## Example of using tern.rbmi
 
+The rbmi package consists of 4 core functions (plus several helper functions) which are typically called in sequence:
+
+* draws() - fits the imputation models and stores their parameters
+* impute() - creates multiple imputed datasets
+* analyse() - analyses each of the multiple imputed datasets
+* pool() - combines the analysis results across imputed datasets into a single statistic
+
 ### The Data
 
 We use a publicly available example dataset from an antidepressant clinical trial of an active drug versus placebo. The relevant endpoint is the Hamilton 17-item depression rating scale (HAMD17) which was assessed at baseline and at weeks 1, 2, 4, and 6. Study drug discontinuation occurred in 24% of subjects from the active drug and 26% of subjects from placebo. All data after study drug discontinuation are missing and there is a single additional intermittent missing observation.
@@ -45,7 +52,9 @@ We use a publicly available example dataset from an antidepressant clinical tria
 ```{r}
 library(tern.rbmi)
 library(dplyr)
+```
 
+```{r}
 data <- antidepressant_data
 levels(data$THERAPY) <- c("PLACEBO", "DRUG") # This is important! The order defines the computation order later
 
@@ -106,7 +115,7 @@ data_ice <- data_full %>%
 
 ### Draws
 
-The draws() function fits the imputation models and stores the corresponding parameter estimates or Bayesian posterior parameter draws. The three main inputs to the draws() function are:
+The `rbmi::draws()` function fits the imputation models and stores the corresponding parameter estimates or Bayesian posterior parameter draws. The three main inputs to the rbmi::draws() function are:
   *data - The primary longitudinal data.frame containing the outcome variable and all covariates.
   *data_ice - A data.frame which specifies the first visit affected by an intercurrent event (ICE) and the imputation strategy for handling missing outcome data after the ICE. At most one ICE which is to be imputed by a non-MAR strategy is allowed per subject.
   *method - The statistical method used to fit the imputation models and to create imputed datasets.
@@ -115,9 +124,9 @@ The draws() function fits the imputation models and stores the corresponding par
 debug_mode <- FALSE
 
 # Define the names of key variables in our dataset and
-# the covariates included in the imputation model using `set_vars()`
+# the covariates included in the imputation model using `rbmi::set_vars()`
 # Note that the covariates argument can also include interaction terms
-draws_vars <- set_vars(
+draws_vars <- rbmi::set_vars(
   outcome = missing_var,
   visit = vars$visit,
   group = vars$group,
@@ -129,7 +138,7 @@ draws_vars$subjid <- "TMP_ID"
 draws_method <- method_bayes()
 
 # Create samples for the imputation parameters by running the draws() function
-draws_obj <- draws(
+draws_obj <- rbmi::draws(
   data = data_full,
   data_ice = data_ice,
   vars = draws_vars,
@@ -139,12 +148,12 @@ draws_obj <- draws(
 
 ### Impute
 
-The next step is to use the parameters from the imputation model to generate the imputed datasets. This is done via the impute() function. The function only has two key inputs: the imputation model output from draws() and the reference groups relevant to reference-based imputation methods. It’s usage is thus:
+The next step is to use the parameters from the imputation model to generate the imputed datasets. This is done via the rbmi::impute() function. The function only has two key inputs: the imputation model output from rbmi::draws() and the reference groups relevant to reference-based imputation methods. It’s usage is thus:
 
 ```{r}
 impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
 
-impute_obj <- impute(
+impute_obj <- rbmi::impute(
   draws_obj,
   references = impute_references
 )
@@ -152,51 +161,38 @@ impute_obj <- impute(
 
 ### Analyse
 
-The next step is to run the analysis model on each imputed dataset. This is done by defining an analysis function and then calling analyse() to apply this function to each imputed dataset.
+The next step is to run the analysis model on each imputed dataset. This is done by defining an analysis function and then calling rbmi::analyse() to apply this function to each imputed dataset.
 
 ```{r}
 # Define analysis model
 analyse_fun <- ancova
 
-analyse_fun_args <- list(
-  vars = set_vars(
-    outcome = missing_var,
-    visit = vars$visit,
-    group = vars$group,
-    covariates = covariates$analyse
-  )
-)
-
 ref_levels <- levels(impute_obj$data$group[[1]])
 names(ref_levels) <- c("ref", "alt")
-analyse_fun_args$vars$subjid <- "TMP_ID"
-analyse_obj <- do.call(
-  analyse,
-  args = list(
+
+analyse_obj <-rbmi::analyse(
     imputations = impute_obj,
-    fun = analyse_fun
-  ) %>%
-    append(analyse_fun_args)
+    fun = analyse_fun,
+    vars = rbmi::set_vars(
+      subjid = "TMP_ID",
+      outcome = missing_var,
+      visit = vars$visit,
+      group = vars$group,
+      covariates = covariates$analyse)
 )
+  
 ```
 
 ### Pool
 
-The pool() function can be used to summarise the analysis results across multiple imputed datasets to provide an overall statistic with a standard error, confidence intervals and a p-value for the hypothesis test of the null hypothesis that the effect is equal to 0.
+The rbmi::pool() function can be used to summarise the analysis results across multiple imputed datasets to provide an overall statistic with a standard error, confidence intervals and a p-value for the hypothesis test of the null hypothesis that the effect is equal to 0.
 
 ```{r}
-pool_args <- list(
-  conf.level = formals(pool)$conf.level,
-  alternative = formals(pool)$alternative,
-  type = formals(pool)$type
-)
-
-pool_obj <- do.call(
-  pool,
-  args = list(
-    results = analyse_obj
-  ) %>%
-    append(pool_args)
+pool_obj <- rbmi::pool(
+  results = analyse_obj,
+  conf.level = 0.95,
+  alternative = c("two.sided", "less", "greater"),
+  type = c("percentile", "normal")
 )
 ```
 
@@ -206,13 +202,8 @@ Finally create output with `rtables` and `tern` packages
 ```{r}
 library(broom)
 
-# produce data frame with results of pool for a single visit
-h_tidy_pool(pool_obj$pars[1:3])
-
 df <- tidy(pool_obj)
 df
-
-afun <- make_afun(a_rbmi_lsmeans)
 
 basic_table() %>%
   split_cols_by("group", ref_group = levels(df$group)[1]) %>%
@@ -220,4 +211,6 @@ basic_table() %>%
   summarize_rbmi() %>%
   build_table(df)
 ```
+
+
 

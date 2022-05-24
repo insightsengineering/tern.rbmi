@@ -220,7 +220,6 @@ library(broom)
 
 df <- tidy(pool_obj)
 df
-
 ```
 
 Final product, reshape `rbmi` final results to nicely formatted `rtable` object.

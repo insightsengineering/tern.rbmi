@@ -16,6 +16,12 @@
     <loc>https://insightsengineering.github.io/tern.rbmi/SECURITY.html</loc>
   </url>
   <url>
+    <loc>https://insightsengineering.github.io/tern.rbmi/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://insightsengineering.github.io/tern.rbmi/articles/ternrbmi.html</loc>
+  </url>
+  <url>
     <loc>https://insightsengineering.github.io/tern.rbmi/authors.html</loc>
   </url>
   <url>
@@ -35,6 +41,9 @@
   </url>
   <url>
     <loc>https://insightsengineering.github.io/tern.rbmi/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://insightsengineering.github.io/tern.rbmi/reference/rbmi_test_data.html</loc>
   </url>
   <url>
     <loc>https://insightsengineering.github.io/tern.rbmi/reference/s_rbmi_lsmeans.html</loc>

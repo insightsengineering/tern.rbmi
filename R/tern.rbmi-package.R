@@ -11,3 +11,8 @@
 #' @importFrom magrittr %>%
 #' @importFrom tern f_conf_level
 NULL
+
+#' Example dataset for `tern.rbmi` package. This is an pool object from the rbmi analysis, see
+#' `browseVignettes(package = "tern.rbmi")`
+#'
+"rbmi_test_data"

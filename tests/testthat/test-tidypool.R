@@ -1,8 +1,11 @@
 library(dplyr)
-data <- readRDS("./inst/extdata/pool.RDS")
+library(broom)
+
+data(rbmi_test_data)
+dat <- rbmi_test_data
 
 testthat::test_that("tidy.pool is produced correctly", {
-  result <- tidy.pool(data) %>%
+  result <- tidy(dat) %>%
     mutate(across(everything(), as.character))
 
   expected <- data.frame(

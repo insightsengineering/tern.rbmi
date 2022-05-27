@@ -1,8 +1,9 @@
 library(dplyr)
-data <- readRDS("./inst/extdata/pool.RDS")
+data(rbmi_test_data)
+dat <- rbmi_test_data
 
 testthat::test_that("h_tidy_pool is produced correctly", {
-  result <- h_tidy_pool(data$pars[1:3]) %>%
+  result <- h_tidy_pool(dat$pars[1:3]) %>%
     mutate(across(everything(), as.character))
 
   expected <- data.frame(

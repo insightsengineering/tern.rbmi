@@ -12,6 +12,5 @@ h_tidy_pool(x)
 analysis results, confidence level, hypothesis testing type.}
 }
 \description{
-Helper function to produce data frame with results
-of pool for a single visit
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

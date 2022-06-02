@@ -16,6 +16,5 @@ s_rbmi_lsmeans(df, .in_ref_col, show_relative = c("reduction", "increase"))
 (\code{treatment - control}) of relative change from baseline?}
 }
 \description{
-Statistics function which is extracting estimates from a tidied LS means
-data frame.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

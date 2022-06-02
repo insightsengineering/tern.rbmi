@@ -12,7 +12,6 @@ An object of class \code{pool} of length 5.
 rbmi_test_data
 }
 \description{
-Example dataset for \code{tern.rbmi} package. This is an pool object from the rbmi analysis, see
-\code{browseVignettes(package = "tern.rbmi")}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \keyword{datasets}

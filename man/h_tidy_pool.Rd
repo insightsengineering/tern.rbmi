@@ -14,3 +14,11 @@ analysis results, confidence level, hypothesis testing type.}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
+\examples{
+
+data("rbmi_test_data")
+pool_obj <- rbmi_test_data
+
+h_tidy_pool(pool_obj$pars[1:3])
+
+}

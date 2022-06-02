@@ -38,117 +38,11 @@ to avoid warnings from \code{rtables}.}
 library(rtables)
 library(dplyr)
 library(broom)
-library(rbmi)
 
-data <- antidepressant_data
-levels(data$THERAPY) <- c("PLACEBO", "DRUG") # This is important! The order defines the computation order later
-missing_var <- "CHANGE"
-vars <- list(
-  id = "PATIENT",
-  visit = "VISIT",
-  expand_vars = c("BASVAL", "THERAPY"),
-  group = "THERAPY"
-)
-covariates <- list(
-  draws = c("BASVAL*VISIT", "THERAPY*VISIT"),
-  analyse = c("BASVAL")
-)
-draws_vars <- set_vars(
-  outcome = missing_var,
-  visit = vars$visit,
-  group = vars$group,
-  covariates = covariates$draws
-)
-impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
-draws_method <- method_bayes()
-analyse_fun <- ancova
-analyse_fun_args <- list(
-  vars = set_vars(
-    outcome = missing_var,
-    visit = vars$visit,
-    group = vars$group,
-    covariates = covariates$analyse
-  )
-)
-pool_args <- list(
-  conf.level = formals(pool)$conf.level,
-  alternative = formals(pool)$alternative,
-  type = formals(pool)$type
-)
-debug_mode <- FALSE
+data("rbmi_test_data")
+pool_obj <- rbmi_test_data
 
-data <- data \%>\%
-  dplyr::select(PATIENT, THERAPY, VISIT, BASVAL, THERAPY, CHANGE) \%>\%
-  dplyr::mutate(dplyr::across(.cols = vars$id, ~ as.factor(.x))) \%>\%
-  dplyr::arrange(dplyr::across(.cols = c(vars$id, vars$visit)))
-data_full <- do.call(
-  expand_locf,
-  args = list(
-    data = data,
-    vars = c(vars$expand_vars, vars$group),
-    group = vars$id,
-    order = c(vars$id, vars$visit)
-  ) \%>\%
-    append(lapply(data[c(vars$id, vars$visit)], levels))
-)
-
-data_full <- data_full \%>\%
-  dplyr::group_by(dplyr::across(vars$id)) \%>\%
-  dplyr::mutate(!!vars$group := Filter(Negate(is.na), .data[[vars$group]])[1])
-
-# there are duplicates - use first value
-data_full <- data_full \%>\%
-  dplyr::group_by(dplyr::across(c(vars$id, vars$group, vars$visit))) \%>\%
-  dplyr::slice(1) \%>\%
-  dplyr::ungroup()
-# need to have a single ID column
-data_full <- data_full \%>\%
-  tidyr::unite("TMP_ID", dplyr::all_of(vars$id), sep = "_#_", remove = FALSE) \%>\%
-  dplyr::mutate(TMP_ID = as.factor(TMP_ID))
-draws_vars$subjid <- "TMP_ID"
-
-data_ice <- data_full \%>\%
-  dplyr::arrange(dplyr::across(.cols = c("TMP_ID", vars$visit))) \%>\%
-  dplyr::filter(is.na(.data[[missing_var]])) \%>\%
-  dplyr::group_by(TMP_ID) \%>\%
-  dplyr::slice(1) \%>\%
-  dplyr::ungroup() \%>\%
-  dplyr::select(all_of(c("TMP_ID", vars$visit))) \%>\%
-  dplyr::mutate(strategy = "MAR")
-
-draws_obj <- draws(
-  data = data_full,
-  data_ice = data_ice,
-  vars = draws_vars,
-  method = draws_method
-)
-impute_obj <- impute( # @TODO: add support of `update_stategy` argument
-  draws_obj,
-  references = impute_references
-)
-
-ref_levels <- levels(impute_obj$data$group[[1]])
-names(ref_levels) <- c("ref", "alt")
-analyse_fun_args$vars$subjid <- "TMP_ID"
-analyse_obj <- do.call(
-  analyse,
-  args = list(
-    imputations = impute_obj,
-    fun = analyse_fun
-  ) \%>\%
-    append(analyse_fun_args)
-)
-pool_obj <- do.call(
-  pool,
-  args = list(
-    results = analyse_obj
-  ) \%>\%
-    append(pool_args)
-)
-
-h_tidy_pool(pool_obj$pars[1:3])
 df <- tidy(pool_obj)
-df
 
 afun <- make_afun(a_rbmi_lsmeans)
 

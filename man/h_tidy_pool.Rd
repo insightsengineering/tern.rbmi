@@ -15,3 +15,11 @@ analysis results, confidence level, hypothesis testing type.}
 Helper function to produce data frame with results
 of pool for a single visit
 }
+\examples{
+
+data("rbmi_test_data")
+pool_obj <- rbmi_test_data
+
+h_tidy_pool(pool_obj$pars[1:3])
+
+}

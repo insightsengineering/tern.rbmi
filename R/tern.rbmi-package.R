@@ -10,6 +10,7 @@
 #' @importFrom broom tidy
 #' @importFrom magrittr %>%
 #' @importFrom tern f_conf_level
+#' @import rbmi
 NULL
 
 #' Example dataset for `tern.rbmi` package. This is an pool object from the rbmi analysis, see

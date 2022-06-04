@@ -17,5 +17,4 @@ NULL
 #'
 #' `r lifecycle::badge("experimental")`
 #'
-#' @export
 "rbmi_test_data"

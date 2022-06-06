@@ -1,5 +1,8 @@
 #' Helper function to produce data frame with results
 #' of pool for a single visit
+#'
+#' `r lifecycle::badge("experimental")`
+#'
 #' @param x (`pool`) is a list of pooled object from `rbmi` analysis results. This list includes
 #' analysis results, confidence level, hypothesis testing type.
 #' @export
@@ -56,6 +59,9 @@ h_tidy_pool <- function(x) {
 
 #' Helper method (for [`broom::tidy()`]) to prepare a data frame from an
 #'   `pool` `rbmi` object containing the LS means and contrasts and multiple visits
+#'
+#' `r lifecycle::badge("experimental")`
+#'
 #' @method tidy pool
 #' @param x (`pool`) is a list of pooled object from `rbmi` analysis results. This list includes
 #' analysis results, confidence level, hypothesis testing type.
@@ -87,6 +93,9 @@ tidy.pool <- function(x) { # nolint
 
 #' Statistics function which is extracting estimates from a tidied LS means
 #'   data frame.
+#'
+#' `r lifecycle::badge("experimental")`
+#'
 #' @param df input dataframe
 #' @param .in_ref_col boolean variable, if reference column is specified
 #' @param show_relative "reduction" if (`control - treatment`, default) or "increase"
@@ -118,6 +127,9 @@ s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "incr
 
 #' Formatted Analysis function which can be further customized by calling
 #'   [`rtables::make_afun()`] on it. It is used as `afun` in [`rtables::analyze()`].
+#'
+#' `r lifecycle::badge("experimental")`
+#'
 #' @param df input dataframe
 #' @param .in_ref_col boolean variable, if reference column is specified
 #' @param show_relative "reduction" if (`control - treatment`, default) or "increase"
@@ -151,6 +163,9 @@ a_rbmi_lsmeans <- make_afun(
 
 #' Analyze function for tabulating LS means estimates from tidied
 #'   `rbmi` `pool` results.
+#'
+#' `r lifecycle::badge("experimental")`
+#'
 #' @param lyt (`layout`)\cr input layout where analyses will be added to.
 #' @param table_names (`character`)\cr this can be customized in case that the same `vars` are analyzed multiple times,
 #'   to avoid warnings from `rtables`.

@@ -15,6 +15,5 @@ analysis results, confidence level, hypothesis testing type.}
 A dataframe
 }
 \description{
-Helper method (for \code{\link[broom:reexports]{broom::tidy()}}) to prepare a data frame from an
-\code{pool} \code{rbmi} object containing the LS means and contrasts and multiple visits
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

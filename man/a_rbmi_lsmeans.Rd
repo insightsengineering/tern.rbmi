@@ -16,6 +16,5 @@ a_rbmi_lsmeans(df, .in_ref_col, show_relative = c("reduction", "increase"))
 (\code{treatment - control}) of relative change from baseline?}
 }
 \description{
-Formatted Analysis function which can be further customized by calling
-\code{\link[rtables:make_afun]{rtables::make_afun()}} on it. It is used as \code{afun} in \code{\link[rtables:analyze]{rtables::analyze()}}.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

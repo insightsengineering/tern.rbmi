@@ -14,3 +14,4 @@ SECURITY.md
 ^\.pre-commit-config.yaml
 ^\.lintr$
 ^\.pre-commit-config\.yaml$
+^\.gitlab-ci\.yml

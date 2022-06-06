@@ -4,6 +4,7 @@
 #'
 #' @keywords internal
 "_PACKAGE"
+#' @import rbmi
 #' @importFrom rtables make_afun analyze
 #' @importFrom formatters with_label
 #' @importFrom lifecycle badge
@@ -14,5 +15,7 @@ NULL
 
 #' Example dataset for `tern.rbmi` package. This is an pool object from the rbmi analysis, see
 #' `browseVignettes(package = "tern.rbmi")`
+#'
+#' `r lifecycle::badge("experimental")`
 #'
 "rbmi_test_data"

@@ -21,7 +21,6 @@ Imports:
     formatters,
     lifecycle,
     magrittr,
-    lifecycle,
     rtables (>= 0.5.0)
 Suggests:
     dplyr,
@@ -32,8 +31,6 @@ Suggests:
     tidyr
 VignetteBuilder:
     knitr
-RdMacros:
-    lifecycle
 Config/Needs/website: insightsengineering/nesttemplate
 Encoding: UTF-8
 LazyData: true

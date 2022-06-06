@@ -4,6 +4,7 @@
 #'
 #' @keywords internal
 "_PACKAGE"
+#' @import rbmi
 #' @importFrom rtables make_afun analyze
 #' @importFrom formatters with_label
 #' @importFrom lifecycle badge

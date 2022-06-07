@@ -1,12 +1,9 @@
-library(dplyr)
-library(broom)
-
 data(rbmi_test_data)
 dat <- rbmi_test_data
 
 testthat::test_that("tidy.pool is produced correctly", {
-  result <- tidy(dat) %>%
-    mutate(across(everything(), as.character))
+  result <- broom::tidy(dat) %>%
+    dplyr::mutate(dplyr::across(everything(), as.character))
 
   expected <- data.frame(
     c("ref", "alt", "ref", "alt", "ref", "alt", "ref", "alt"),

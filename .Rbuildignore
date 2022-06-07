@@ -10,6 +10,7 @@ SECURITY.md
 ^\.Rproj\.user$
 ^\.github$
 ^\.git$
+^\.gitlab-ci\.yml
 ^\.pre-commit-config.yaml
 ^\.lintr$
 ^\.pre-commit-config\.yaml$

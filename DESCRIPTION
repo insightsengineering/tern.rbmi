@@ -22,7 +22,7 @@ Imports:
     formatters (>= 0.3.1),
     lifecycle,
     magrittr,
-    rtables (>= 0.5.0)
+    rtables (>= 0.5.1)
 Suggests:
     dplyr,
     knitr,

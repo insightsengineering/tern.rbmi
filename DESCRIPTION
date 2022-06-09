@@ -1,6 +1,7 @@
 Package: tern.rbmi
 Title: Create interface for rbmi and tern
-Version: 0.0.0.9013.4
+Version: 0.1.0
+Date: 2022-06-09
 Authors@R: c(
     person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
     person("Jana", "Stoilova", , "jana.stoilova@roche.com", role = "aut"),
@@ -14,14 +15,14 @@ BugReports: https://github.com/insightsengineering/tern.rbmi/issues
 Depends:
     R (>= 3.6),
     rbmi,
-    tern (>= 0.7.7)
+    tern (>= 0.7.8)
 Imports:
     broom,
     checkmate,
-    formatters,
+    formatters (>= 0.3.1),
     lifecycle,
     magrittr,
-    rtables (>= 0.5.0)
+    rtables (>= 0.5.1)
 Suggests:
     dplyr,
     knitr,

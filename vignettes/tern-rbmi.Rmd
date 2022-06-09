@@ -31,14 +31,14 @@ This vignette shows the general purpose and syntax of the `tern.rbmi` R package.
 The `tern.rbmi` provides an interface for Reference Based Multiple Imputation (`rbmi`) within the tern framework. For details of the `rbmi` package, please see [Reference Based Multiple Imputation (rbmi)](https://github.com/insightsengineering/rbmi). The basic usage of `rbmi` core functions is described
 in the `quickstart` vignette:
 
-```{r}
+```{r eval=FALSE}
 vignette(topic = "quickstart", package = "rbmi")
 ```
 ---------
 
-## Example of using tern.rbmi
+## Example of using `tern.rbmi`
 
-The rbmi package consists of 4 core functions (plus several helper functions) which are typically called in sequence:
+The `rbmi` package consists of 4 core functions (plus several helper functions) which are typically called in sequence:
 
 * `draws()` - fits the imputation models and stores their parameters
 * `impute()` - creates multiple imputed datasets
@@ -124,10 +124,11 @@ data_ice <- data_full %>%
 
 ### Draws
 
-The `rbmi::draws()` function fits the imputation models and stores the corresponding parameter estimates or Bayesian posterior parameter draws. The three main inputs to the rbmi::draws() function are:
-  *data - The primary longitudinal data.frame containing the outcome variable and all covariates.
-  *data_ice - A data.frame which specifies the first visit affected by an intercurrent event (ICE) and the imputation strategy for handling missing outcome data after the ICE. At most one ICE which is to be imputed by a non-MAR strategy is allowed per subject.
-  *method - The statistical method used to fit the imputation models and to create imputed datasets.
+The `rbmi::draws()` function fits the imputation models and stores the corresponding parameter estimates or Bayesian posterior parameter draws. The three main inputs to the `rbmi::draws()` function are:
+
+  * data - The primary longitudinal data.frame containing the outcome variable and all covariates.
+  * data_ice - A data.frame which specifies the first visit affected by an intercurrent event (ICE) and the imputation strategy for handling missing outcome data after the ICE. At most one ICE which is to be imputed by a non-MAR strategy is allowed per subject.
+  * method - The statistical method used to fit the imputation models and to create imputed datasets.
 
 
 #### Define key variables
@@ -164,7 +165,7 @@ draws_obj <- rbmi::draws(
 
 ### Impute
 
-The next step is to use the parameters from the imputation model to generate the imputed datasets. This is done via the `rbmi::impute()` function. The function only has two key inputs: the imputation model output from `rbmi::draws()` and the reference groups relevant to reference-based imputation methods. It’s usage is thus:
+The next step is to use the parameters from the imputation model to generate the imputed datasets. This is done via the `rbmi::impute()` function. The function only has two key inputs: the imputation model output from `rbmi::draws()` and the reference groups relevant to reference-based imputation methods. Its usage is thus:
 
 ```{r}
 impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")

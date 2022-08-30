@@ -27,9 +27,17 @@ A stable release of all `NEST` packages from June 2022 is also available [here](
 
 See package vignettes `browseVignettes(package = "tern.rbmi")` for usage of this package.
 
-[![Stargazers repo roster for @insightsengineering/tern.rbmi](https://reporoster.com/stars/insightsengineering/tern.rbmi)](https://github.com/insightsengineering/tern.rbmi/stargazers)
-[![Forkers repo roster for @insightsengineering/tern.rbmi](https://reporoster.com/forks/insightsengineering/tern.rbmi)](https://github.com/insightsengineering/tern.rbmi/network/members)
+## Stargazers and Forkers
 
-## Stargazers over time
+### Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/insightsengineering/tern.rbmi.svg)](https://starchart.cc/insightsengineering/tern.rbmi)
+
+### Stargazers
+
+[![Stargazers repo roster for @insightsengineering/tern.rbmi](https://reporoster.com/stars/insightsengineering/tern.rbmi)](https://github.com/insightsengineering/tern.rbmi/stargazers)
+
+### Forkers
+
+[![Forkers repo roster for @insightsengineering/tern.rbmi](https://reporoster.com/forks/insightsengineering/tern.rbmi)](https://github.com/insightsengineering/tern.rbmi/network/members)
+

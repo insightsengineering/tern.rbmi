@@ -40,4 +40,3 @@ See package vignettes `browseVignettes(package = "tern.rbmi")` for usage of this
 ### Forkers
 
 [![Forkers repo roster for @insightsengineering/tern.rbmi](https://reporoster.com/forks/insightsengineering/tern.rbmi)](https://github.com/insightsengineering/tern.rbmi/network/members)
-

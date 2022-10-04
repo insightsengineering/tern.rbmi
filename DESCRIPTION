@@ -1,20 +1,45 @@
 Package: tern.rbmi
-Title: Create TLGs using rbmi and tern
-Version: 0.0.0.9003
-Authors@R: 
-    person("NEST", , , "basel.nestcicd@roche.com", role = c("aut", "cre"))
-Description: This is a private template for use by core NEST packages.
-    Please don't use for your own code.
+Title: Create interface for rbmi and tern
+Version: 0.1.0.9005
+Date: 2022-09-06
+Authors@R: c(
+    person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
+    person("Jana", "Stoilova", , "jana.stoilova@roche.com", role = "aut"),
+    person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
+  )
+Description: `RBMI` tabulation with `rtables` and `tern` packages.
 License: MIT + file LICENSE
 URL: https://github.com/insightsengineering/tern.rbmi,
     https://insightsengineering.github.io/tern.rbmi/
 BugReports: https://github.com/insightsengineering/tern.rbmi/issues
-Suggests: 
+Depends:
+    R (>= 3.6),
+    rbmi,
+    tern (>= 0.7.8)
+Imports:
+    broom,
+    checkmate,
+    formatters (>= 0.3.1),
+    lifecycle,
+    magrittr,
+    rtables (>= 0.5.1)
+Suggests:
+    dplyr,
     knitr,
-    rmarkdown
-VignetteBuilder: 
+    Matrix,
+    rmarkdown,
+    testthat (>= 2.0),
+    tidyr
+VignetteBuilder:
     knitr
+Remotes:
+    insightsengineering/tern@*release
+Config/Needs/website: insightsengineering/nesttemplate
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
+Collate:
+    'tabulate_rbmi.R'
+    'tern.rbmi-package.R'

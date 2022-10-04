@@ -1,25 +1,42 @@
-# tern.rbmi
+# `tern.rbmi`
 
 ## Overview
 
-`nesttemplate` provides a custom [`pkgdown`](https://pkgdown.r-lib.org) template for NEST packages.
-Please don’t use it for your own package.
+`tern.rbmi` provides an interface for Reference Based Multiple Imputation (`rbmi`) within the `tern` framework.
 
-In order to take full advantage of that template you would need to use `pkgdown` >= 2.0.0.
+## Background
 
-## Templates
+For details of the `rbmi` package, please see [Reference Based Multiple Imputation (rbmi)](https://github.com/insightsengineering/rbmi). The basic usage of `rbmi` core functions is described
+in the `quickstart` vignette:
 
-Please ensure that the `_pkgdown.yml` file contains:
+```R
+vignette(topic = "quickstart", package = "rbmi")
+```
 
-    template:
-        package: nesttemplate
+## Installation
 
-## Example sites
+For releases from August 2022 it is recommended that you [create and use a Github PAT](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to install the latest version of this package. Once you have the PAT, run the following:
 
-- [`tern`](https://insightsengineering.github.io/tern/)
+```r
+Sys.setenv(GITHUB_PAT = "your_access_token_here")
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("insightsengineering/tern.rbmi@*release")
+```
 
-- [`teal`](https://insightsengineering.github.io/teal/)
+A stable release of all `NEST` packages from June 2022 is also available [here](https://github.com/insightsengineering/depository#readme).
 
-- [`teal.modules.general`](https://insightsengineering.github.io/teal.modules.general/)
+See package vignettes `browseVignettes(package = "tern.rbmi")` for usage of this package.
 
-- [`teal.modules.clinical`](https://insightsengineering.github.io/teal.modules.clinical/)
+## Stargazers and Forkers
+
+### Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/insightsengineering/tern.rbmi.svg)](https://starchart.cc/insightsengineering/tern.rbmi)
+
+### Stargazers
+
+[![Stargazers repo roster for @insightsengineering/tern.rbmi](https://reporoster.com/stars/insightsengineering/tern.rbmi)](https://github.com/insightsengineering/tern.rbmi/stargazers)
+
+### Forkers
+
+[![Forkers repo roster for @insightsengineering/tern.rbmi](https://reporoster.com/forks/insightsengineering/tern.rbmi)](https://github.com/insightsengineering/tern.rbmi/network/members)

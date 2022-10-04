@@ -3,3 +3,45 @@ url: https://insightsengineering.github.io/tern.rbmi
 
 template:
   package: nesttemplate
+
+navbar:
+  right:
+    - icon: fa-github
+      href: https://github.com/insightsengineering/tern.rbmi
+
+reference:
+  - title: Statistics Functions
+    desc: Statistics functions should do the computation of the numbers that are tabulated later.
+          In order to separate computation from formatting, they should not take care of `rcell` type
+          formatting themselves.
+    contents:
+      - s_rbmi_lsmeans
+
+  - title: Formatted Analysis functions
+    desc: These have the same arguments as the corresponding statistics functions, and can be further
+          customized by calling `rtables::make_afun()` on them. They are used as `afun` in
+          `rtables::analyze()`.
+    contents:
+      - a_rbmi_lsmeans
+
+  - title: Analyze Functions
+    desc: Analyze Functions are used in combination with the rtables layout functions, in the pipeline which creates
+          the table.
+    contents:
+      - summarize_rbmi
+
+  - title: Analysis Helper Functions
+    desc: these functions are useful to help definining the analysis
+    contents:
+      - h_tidy_pool
+
+  - title: Helper method
+    desc: Helper method
+    contents:
+      - tidy.pool
+
+  - title: Test data
+    desc: Test data
+    contents:
+      - rbmi_test_data
+

@@ -1,7 +1,7 @@
 Package: tern.rbmi
 Title: Create interface for rbmi and tern
-Version: 0.1.0.9007
-Date: 2022-10-13
+Version: 0.1.1
+Date: 2022-10-14
 Authors@R: c(
     person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
     person("Jana", "Stoilova", , "jana.stoilova@roche.com", role = "aut"),
@@ -15,7 +15,7 @@ BugReports: https://github.com/insightsengineering/tern.rbmi/issues
 Depends:
     R (>= 3.6),
     rbmi,
-    tern (>= 0.7.8)
+    tern (>= 0.7.10)
 Imports:
     broom,
     checkmate,

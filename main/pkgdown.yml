@@ -3,7 +3,7 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   tern-rbmi: tern-rbmi.html
-last_built: 2022-10-14T01:27Z
+last_built: 2022-10-24T10:37Z
 urls:
   reference: https://insightsengineering.github.io/tern.rbmi/main/reference
   article: https://insightsengineering.github.io/tern.rbmi/main/articles

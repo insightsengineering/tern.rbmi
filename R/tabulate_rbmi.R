@@ -8,7 +8,6 @@
 #' @export
 #'
 #' @examples
-#'
 #' data("rbmi_test_data")
 #' pool_obj <- rbmi_test_data
 #'
@@ -102,6 +101,19 @@ tidy.pool <- function(x) { # nolint
 #'   (`treatment - control`) of relative change from baseline?
 #' @export
 #'
+#' @examples
+#' library(rtables)
+#' library(dplyr)
+#' library(broom)
+#'
+#' data("rbmi_test_data")
+#' pool_obj <- rbmi_test_data
+#' df <- tidy(pool_obj)
+#'
+#' s_rbmi_lsmeans(df[1, ], .in_ref_col = TRUE)
+#'
+#' s_rbmi_lsmeans(df[2, ], .in_ref_col = FALSE)
+#'
 s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "increase")) {
   checkmate::assert_flag(.in_ref_col)
   show_relative <- match.arg(show_relative)
@@ -175,6 +187,7 @@ a_rbmi_lsmeans <- make_afun(
 #' @param .labels (named `character`)\cr labels for the statistics (without indent).
 #' @param ... additional argument.
 #' @export
+#'
 #' @examples
 #' library(rtables)
 #' library(dplyr)
@@ -184,8 +197,6 @@ a_rbmi_lsmeans <- make_afun(
 #' pool_obj <- rbmi_test_data
 #'
 #' df <- tidy(pool_obj)
-#'
-#' afun <- make_afun(a_rbmi_lsmeans)
 #'
 #' basic_table() %>%
 #'   split_cols_by("group", ref_group = levels(df$group)[1]) %>%

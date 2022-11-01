@@ -44,8 +44,6 @@ pool_obj <- rbmi_test_data
 
 df <- tidy(pool_obj)
 
-afun <- make_afun(a_rbmi_lsmeans)
-
 basic_table() \%>\%
   split_cols_by("group", ref_group = levels(df$group)[1]) \%>\%
   split_rows_by("visit", split_label = "Visit", label_pos = "topleft") \%>\%

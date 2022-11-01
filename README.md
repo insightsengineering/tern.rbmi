@@ -1,5 +1,7 @@
 # `tern.rbmi`
 
+[![Code Coverage](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/coverage.xml)](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/badge.svg)
+
 ## Overview
 
 `tern.rbmi` provides an interface for Reference Based Multiple Imputation (`rbmi`) within the `tern` framework.

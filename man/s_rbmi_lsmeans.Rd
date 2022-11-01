@@ -27,8 +27,8 @@ data("rbmi_test_data")
 pool_obj <- rbmi_test_data
 df <- tidy(pool_obj)
 
-s_rbmi_lsmeans(df[1,], .in_ref_col = TRUE)
+s_rbmi_lsmeans(df[1, ], .in_ref_col = TRUE)
 
-s_rbmi_lsmeans(df[2,], .in_ref_col = FALSE)
+s_rbmi_lsmeans(df[2, ], .in_ref_col = FALSE)
 
 }

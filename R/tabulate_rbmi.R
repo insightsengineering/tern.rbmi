@@ -110,9 +110,9 @@ tidy.pool <- function(x) { # nolint
 #' pool_obj <- rbmi_test_data
 #' df <- tidy(pool_obj)
 #'
-#' s_rbmi_lsmeans(df[1,], .in_ref_col = TRUE)
+#' s_rbmi_lsmeans(df[1, ], .in_ref_col = TRUE)
 #'
-#' s_rbmi_lsmeans(df[2,], .in_ref_col = FALSE)
+#' s_rbmi_lsmeans(df[2, ], .in_ref_col = FALSE)
 #'
 s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "increase")) {
   checkmate::assert_flag(.in_ref_col)

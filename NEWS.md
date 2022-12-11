@@ -1,4 +1,4 @@
-# `tern.rbmi` 0.1.2.9001
+# `tern.rbmi` 0.1.2.9002
 
 # `tern.rbmi` 0.1.2
 

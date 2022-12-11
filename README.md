@@ -19,8 +19,6 @@
 [![Open Issues](https://img.shields.io/github/issues-raw/insightsengineering/tern.rbmi?color=red\&label=open%20issues)](https://github.com/insightsengineering/tern.rbmi/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 <!-- end badges -->
 
-[![Code Coverage](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/badge.svg)](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/coverage.xml)
-
 ## Overview
 
 `tern.rbmi` provides an interface for Reference Based Multiple Imputation (`rbmi`) within the `tern` framework.

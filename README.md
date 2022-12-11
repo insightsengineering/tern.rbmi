@@ -1,6 +1,23 @@
 # `tern.rbmi`
 
-[![Code Coverage](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/badge.svg)](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/coverage.xml)
+<!-- start badges -->
+[![Check 🛠](https://github.com/insightsengineering/tern.rbmi/actions/workflows/check.yaml/badge.svg)](https://github.com/insightsengineering/tern.rbmi/actions/workflows/check.yaml)
+[![Docs 📚](https://github.com/insightsengineering/tern.rbmi/actions/workflows/docs.yaml/badge.svg)](https://insightsengineering.github.io/tern.rbmi/)
+[![Code Coverage 📔](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/badge.svg)](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/coverage.xml)
+
+![GitHub forks](https://img.shields.io/github/forks/insightsengineering/tern.rbmi?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/insightsengineering/tern.rbmi?style=social)
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/insightsengineering/tern.rbmi)
+![GitHub contributors](https://img.shields.io/github/contributors/insightsengineering/tern.rbmi)
+![GitHub last commit](https://img.shields.io/github/last-commit/insightsengineering/tern.rbmi)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/insightsengineering/tern.rbmi)
+![GitHub repo size](https://img.shields.io/github/repo-size/insightsengineering/tern.rbmi)
+![GitHub language count](https://img.shields.io/github/languages/count/insightsengineering/tern.rbmi)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Current Version](https://img.shields.io/github/r-package/v/insightsengineering/tern.rbmi/main?color=purple\&label=package%20version)](https://github.com/insightsengineering/tern.rbmi/tree/main)
+[![Open Issues](https://img.shields.io/github/issues-raw/insightsengineering/tern.rbmi?color=red\&label=open%20issues)](https://github.com/insightsengineering/tern.rbmi/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+<!-- end badges -->
 
 ## Overview
 

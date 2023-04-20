@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tern.rbmi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2.9004</small>
 
     <div style="width: 140px; margin-left: 0.5rem;"> <small class="nav-text text-muted me-auto">part of</small> <img src="https://github.com/insightsengineering/hex-stickers/blob/main/PNG/nest.png?raw=true" alt="NEST" style="height: 30px;"><a href="https://pharmaverse.org/" class="external-link"><img src="https://github.com/insightsengineering/hex-stickers/blob/main/PNG/pharmaverse.png?raw=true" alt="pharmaverse" style="height: 28px;"></a> </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,15 +45,13 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://insightsengineering.github.io/tern.rbmi/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://insightsengineering.github.io/tern.rbmi/latest-tag">latest-tag</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://insightsengineering.github.io/tern.rbmi/v0.1.2">v0.1.2</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://insightsengineering.github.io/tern.rbmi/v0.1.1">v0.1.1</a> </div></li>
-<!-- end dropdown for versions -->
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-reports">Reports</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-reports">
+    <a class="dropdown-item" href="../coverage-report/">Coverage report</a>
+    <a class="dropdown-item" href="../unit-test-report/">Unit test report</a>
+  </div>
+</li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -261,8 +259,8 @@ imputation parameters by running the <code><a href="https://insightsengineering.
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; SAMPLING FOR MODEL 'MMRM' NOW (CHAIN 1).</span></span>
 <span><span class="co">#&gt; Chain 1: </span></span>
-<span><span class="co">#&gt; Chain 1: Gradient evaluation took 0.000989 seconds</span></span>
-<span><span class="co">#&gt; Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 9.89 seconds.</span></span>
+<span><span class="co">#&gt; Chain 1: Gradient evaluation took 0.001122 seconds</span></span>
+<span><span class="co">#&gt; Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 11.22 seconds.</span></span>
 <span><span class="co">#&gt; Chain 1: Adjust your expectations accordingly!</span></span>
 <span><span class="co">#&gt; Chain 1: </span></span>
 <span><span class="co">#&gt; Chain 1: </span></span>
@@ -279,11 +277,11 @@ imputation parameters by running the <code><a href="https://insightsengineering.
 <span><span class="co">#&gt; Chain 1: Iteration: 1160 / 1200 [ 96%]  (Sampling)</span></span>
 <span><span class="co">#&gt; Chain 1: Iteration: 1200 / 1200 [100%]  (Sampling)</span></span>
 <span><span class="co">#&gt; Chain 1: </span></span>
-<span><span class="co">#&gt; Chain 1:  Elapsed Time: 1.00795 seconds (Warm-up)</span></span>
-<span><span class="co">#&gt; Chain 1:                3.73178 seconds (Sampling)</span></span>
-<span><span class="co">#&gt; Chain 1:                4.73973 seconds (Total)</span></span>
+<span><span class="co">#&gt; Chain 1:  Elapsed Time: 1.16843 seconds (Warm-up)</span></span>
+<span><span class="co">#&gt; Chain 1:                2.93134 seconds (Sampling)</span></span>
+<span><span class="co">#&gt; Chain 1:                4.09977 seconds (Total)</span></span>
 <span><span class="co">#&gt; Chain 1:</span></span>
-<span><span class="co">#&gt; Warning in fit_mcmc(designmat = model_df_scaled[, -1, drop = FALSE], outcome = model_df_scaled[, : The largest R-hat is 1.1, indicating chains have not mixed.</span></span>
+<span><span class="co">#&gt; Warning in fit_mcmc(designmat = model_df_scaled[, -1, drop = FALSE], outcome = model_df_scaled[, : The largest R-hat is 1.34, indicating chains have not mixed.</span></span>
 <span><span class="co">#&gt; Running the chains for more iterations may help. See</span></span>
 <span><span class="co">#&gt; https://mc-stan.org/misc/warnings.html#r-hat</span></span></code></pre></div>
 </div>
@@ -360,21 +358,21 @@ packages</p>
 <span><span class="co">#&gt;   group       est    se_est lower_cl_est upper_cl_est   est_contr  se_contr</span></span>
 <span><span class="co">#&gt; 1   ref -1.615820 0.4862316    -2.575771   -0.6558685          NA        NA</span></span>
 <span><span class="co">#&gt; 2   alt -1.707626 0.4749573    -2.645319   -0.7699335 -0.09180645 0.6826279</span></span>
-<span><span class="co">#&gt; 3   ref -4.225475 0.6556326    -5.520490   -2.9304601          NA        NA</span></span>
-<span><span class="co">#&gt; 4   alt -2.853658 0.6470941    -4.132189   -1.5751269  1.37181690 0.9112608</span></span>
-<span><span class="co">#&gt; 5   ref -6.413698 0.7010439    -7.798926   -5.0284697          NA        NA</span></span>
-<span><span class="co">#&gt; 6   alt -4.100452 0.6919844    -5.468273   -2.7326311  2.31324607 0.9919318</span></span>
-<span><span class="co">#&gt; 7   ref -7.647533 0.7983479    -9.228286   -6.0667806          NA        NA</span></span>
-<span><span class="co">#&gt; 8   alt -4.880233 0.7873572    -6.440014   -3.3204514  2.76730068 1.1106309</span></span>
+<span><span class="co">#&gt; 3   ref -4.236464 0.6611296    -5.542538   -2.9303894          NA        NA</span></span>
+<span><span class="co">#&gt; 4   alt -2.818016 0.6464799    -4.095189   -1.5408431  1.41844760 0.9397231</span></span>
+<span><span class="co">#&gt; 5   ref -6.354907 0.7078974    -7.753850   -4.9559640          NA        NA</span></span>
+<span><span class="co">#&gt; 6   alt -4.105484 0.6930163    -5.475123   -2.7358440  2.24942366 0.9901796</span></span>
+<span><span class="co">#&gt; 7   ref -7.628683 0.7733982    -9.157433   -6.0999330          NA        NA</span></span>
+<span><span class="co">#&gt; 8   alt -4.690868 0.8290053    -6.337651   -3.0440856  2.93781477 1.1311123</span></span>
 <span><span class="co">#&gt;   lower_cl_contr upper_cl_contr    p_value relative_reduc visit conf_level</span></span>
 <span><span class="co">#&gt; 1             NA             NA         NA             NA     4       0.95</span></span>
 <span><span class="co">#&gt; 2     -1.4394968       1.255884 0.89317724     0.05681725     4       0.95</span></span>
 <span><span class="co">#&gt; 3             NA             NA         NA             NA     5       0.95</span></span>
-<span><span class="co">#&gt; 4     -0.4276852       3.171319 0.13417019    -0.32465390     5       0.95</span></span>
+<span><span class="co">#&gt; 4     -0.4387248       3.275620 0.13334338    -0.33481878     5       0.95</span></span>
 <span><span class="co">#&gt; 5             NA             NA         NA             NA     6       0.95</span></span>
-<span><span class="co">#&gt; 6      0.3527169       4.273775 0.02107516    -0.36067274     6       0.95</span></span>
+<span><span class="co">#&gt; 6      0.2928739       4.205973 0.02452906    -0.35396640     6       0.95</span></span>
 <span><span class="co">#&gt; 7             NA             NA         NA             NA     7       0.95</span></span>
-<span><span class="co">#&gt; 8      0.5692144       4.965387 0.01402583    -0.36185532     7       0.95</span></span></code></pre></div>
+<span><span class="co">#&gt; 8      0.6978912       5.177738 0.01059295    -0.38510117     7       0.95</span></span></code></pre></div>
 <p>Final product, reshape <code>rbmi</code> final results to nicely
 formatted <code>rtable</code> object.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
@@ -393,26 +391,26 @@ formatted <code>rtable</code> object.</p>
 <span><span class="co">#&gt;     Relative Reduction (%)                                     5.7%      </span></span>
 <span><span class="co">#&gt;     p-value (RBMI)                                            0.8932     </span></span>
 <span><span class="co">#&gt; 5                                                                        </span></span>
-<span><span class="co">#&gt;   Adjusted Mean (SE)                   -4.225 (0.656)     -2.854 (0.647) </span></span>
-<span><span class="co">#&gt;     95% CI                            (-5.520, -2.930)   (-4.132, -1.575)</span></span>
-<span><span class="co">#&gt;   Difference in Adjusted Means (SE)                       1.372 (0.911)  </span></span>
-<span><span class="co">#&gt;     95% CI                                               (-0.428, 3.171) </span></span>
-<span><span class="co">#&gt;     Relative Reduction (%)                                    -32.5%     </span></span>
-<span><span class="co">#&gt;     p-value (RBMI)                                            0.1342     </span></span>
+<span><span class="co">#&gt;   Adjusted Mean (SE)                   -4.236 (0.661)     -2.818 (0.646) </span></span>
+<span><span class="co">#&gt;     95% CI                            (-5.543, -2.930)   (-4.095, -1.541)</span></span>
+<span><span class="co">#&gt;   Difference in Adjusted Means (SE)                       1.418 (0.940)  </span></span>
+<span><span class="co">#&gt;     95% CI                                               (-0.439, 3.276) </span></span>
+<span><span class="co">#&gt;     Relative Reduction (%)                                    -33.5%     </span></span>
+<span><span class="co">#&gt;     p-value (RBMI)                                            0.1333     </span></span>
 <span><span class="co">#&gt; 6                                                                        </span></span>
-<span><span class="co">#&gt;   Adjusted Mean (SE)                   -6.414 (0.701)     -4.100 (0.692) </span></span>
-<span><span class="co">#&gt;     95% CI                            (-7.799, -5.028)   (-5.468, -2.733)</span></span>
-<span><span class="co">#&gt;   Difference in Adjusted Means (SE)                       2.313 (0.992)  </span></span>
-<span><span class="co">#&gt;     95% CI                                                (0.353, 4.274) </span></span>
-<span><span class="co">#&gt;     Relative Reduction (%)                                    -36.1%     </span></span>
-<span><span class="co">#&gt;     p-value (RBMI)                                            0.0211     </span></span>
+<span><span class="co">#&gt;   Adjusted Mean (SE)                   -6.355 (0.708)     -4.105 (0.693) </span></span>
+<span><span class="co">#&gt;     95% CI                            (-7.754, -4.956)   (-5.475, -2.736)</span></span>
+<span><span class="co">#&gt;   Difference in Adjusted Means (SE)                       2.249 (0.990)  </span></span>
+<span><span class="co">#&gt;     95% CI                                                (0.293, 4.206) </span></span>
+<span><span class="co">#&gt;     Relative Reduction (%)                                    -35.4%     </span></span>
+<span><span class="co">#&gt;     p-value (RBMI)                                            0.0245     </span></span>
 <span><span class="co">#&gt; 7                                                                        </span></span>
-<span><span class="co">#&gt;   Adjusted Mean (SE)                   -7.648 (0.798)     -4.880 (0.787) </span></span>
-<span><span class="co">#&gt;     95% CI                            (-9.228, -6.067)   (-6.440, -3.320)</span></span>
-<span><span class="co">#&gt;   Difference in Adjusted Means (SE)                       2.767 (1.111)  </span></span>
-<span><span class="co">#&gt;     95% CI                                                (0.569, 4.965) </span></span>
-<span><span class="co">#&gt;     Relative Reduction (%)                                    -36.2%     </span></span>
-<span><span class="co">#&gt;     p-value (RBMI)                                            0.0140</span></span></code></pre></div>
+<span><span class="co">#&gt;   Adjusted Mean (SE)                   -7.629 (0.773)     -4.691 (0.829) </span></span>
+<span><span class="co">#&gt;     95% CI                            (-9.157, -6.100)   (-6.338, -3.044)</span></span>
+<span><span class="co">#&gt;   Difference in Adjusted Means (SE)                       2.938 (1.131)  </span></span>
+<span><span class="co">#&gt;     95% CI                                                (0.698, 5.178) </span></span>
+<span><span class="co">#&gt;     Relative Reduction (%)                                    -38.5%     </span></span>
+<span><span class="co">#&gt;     p-value (RBMI)                                            0.0106</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

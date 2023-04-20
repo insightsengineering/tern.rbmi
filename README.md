@@ -1,9 +1,9 @@
 # `tern.rbmi`
 
 <!-- start badges -->
-[![Check 🛠](https://github.com/insightsengineering/tern.rbmi/actions/workflows/check.yaml/badge.svg)](https://github.com/insightsengineering/tern.rbmi/actions/workflows/check.yaml)
+[![Check 🛠](https://github.com/insightsengineering/tern.rbmi/actions/workflows/check.yaml/badge.svg)](https://insightsengineering.github.io/tern.rbmi/main/unit-test-report/)
 [![Docs 📚](https://github.com/insightsengineering/tern.rbmi/actions/workflows/docs.yaml/badge.svg)](https://insightsengineering.github.io/tern.rbmi/)
-[![Code Coverage 📔](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/badge.svg)](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/coverage.xml)
+[![Code Coverage 📔](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/badge.svg)](https://insightsengineering.github.io/tern.rbmi/main/coverage-report/)
 
 ![GitHub forks](https://img.shields.io/github/forks/insightsengineering/tern.rbmi?style=social)
 ![GitHub Repo stars](https://img.shields.io/github/stars/insightsengineering/tern.rbmi?style=social)

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="h_tidy_pool" timestamp="2023-06-02T08:32:14Z" hostname="c9c0f45f0ac4" tests="1" skipped="0" failures="0" errors="0" time="0.03">
+    <testcase time="0.0299999999999998" classname="h_tidy_pool" name="h_tidy_pool_is_produced_correctly"/>
+  </testsuite>
+  <testsuite name="tabulate_rbmi" timestamp="2023-06-02T08:32:14Z" hostname="c9c0f45f0ac4" tests="5" skipped="0" failures="0" errors="0" time="0.494">
+    <testcase time="0.056" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_TRUE"/>
+    <testcase time="0.0110000000000001" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_FALSE"/>
+    <testcase time="0.00300000000000011" classname="tabulate_rbmi" name="s_rbmi_lsmeans_also_works_with_show_relative_increase"/>
+    <testcase time="0.00800000000000001" classname="tabulate_rbmi" name="a_rbmi_lsmeans_functions_as_expected_with_valid_input"/>
+    <testcase time="0.416" classname="tabulate_rbmi" name="summarize_rbmi_works_as_expected_with_valid_input"/>
+  </testsuite>
+  <testsuite name="tidypool" timestamp="2023-06-02T08:32:14Z" hostname="c9c0f45f0ac4" tests="1" skipped="0" failures="0" errors="0" time="0.057">
+    <testcase time="0.0569999999999999" classname="tidypool" name="tidy.pool_is_produced_correctly"/>
+  </testsuite>
+</testsuites>

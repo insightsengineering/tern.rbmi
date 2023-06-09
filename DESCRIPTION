@@ -18,7 +18,7 @@ Depends:
     tern (>= 0.7.10)
 Imports:
     broom,
-    checkmate,
+    checkmate (>= 2.0.0),
     formatters (>= 0.3.1),
     lifecycle,
     magrittr,
@@ -34,6 +34,21 @@ VignetteBuilder:
     knitr
 Remotes:
     insightsengineering/tern@*release
+Config/Needs/verdepcheck:
+    insightsengineering/rbmi,
+    insightsengineering/tern,
+    tidymodels/broom,
+    mllg/checkmate,
+    insightsengineering/formatters,
+    r-lib/lifecycle,
+    tidyverse/magrittr,
+    insightsengineering/rtables,
+    tidyverse/dplyr,
+    yihui/knitr,
+    bioc::Matrix,
+    rstudio/rmarkdown,
+    r-lib/testthat,
+    tidyverse/tidyr
 Config/Needs/website: insightsengineering/nesttemplate
 Encoding: UTF-8
 Language: en-US

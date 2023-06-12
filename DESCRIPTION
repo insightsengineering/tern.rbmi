@@ -20,15 +20,14 @@ Imports:
     broom,
     checkmate (>= 2.0.0),
     formatters (>= 0.3.1),
-    lifecycle,
-    magrittr,
+    lifecycle (>= 1.0.3),
+    magrittr (>= 1.5),
     rtables (>= 0.5.1)
 Suggests:
-    dplyr,
-    knitr,
-    Matrix,
-    rmarkdown,
-    testthat (>= 2.0),
+    dplyr (>= 1.0.0),
+    knitr (>= 1.34),
+    Matrix (>= 1.4-2),
+    testthat (>= 3.0.4),
     tidyr
 VignetteBuilder:
     knitr
@@ -45,8 +44,6 @@ Config/Needs/verdepcheck:
     insightsengineering/rtables,
     tidyverse/dplyr,
     yihui/knitr,
-    bioc::Matrix,
-    rstudio/rmarkdown,
     r-lib/testthat,
     tidyverse/tidyr
 Config/Needs/website: insightsengineering/nesttemplate

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="h_tidy_pool" timestamp="2023-06-12T18:22:58Z" hostname="042218e53317" tests="1" skipped="0" failures="0" errors="0" time="0.032">
-    <testcase time="0.032" classname="h_tidy_pool" name="h_tidy_pool_is_produced_correctly"/>
+  <testsuite name="h_tidy_pool" timestamp="2023-06-13T15:04:49Z" hostname="e69d5cc85d76" tests="1" skipped="0" failures="0" errors="0" time="0.036">
+    <testcase time="0.036" classname="h_tidy_pool" name="h_tidy_pool_is_produced_correctly"/>
   </testsuite>
-  <testsuite name="tabulate_rbmi" timestamp="2023-06-12T18:22:58Z" hostname="042218e53317" tests="5" skipped="0" failures="0" errors="0" time="0.509">
-    <testcase time="0.0649999999999999" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_TRUE"/>
-    <testcase time="0.0109999999999997" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_FALSE"/>
+  <testsuite name="tabulate_rbmi" timestamp="2023-06-13T15:04:49Z" hostname="e69d5cc85d76" tests="5" skipped="0" failures="0" errors="0" time="0.541">
+    <testcase time="0.0669999999999997" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_TRUE"/>
+    <testcase time="0.012" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_FALSE"/>
     <testcase time="0.00300000000000011" classname="tabulate_rbmi" name="s_rbmi_lsmeans_also_works_with_show_relative_increase"/>
-    <testcase time="0.00700000000000012" classname="tabulate_rbmi" name="a_rbmi_lsmeans_functions_as_expected_with_valid_input"/>
-    <testcase time="0.423" classname="tabulate_rbmi" name="summarize_rbmi_works_as_expected_with_valid_input"/>
+    <testcase time="0.00800000000000001" classname="tabulate_rbmi" name="a_rbmi_lsmeans_functions_as_expected_with_valid_input"/>
+    <testcase time="0.451" classname="tabulate_rbmi" name="summarize_rbmi_works_as_expected_with_valid_input"/>
   </testsuite>
-  <testsuite name="tidypool" timestamp="2023-06-12T18:22:59Z" hostname="042218e53317" tests="1" skipped="0" failures="0" errors="0" time="0.036">
-    <testcase time="0.036" classname="tidypool" name="tidy.pool_is_produced_correctly"/>
+  <testsuite name="tidypool" timestamp="2023-06-13T15:04:49Z" hostname="e69d5cc85d76" tests="1" skipped="0" failures="0" errors="0" time="0.038">
+    <testcase time="0.0380000000000003" classname="tidypool" name="tidy.pool_is_produced_correctly"/>
   </testsuite>
 </testsuites>

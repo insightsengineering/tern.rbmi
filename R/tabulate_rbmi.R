@@ -157,9 +157,9 @@ a_rbmi_lsmeans <- make_afun(
   ),
   .formats = c(
     # n = "xx.", # note we don't have N from `rbmi` result
-    adj_mean_se = sprintf_format("%.3f (%.3f)"),
+    adj_mean_se = formatters::sprintf_format("%.3f (%.3f)"),
     adj_mean_ci = "(xx.xxx, xx.xxx)",
-    diff_mean_se = sprintf_format("%.3f (%.3f)"),
+    diff_mean_se = formatters::sprintf_format("%.3f (%.3f)"),
     diff_mean_ci = "(xx.xxx, xx.xxx)",
     change = "xx.x%",
     p_value = "x.xxxx | (<0.0001)"

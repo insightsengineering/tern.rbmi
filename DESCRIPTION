@@ -1,7 +1,7 @@
 Package: tern.rbmi
 Title: Create interface for rbmi and tern
-Version: 0.1.2.9007
-Date: 2023-06-29
+Version: 0.1.2.9008
+Date: 2023-08-21
 Authors@R: c(
     person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
     person("Jana", "Stoilova", , "jana.stoilova@roche.com", role = "aut"),

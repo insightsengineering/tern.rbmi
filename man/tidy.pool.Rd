@@ -5,11 +5,13 @@
 \title{Helper method (for \code{\link[broom:reexports]{broom::tidy()}}) to prepare a data frame from an
 \code{pool} \code{rbmi} object containing the LS means and contrasts and multiple visits}
 \usage{
-\method{tidy}{pool}(x)
+\method{tidy}{pool}(x, ...)
 }
 \arguments{
 \item{x}{(\code{pool}) is a list of pooled object from \code{rbmi} analysis results. This list includes
 analysis results, confidence level, hypothesis testing type.}
+
+\item{...}{Additional arguments. Not used. Needed to match generic signature only.}
 }
 \value{
 A dataframe

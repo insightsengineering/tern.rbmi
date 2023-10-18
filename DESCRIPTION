@@ -27,6 +27,7 @@ Suggests:
     dplyr (>= 1.0.3),
     knitr (>= 1.42),
     Matrix,
+    rmarkdown (>= 2.19),
     testthat (>= 3.0.4),
     tidyr (>= 0.8.3)
 VignetteBuilder:
@@ -44,6 +45,7 @@ Config/Needs/verdepcheck:
     insightsengineering/rtables,
     tidyverse/dplyr,
     yihui/knitr,
+    rstudio/rmarkdown,
     r-lib/testthat,
     tidyverse/tidyr
 Config/Needs/website: insightsengineering/nesttemplate

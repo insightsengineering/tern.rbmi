@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "https://raw.githubusercontent.com/cobertura/cobertura/master/cobertura/src/site/htdocs/xml/coverage-04.dtd">
-<coverage line-rate="1" branch-rate="0" lines-covered="82" lines-valid="82" branches-covered="0" branches-valid="0" complexity="0" version="3.6.3" timestamp="2023-10-18 12:26:49.604354">
+<coverage line-rate="1" branch-rate="0" lines-covered="82" lines-valid="82" branches-covered="0" branches-valid="0" complexity="0" version="3.6.3" timestamp="2023-10-18 13:52:57.765232">
   <sources>
     <source>/__w/tern.rbmi/tern.rbmi/tern.rbmi</source>
   </sources>
@@ -51,23 +51,22 @@
             </method>
             <method name="tidy.pool" signature="" line-rate="1" branch-rate="0" complexity="0">
               <lines>
-                <line number="72" hits="2" branch="false"/>
-                <line number="74" hits="2" branch="false"/>
+                <line number="73" hits="2" branch="false"/>
                 <line number="75" hits="2" branch="false"/>
                 <line number="76" hits="2" branch="false"/>
-                <line number="78" hits="2" branch="false"/>
-                <line number="80" hits="2" branch="false"/>
-                <line number="82" hits="2" branch="false"/>
-                <line number="84" hits="2" branch="false"/>
-                <line number="86" hits="2" branch="false"/>
+                <line number="77" hits="2" branch="false"/>
+                <line number="79" hits="2" branch="false"/>
+                <line number="81" hits="2" branch="false"/>
+                <line number="83" hits="2" branch="false"/>
+                <line number="85" hits="2" branch="false"/>
                 <line number="87" hits="2" branch="false"/>
                 <line number="88" hits="2" branch="false"/>
-                <line number="90" hits="2" branch="false"/>
+                <line number="89" hits="2" branch="false"/>
+                <line number="91" hits="2" branch="false"/>
               </lines>
             </method>
             <method name="s_rbmi_lsmeans" signature="" line-rate="1" branch-rate="0" complexity="0">
               <lines>
-                <line number="118" hits="3" branch="false"/>
                 <line number="119" hits="3" branch="false"/>
                 <line number="120" hits="3" branch="false"/>
                 <line number="121" hits="3" branch="false"/>
@@ -87,11 +86,11 @@
                 <line number="135" hits="3" branch="false"/>
                 <line number="136" hits="3" branch="false"/>
                 <line number="137" hits="3" branch="false"/>
+                <line number="138" hits="3" branch="false"/>
               </lines>
             </method>
             <method name="summarize_rbmi" signature="" line-rate="1" branch-rate="0" complexity="0">
               <lines>
-                <line number="214" hits="1" branch="false"/>
                 <line number="215" hits="1" branch="false"/>
                 <line number="216" hits="1" branch="false"/>
                 <line number="217" hits="1" branch="false"/>
@@ -105,6 +104,7 @@
                 <line number="225" hits="1" branch="false"/>
                 <line number="226" hits="1" branch="false"/>
                 <line number="227" hits="1" branch="false"/>
+                <line number="228" hits="1" branch="false"/>
               </lines>
             </method>
           </methods>
@@ -145,19 +145,18 @@
             <line number="53" hits="9" branch="false"/>
             <line number="54" hits="9" branch="false"/>
             <line number="56" hits="9" branch="false"/>
-            <line number="72" hits="2" branch="false"/>
-            <line number="74" hits="2" branch="false"/>
+            <line number="73" hits="2" branch="false"/>
             <line number="75" hits="2" branch="false"/>
             <line number="76" hits="2" branch="false"/>
-            <line number="78" hits="2" branch="false"/>
-            <line number="80" hits="2" branch="false"/>
-            <line number="82" hits="2" branch="false"/>
-            <line number="84" hits="2" branch="false"/>
-            <line number="86" hits="2" branch="false"/>
+            <line number="77" hits="2" branch="false"/>
+            <line number="79" hits="2" branch="false"/>
+            <line number="81" hits="2" branch="false"/>
+            <line number="83" hits="2" branch="false"/>
+            <line number="85" hits="2" branch="false"/>
             <line number="87" hits="2" branch="false"/>
             <line number="88" hits="2" branch="false"/>
-            <line number="90" hits="2" branch="false"/>
-            <line number="118" hits="3" branch="false"/>
+            <line number="89" hits="2" branch="false"/>
+            <line number="91" hits="2" branch="false"/>
             <line number="119" hits="3" branch="false"/>
             <line number="120" hits="3" branch="false"/>
             <line number="121" hits="3" branch="false"/>
@@ -177,7 +176,7 @@
             <line number="135" hits="3" branch="false"/>
             <line number="136" hits="3" branch="false"/>
             <line number="137" hits="3" branch="false"/>
-            <line number="214" hits="1" branch="false"/>
+            <line number="138" hits="3" branch="false"/>
             <line number="215" hits="1" branch="false"/>
             <line number="216" hits="1" branch="false"/>
             <line number="217" hits="1" branch="false"/>
@@ -191,6 +190,7 @@
             <line number="225" hits="1" branch="false"/>
             <line number="226" hits="1" branch="false"/>
             <line number="227" hits="1" branch="false"/>
+            <line number="228" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>

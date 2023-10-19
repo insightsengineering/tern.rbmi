@@ -1,7 +1,7 @@
 Package: tern.rbmi
 Title: Create interface for rbmi and tern
-Version: 0.1.2.9008
-Date: 2023-08-21
+Version: 0.1.2.9009
+Date: 2023-10-19
 Authors@R: c(
     person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
     person("Jana", "Stoilova", , "jana.stoilova@roche.com", role = "aut"),
@@ -34,20 +34,11 @@ VignetteBuilder:
     knitr
 Remotes:
     insightsengineering/tern@*release
-Config/Needs/verdepcheck:
-    insightsengineering/rbmi,
-    insightsengineering/tern,
-    tidymodels/broom,
-    mllg/checkmate,
-    insightsengineering/formatters,
-    r-lib/lifecycle,
-    tidyverse/magrittr,
-    insightsengineering/rtables,
-    tidyverse/dplyr,
-    yihui/knitr,
-    rstudio/rmarkdown,
-    r-lib/testthat,
-    tidyverse/tidyr
+Config/Needs/verdepcheck: insightsengineering/rbmi,
+    insightsengineering/tern, tidymodels/broom, mllg/checkmate,
+    insightsengineering/formatters, r-lib/lifecycle, tidyverse/magrittr,
+    insightsengineering/rtables, tidyverse/dplyr, yihui/knitr,
+    rstudio/rmarkdown, r-lib/testthat, tidyverse/tidyr
 Config/Needs/website: insightsengineering/nesttemplate
 Encoding: UTF-8
 Language: en-US

@@ -64,10 +64,11 @@ h_tidy_pool <- function(x) {
 #' @method tidy pool
 #' @param x (`pool`) is a list of pooled object from `rbmi` analysis results. This list includes
 #' analysis results, confidence level, hypothesis testing type.
+#' @param ... Additional arguments. Not used. Needed to match generic signature only.
 #' @export
 #' @return A dataframe
 #'
-tidy.pool <- function(x) { # nolint
+tidy.pool <- function(x, ...) { # nolint
 
   ls_raw <- x$pars
 

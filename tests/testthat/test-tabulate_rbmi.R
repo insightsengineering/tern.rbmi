@@ -77,27 +77,5 @@ testthat::test_that("summarize_rbmi works as expected with valid input", {
     summarize_rbmi() %>%
     build_table(df)
 
-  result_matrix <- to_string_matrix(result)
-  expected_matrix <- structure(
-    matrix(
-      nrow = 29,
-      ncol = 3,
-      data = c(
-        "Visit", "4", "Adjusted Mean (SE)", "95% CI", "Difference in Adjusted Means (SE)", "95% CI",
-        "Relative Reduction (%)", "p-value (RBMI)", "5", "Adjusted Mean (SE)", "95% CI",
-        "Difference in Adjusted Means (SE)", "95% CI", "Relative Reduction (%)", "p-value (RBMI)",
-        "6", "Adjusted Mean (SE)", "95% CI", "Difference in Adjusted Means (SE)", "95% CI",
-        "Relative Reduction (%)", "p-value (RBMI)", "7", "Adjusted Mean (SE)", "95% CI",
-        "Difference in Adjusted Means (SE)", "95% CI", "Relative Reduction (%)", "p-value (RBMI)",
-        "ref", "", "-1.616 (0.486)", "(-2.576, -0.656)", "", "", "", "", "", "-4.225 (0.656)",
-        "(-5.520, -2.930)", "", "", "", "", "", "-6.381 (0.703)", "(-7.771, -4.991)", "", "", "", "",
-        "", "-7.580 (0.791)", "(-9.145, -6.016)", "", "", "", "", "alt", "", "-1.708 (0.475)", "(-2.645, -0.770)",
-        "-0.092 (0.683)", "(-1.439, 1.256)", "5.7%", "0.8932", "", "-2.874 (0.648)", "(-4.154, -1.593)",
-        "1.351 (0.922)", "(-0.470, 3.172)", "-32.0%", "0.1447", "", "-4.159 (0.696)", "(-5.536, -2.782)",
-        "2.222 (0.975)", "(0.296, 4.149)", "-34.8%", "0.0241", "", "-4.760 (0.756)", "(-6.254, -3.267)",
-        "2.820 (1.085)", "(0.676, 4.964)", "-37.2%", "0.0103"
-      )
-    )
-  )
-  testthat::expect_identical(result_matrix, expected_matrix)
+  testthat::expect_snapshot(result)
 })

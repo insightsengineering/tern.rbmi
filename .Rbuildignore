@@ -17,3 +17,4 @@ SECURITY.md
 ^\.gitlab-ci\.yml
 ^man-roxygen$
 ^pkgdown$
+^staged_dependencies.yaml$

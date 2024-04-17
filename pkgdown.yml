@@ -1,10 +1,10 @@
-pandoc: 2.19.2
-pkgdown: 2.0.6
+pandoc: 3.1.1
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   tern-rbmi: tern-rbmi.html
-last_built: 2022-11-02T00:05Z
+last_built: 2024-04-17T08:17Z
 urls:
-  reference: https://insightsengineering.github.io/tern.rbmi/v0.1.2/latest-tag/reference
-  article: https://insightsengineering.github.io/tern.rbmi/v0.1.2/latest-tag/articles
+  reference: https://insightsengineering.github.io/tern.rbmi/latest-tag/reference
+  article: https://insightsengineering.github.io/tern.rbmi/latest-tag/articles
 

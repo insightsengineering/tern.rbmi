@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="h_tidy_pool" timestamp="2024-03-19T13:46:31Z" hostname="4c1cb60a0688" tests="1" skipped="0" failures="0" errors="0" time="0.03">
-    <testcase time="0.0300000000000002" classname="h_tidy_pool" name="h_tidy_pool_is_produced_correctly"/>
+  <testsuite name="h_tidy_pool" timestamp="2024-04-17T07:21:50Z" hostname="4bbcf75832af" tests="1" skipped="0" failures="0" errors="0" time="0.031">
+    <testcase time="0.0309999999999997" classname="h_tidy_pool" name="h_tidy_pool_is_produced_correctly"/>
   </testsuite>
-  <testsuite name="tabulate_rbmi" timestamp="2024-03-19T13:46:31Z" hostname="4c1cb60a0688" tests="5" skipped="1" failures="0" errors="0" time="0.522">
-    <testcase time="0.0389999999999997" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_TRUE"/>
+  <testsuite name="tabulate_rbmi" timestamp="2024-04-17T07:21:50Z" hostname="4bbcf75832af" tests="5" skipped="1" failures="0" errors="0" time="0.531">
+    <testcase time="0.0410000000000004" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_TRUE"/>
     <testcase time="0.0209999999999999" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_FALSE"/>
-    <testcase time="0.0180000000000007" classname="tabulate_rbmi" name="s_rbmi_lsmeans_also_works_with_show_relative_increase"/>
-    <testcase time="0.0119999999999996" classname="tabulate_rbmi" name="a_rbmi_lsmeans_functions_as_expected_with_valid_input"/>
-    <testcase time="0.432" classname="tabulate_rbmi" name="summarize_rbmi_works_as_expected_with_valid_input">
+    <testcase time="0.0149999999999997" classname="tabulate_rbmi" name="s_rbmi_lsmeans_also_works_with_show_relative_increase"/>
+    <testcase time="0.0120000000000005" classname="tabulate_rbmi" name="a_rbmi_lsmeans_functions_as_expected_with_valid_input"/>
+    <testcase time="0.441999999999999" classname="tabulate_rbmi" name="summarize_rbmi_works_as_expected_with_valid_input">
       <skipped message="Reason: On CRAN ('test-tabulate_rbmi.R:80:3')"/>
     </testcase>
   </testsuite>
-  <testsuite name="tidypool" timestamp="2024-03-19T13:46:31Z" hostname="4c1cb60a0688" tests="1" skipped="0" failures="0" errors="0" time="0.047">
-    <testcase time="0.0469999999999997" classname="tidypool" name="tidy.pool_is_produced_correctly"/>
+  <testsuite name="tidypool" timestamp="2024-04-17T07:21:50Z" hostname="4bbcf75832af" tests="1" skipped="0" failures="0" errors="0" time="0.048">
+    <testcase time="0.048" classname="tidypool" name="tidy.pool_is_produced_correctly"/>
   </testsuite>
 </testsuites>

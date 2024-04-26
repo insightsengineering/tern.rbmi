@@ -2,3 +2,5 @@
 .Rhistory
 docs
 inst/doc
+tests/testthat/_snaps/**/*.new.md
+tests/testthat/_snaps/**/*.new.svg

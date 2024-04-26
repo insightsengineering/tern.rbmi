@@ -18,3 +18,5 @@ SECURITY.md
 ^man-roxygen$
 ^pkgdown$
 ^staged_dependencies.yaml$
+^revdeprefs\.yaml$
+^revdep$

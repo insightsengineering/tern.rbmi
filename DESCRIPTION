@@ -31,7 +31,8 @@ Suggests:
     testthat (>= 3.0.4),
     tidyr (>= 0.8.3)
 VignetteBuilder:
-    knitr
+    knitr,
+    rmarkdown
 Remotes:
     insightsengineering/tern@*release
 Config/Needs/verdepcheck: insightsengineering/rbmi,

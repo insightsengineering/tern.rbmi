@@ -34,17 +34,21 @@ vignette(topic = "quickstart", package = "rbmi")
 
 ## Installation
 
-For releases from August 2022 it is recommended that you [create and use a Github PAT](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to install the latest version of this package. Once you have the PAT, run the following:
-
 ```r
-Sys.setenv(GITHUB_PAT = "your_access_token_here")
-if (!require("remotes")) install.packages("remotes")
-remotes::install_github("insightsengineering/tern.rbmi@*release")
+# install.packages("pak")
+pak::pak("insightsengineering/tern.rbmi@*release")
 ```
 
-A stable release of all `NEST` packages from June 2022 is also available [here](https://github.com/insightsengineering/depository#readme).
+Alternatively, you might want to use the development version.
 
-See package vignettes `browseVignettes(package = "tern.rbmi")` for usage of this package.
+```r
+# install.packages("pak")
+pak::pak("insightsengineering/tern.rbmi")
+```
+
+## Usage
+
+To understand how to use this package, please refer to the [Introduction to `tern.rbmi`](https://insightsengineering.github.io/tern.rbmi/latest-tag/articles/tern-rbmi.html) article, which provides multiple examples of code implementation.
 
 ## Stargazers and Forkers
 

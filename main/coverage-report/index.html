@@ -1,22 +1,23 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"/>
 <style>body{background-color:white;}</style>
-<link href="lib/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<link href="lib/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
 <script src="lib/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<link href="lib/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<link href="lib/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
 <script src="lib/datatables-binding-0.33/datatables.js"></script>
 <script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="lib/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="lib/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<link href="lib/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="lib/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="lib/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="lib/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<link href="lib/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
 <script src="lib/crosstalk-1.2.1/js/crosstalk.min.js"></script>
-<link href="lib/highlight.js-6.2/rstudio.css" rel="stylesheet">
+<link href="lib/highlight.js-6.2/rstudio.css" rel="stylesheet" />
 <script src="lib/highlight.js-6.2/highlight.pack.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="lib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<link href="lib/bootstrap-3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="lib/bootstrap-3.3.5/css/bootstrap-theme.min.css" rel="stylesheet" />
 <script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -106,8 +107,8 @@ table.table-condensed {
       </ul>
       <div class="tab-content" data-tabsetid="covr">
         <div class="tab-pane active" title="Files" data-value="Files" id="tab-covr-1">
-          <div class="datatables html-widget html-fill-item" id="htmlwidget-15386fab3318efb692e2" style="width:100%;height:500px;"></div>
-          <script type="application/json" data-for="htmlwidget-15386fab3318efb692e2">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["<a href=\"#\">R/tabulate_rbmi.R<\/a>"],[229],[73],[73],[0],["5"],["100.00%"]],"container":"<table class=\"row-border\">\n  <thead>\n    <tr>\n      <th>File<\/th>\n      <th>Lines<\/th>\n      <th>Relevant<\/th>\n      <th>Covered<\/th>\n      <th>Missed<\/th>\n      <th>Hits / Line<\/th>\n      <th>Coverage<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"dom":"t","paging":false,"columnDefs":[{"targets":6,"createdCell":"function(td, cellData, rowData, row, col) {\n  var percent = cellData.replace(\"%\", \"\");\n  if (percent > 90) {\n    var grad = \"linear-gradient(90deg, #edfde7 \" + cellData + \", white \" + cellData + \")\";\n  } else if (percent > 75) {\n    var grad = \"linear-gradient(90deg, #f9ffe5 \" + cellData + \", white \" + cellData + \")\";\n  } else {\n    var grad = \"linear-gradient(90deg, #fcece9 \" + cellData + \", white \" + cellData + \")\";\n  }\n  $(td).css(\"background\", grad);\n}\n"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"File","targets":0},{"name":"Lines","targets":1},{"name":"Relevant","targets":2},{"name":"Covered","targets":3},{"name":"Missed","targets":4},{"name":"Hits / Line","targets":5},{"name":"Coverage","targets":6}],"order":[],"autoWidth":false,"orderClasses":false},"callback":"function(table) {\ntable.on('click.dt', 'a', function() {\n  files = $('div#files div');\n  files.not('div.hidden').addClass('hidden');\n  id = $(this).text();\n  files.filter('div[id=\\'' + id + '\\']').removeClass('hidden');\n  $('ul.nav a[data-value=Source]').text(id).tab('show');\n});\n}"},"evals":["options.columnDefs.0.createdCell","callback"],"jsHooks":[]}</script>
+          <div class="datatables html-widget html-fill-item" id="htmlwidget-317c86aa3fda23fdc252" style="width:100%;height:500px;"></div>
+          <script type="application/json" data-for="htmlwidget-317c86aa3fda23fdc252">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["<a href=\"#\">R/tabulate_rbmi.R<\/a>"],[229],[73],[73],[0],["5"],["100.00%"]],"container":"<table class=\"row-border\">\n  <thead>\n    <tr>\n      <th>File<\/th>\n      <th>Lines<\/th>\n      <th>Relevant<\/th>\n      <th>Covered<\/th>\n      <th>Missed<\/th>\n      <th>Hits / Line<\/th>\n      <th>Coverage<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"dom":"t","paging":false,"columnDefs":[{"targets":6,"createdCell":"function(td, cellData, rowData, row, col) {\n  var percent = cellData.replace(\"%\", \"\");\n  if (percent > 90) {\n    var grad = \"linear-gradient(90deg, #edfde7 \" + cellData + \", white \" + cellData + \")\";\n  } else if (percent > 75) {\n    var grad = \"linear-gradient(90deg, #f9ffe5 \" + cellData + \", white \" + cellData + \")\";\n  } else {\n    var grad = \"linear-gradient(90deg, #fcece9 \" + cellData + \", white \" + cellData + \")\";\n  }\n  $(td).css(\"background\", grad);\n}\n"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"File","targets":0},{"name":"Lines","targets":1},{"name":"Relevant","targets":2},{"name":"Covered","targets":3},{"name":"Missed","targets":4},{"name":"Hits / Line","targets":5},{"name":"Coverage","targets":6}],"order":[],"autoWidth":false,"orderClasses":false},"callback":"function(table) {\ntable.on('click.dt', 'a', function() {\n  files = $('div#files div');\n  files.not('div.hidden').addClass('hidden');\n  id = $(this).text();\n  files.filter('div[id=\\'' + id + '\\']').removeClass('hidden');\n  $('ul.nav a[data-value=Source]').text(id).tab('show');\n});\n}"},"evals":["options.columnDefs.0.createdCell","callback"],"jsHooks":[]}</script>
         </div>
         <div class="tab-pane" title="Source" data-value="Source" id="tab-covr-2">
           <div id="files">
@@ -228,24 +229,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">17</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  contr &lt;- x[[grep("trt_", names(x))]]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">18</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  ref &lt;- x[[grep("lsm_ref_", names(x))]]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">19</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  alt &lt;- x[[grep("lsm_alt_", names(x))]]</pre>
                     </td>
@@ -259,104 +257,91 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">21</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  df_ref &lt;- data.frame(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">22</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    group = "ref",</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">23</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    est = ref$est,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">24</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    se_est = ref$se,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">25</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    lower_cl_est = ref$ci[1],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">26</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    upper_cl_est = ref$ci[2],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">27</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    est_contr = NA_real_,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">28</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    se_contr = NA_real_,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">29</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    lower_cl_contr = NA_real_,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">30</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    upper_cl_contr = NA_real_,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">31</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    p_value = NA_real_,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">32</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    relative_reduc = NA_real_,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">33</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    stringsAsFactors = FALSE</pre>
                     </td>
@@ -377,104 +362,91 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">36</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  df_alt &lt;- data.frame(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">37</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    group = "alt",</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">38</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    est = alt$est,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">39</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    se_est = alt$se,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">40</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    lower_cl_est = alt$ci[1],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">41</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    upper_cl_est = alt$ci[2],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">42</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    est_contr = contr$est,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">43</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    se_contr = contr$se,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">44</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    lower_cl_contr = contr$ci[1],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">45</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    upper_cl_contr = contr$ci[2],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">46</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    p_value = contr$pvalue,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">47</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    relative_reduc = contr$est / df_ref$est,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">48</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    stringsAsFactors = FALSE</pre>
                     </td>
@@ -495,24 +467,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">51</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  result &lt;- rbind(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">52</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    df_ref,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">53</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    df_alt</pre>
                     </td>
@@ -533,8 +502,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">56</td>
-                    <td class="coverage">9<em>x</em>
-</td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  result</pre>
                     </td>
@@ -653,8 +621,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">73</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  ls_raw &lt;- x$pars</pre>
                     </td>
@@ -668,24 +635,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">75</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  visit_raw_names &lt;- names(ls_raw)[grep("trt_", names(ls_raw))]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">76</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  l_visit_names &lt;- strsplit(visit_raw_names, "trt_")</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">77</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  visit_names &lt;- vapply(l_visit_names, `[`, 2, FUN.VALUE = character(1))</pre>
                     </td>
@@ -699,8 +663,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">79</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  spl &lt;- rep(visit_names, each = 3)</pre>
                     </td>
@@ -714,8 +677,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">81</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  ls_split &lt;- split(ls_raw, spl)</pre>
                     </td>
@@ -729,8 +691,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">83</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  ls_df &lt;- lapply(ls_split, h_tidy_pool)</pre>
                     </td>
@@ -744,8 +705,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">85</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  result &lt;- do.call(rbind, unname(ls_df))</pre>
                     </td>
@@ -759,24 +719,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">87</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  result$visit &lt;- factor(rep(visit_names, each = 2))</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">88</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  result$group &lt;- factor(result$group, levels = c("ref", "alt"))</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">89</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  result$conf_level &lt;- x$conf.level</pre>
                     </td>
@@ -790,8 +747,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">91</td>
-                    <td class="coverage">2<em>x</em>
-</td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  result</pre>
                     </td>
@@ -987,64 +943,56 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">119</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_flag(.in_ref_col)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">120</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  show_relative &lt;- match.arg(show_relative)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">121</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if_not_ref &lt;- function(x) `if`(.in_ref_col, character(), x)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">122</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  list(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">123</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    adj_mean_se = c(df$est, df$se_est),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">124</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    adj_mean_ci = formatters::with_label(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">125</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      c(df$lower_cl_est, df$upper_cl_est),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">126</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      f_conf_level(df$conf_level)</pre>
                     </td>
@@ -1058,32 +1006,28 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">128</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    diff_mean_se = if_not_ref(c(df$est_contr, df$se_contr)),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">129</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    diff_mean_ci = formatters::with_label(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">130</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      if_not_ref(c(df$lower_cl_contr, df$upper_cl_contr)),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">131</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      f_conf_level(df$conf_level)</pre>
                     </td>
@@ -1097,24 +1041,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">133</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    change = switch(show_relative,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">134</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      reduction = formatters::with_label(if_not_ref(df$relative_reduc), "Relative Reduction (%)"),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">135</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      increase = formatters::with_label(if_not_ref(-df$relative_reduc), "Relative Increase (%)")</pre>
                     </td>
@@ -1128,8 +1069,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">137</td>
-                    <td class="coverage">3<em>x</em>
-</td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    p_value = if_not_ref(df$p_value)</pre>
                     </td>
@@ -1675,48 +1615,42 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">215</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  afun &lt;- make_afun(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">216</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    a_rbmi_lsmeans,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">217</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    .stats = .stats,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">218</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    .formats = .formats,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">219</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    .indent_mods = .indent_mods,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">220</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    .labels = .labels</pre>
                     </td>
@@ -1730,48 +1664,42 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">222</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  analyze(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">223</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    lyt = lyt,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">224</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    vars = "est",</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">225</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    afun = afun,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">226</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    table_names = table_names,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">227</td>
-                    <td class="coverage">1<em>x</em>
-</td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    extra_args = list(...)</pre>
                     </td>

@@ -28,6 +28,7 @@ Suggests:
     knitr (>= 1.42),
     Matrix,
     rmarkdown (>= 2.23),
+    rstan,
     testthat (>= 3.0.4),
     tidyr (>= 0.8.3)
 VignetteBuilder:

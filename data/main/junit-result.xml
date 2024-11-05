@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="h_tidy_pool" timestamp="2024-11-05T22:00:11Z" hostname="97a8f628b14a" tests="1" skipped="0" failures="0" errors="0" time="0.035">
-    <testcase time="0.0350000000000001" classname="h_tidy_pool" name="h_tidy_pool_is_produced_correctly"/>
+  <testsuite name="h_tidy_pool" timestamp="2024-11-05T22:00:23Z" hostname="6b49222f276d" tests="1" skipped="0" failures="0" errors="0" time="0.036">
+    <testcase time="0.036" classname="h_tidy_pool" name="h_tidy_pool_is_produced_correctly"/>
   </testsuite>
-  <testsuite name="tabulate_rbmi" timestamp="2024-11-05T22:00:11Z" hostname="97a8f628b14a" tests="5" skipped="0" failures="0" errors="0" time="0.557">
-    <testcase time="0.05" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_TRUE"/>
-    <testcase time="0.022" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_FALSE"/>
+  <testsuite name="tabulate_rbmi" timestamp="2024-11-05T22:00:23Z" hostname="6b49222f276d" tests="5" skipped="1" failures="0" errors="0" time="0.547">
+    <testcase time="0.0519999999999998" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_TRUE"/>
+    <testcase time="0.0230000000000001" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_FALSE"/>
     <testcase time="0.0149999999999999" classname="tabulate_rbmi" name="s_rbmi_lsmeans_also_works_with_show_relative_increase"/>
-    <testcase time="0.0109999999999999" classname="tabulate_rbmi" name="a_rbmi_lsmeans_functions_as_expected_with_valid_input"/>
-    <testcase time="0.459" classname="tabulate_rbmi" name="summarize_rbmi_works_as_expected_with_valid_input"/>
+    <testcase time="0.012" classname="tabulate_rbmi" name="a_rbmi_lsmeans_functions_as_expected_with_valid_input"/>
+    <testcase time="0.445" classname="tabulate_rbmi" name="summarize_rbmi_works_as_expected_with_valid_input">
+      <skipped message="Reason: On CRAN ('test-tabulate_rbmi.R:80:3')"/>
+    </testcase>
   </testsuite>
-  <testsuite name="tidypool" timestamp="2024-11-05T22:00:12Z" hostname="97a8f628b14a" tests="1" skipped="0" failures="0" errors="0" time="0.027">
-    <testcase time="0.0270000000000001" classname="tidypool" name="tidy.pool_is_produced_correctly"/>
+  <testsuite name="tidypool" timestamp="2024-11-05T22:00:24Z" hostname="6b49222f276d" tests="1" skipped="0" failures="0" errors="0" time="0.046">
+    <testcase time="0.0459999999999998" classname="tidypool" name="tidy.pool_is_produced_correctly"/>
   </testsuite>
 </testsuites>

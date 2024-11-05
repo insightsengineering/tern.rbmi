@@ -24,6 +24,7 @@ Imports:
     magrittr (>= 1.5),
     rtables (>= 0.6.7)
 Suggests:
+    BH,
     dplyr (>= 1.0.3),
     knitr (>= 1.42),
     Matrix,

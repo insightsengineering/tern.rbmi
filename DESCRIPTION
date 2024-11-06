@@ -28,6 +28,7 @@ Suggests:
     dplyr (>= 1.0.3),
     knitr (>= 1.42),
     Matrix,
+    RcppEigen,
     rmarkdown (>= 2.23),
     rstan,
     testthat (>= 3.0.4),

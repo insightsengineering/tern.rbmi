@@ -20,7 +20,7 @@ editor_options:
 suggested_dependent_pkgs <- c("rstan")
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
   eval = all(vapply(
     suggested_dependent_pkgs,
     requireNamespace,

@@ -17,11 +17,19 @@ editor_options:
 ---
 
 ```{r setup, include = FALSE}
+suggested_dependent_pkgs <- c("rstan")
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
+  eval = all(vapply(
+    suggested_dependent_pkgs,
+    requireNamespace,
+    logical(1),
+    quietly = TRUE
+  ))
 )
 ```
+
 
 ## Introduction to tern.rbmi
 
@@ -133,7 +141,7 @@ The `rbmi::draws()` function fits the imputation models and stores the correspon
 
 #### Define key variables
 
-Define the names of key variables in our dataset and the covariates included in 
+Define the names of key variables in our dataset and the covariates included in
 the imputation model using `rbmi::set_vars()`. Note that the covariates argument
 can also include interaction terms.
 
@@ -149,7 +157,7 @@ draws_vars <- rbmi::set_vars(
 draws_vars$subjid <- "TMP_ID"
 ```
 
-Define which imputation method to use, then create samples for the imputation 
+Define which imputation method to use, then create samples for the imputation
 parameters by running the `draws()` function.
 
 ```{r}

@@ -1,4 +1,4 @@
-# `tern.rbmi` 0.1.3.9010
+# `tern.rbmi` 0.1.3.9011
 
 * Specified minimal version of package dependencies.
 * Corrected tidy.pool function signature

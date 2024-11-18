@@ -2,7 +2,7 @@ data(rbmi_test_data)
 dat <- rbmi_test_data
 
 testthat::test_that("h_tidy_pool is produced correctly", {
-  result <- h_tidy_pool(dat$pars[1:3])[,-1]
+  result <- h_tidy_pool(dat$pars[1:3])[, -1]
 
   expected <- data.frame(
     # c("ref", "alt"),

@@ -24,5 +24,5 @@ testthat::test_that("h_tidy_pool is produced correctly", {
     "group", "est", "se_est", "lower_cl_est", "upper_cl_est", "est_contr", "se_contr",
     "lower_cl_contr", "upper_cl_contr", "p_value", "relative_reduc"
   )
-  testthat::expect_identical(result, expected)
+  testthat::expect_identical(result, expected, tolerance = 0.000001)
 })

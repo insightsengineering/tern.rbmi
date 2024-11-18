@@ -2,7 +2,7 @@ data(rbmi_test_data)
 dat <- rbmi_test_data
 
 testthat::test_that("tidy.pool is produced correctly", {
-  result <- broom::tidy(dat)[,-1]
+  result <- broom::tidy(dat)[, -1]
 
   expected <- data.frame(
     c(

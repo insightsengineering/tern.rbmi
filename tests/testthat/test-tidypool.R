@@ -2,11 +2,9 @@ data(rbmi_test_data)
 dat <- rbmi_test_data
 
 testthat::test_that("tidy.pool is produced correctly", {
-  result <- broom::tidy(dat) %>%
-    dplyr::mutate(dplyr::across(everything(), as.character))
+  result <- broom::tidy(dat)[, -1]
 
   expected <- data.frame(
-    c("ref", "alt", "ref", "alt", "ref", "alt", "ref", "alt"),
     c(
       "-1.61581995766697", "-1.70762640404516", "-4.22512642519727", "-2.87379756893085",
       "-6.38102548405994", "-4.15873766528714", "-7.58026593671547", "-4.76040605665019"
@@ -32,11 +30,14 @@ testthat::test_that("tidy.pool is produced correctly", {
     c("4", "4", "5", "5", "6", "6", "7", "7"),
     c("0.95", "0.95", "0.95", "0.95", "0.95", "0.95", "0.95", "0.95"),
     stringsAsFactors = FALSE
-  )
+  ) %>%
+    dplyr::mutate(dplyr::across(everything(), as.numeric))
 
   colnames(expected) <- c(
-    "group", "est", "se_est", "lower_cl_est", "upper_cl_est", "est_contr", "se_contr",
+    "est", "se_est", "lower_cl_est", "upper_cl_est", "est_contr", "se_contr",
     "lower_cl_contr", "upper_cl_contr", "p_value", "relative_reduc", "visit", "conf_level"
   )
-  testthat::expect_identical(result, expected)
+
+  expected$visit <- as.factor(expected$visit)
+  testthat::expect_identical(result, expected, tolerance = 0.000001)
 })

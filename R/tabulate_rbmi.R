@@ -5,6 +5,7 @@
 #'
 #' @param x (`pool`) is a list of pooled object from `rbmi` analysis results. This list includes
 #' analysis results, confidence level, hypothesis testing type.
+#' @return Data frame with results of pool for a single visit.
 #' @export
 #'
 #' @examples
@@ -100,6 +101,7 @@ tidy.pool <- function(x, ...) { # nolint
 #' @param .in_ref_col boolean variable, if reference column is specified
 #' @param show_relative "reduction" if (`control - treatment`, default) or "increase"
 #'   (`treatment - control`) of relative change from baseline?
+#' @return A list of statistics extracted from a tidied LS means data frame.
 #' @export
 #'
 #' @examples
@@ -147,6 +149,7 @@ s_rbmi_lsmeans <- function(df, .in_ref_col, show_relative = c("reduction", "incr
 #' @param .in_ref_col boolean variable, if reference column is specified
 #' @param show_relative "reduction" if (`control - treatment`, default) or "increase"
 #'   (`treatment - control`) of relative change from baseline?
+#' @return Formatted Analysis function
 #' @export
 #'
 a_rbmi_lsmeans <- make_afun(
@@ -187,6 +190,8 @@ a_rbmi_lsmeans <- make_afun(
 #' @param .indent_mods (named `integer`)\cr indent modifiers for the labels.
 #' @param .labels (named `character`)\cr labels for the statistics (without indent).
 #' @param ... additional argument.
+#' @return `rtables` layout for tabulating LS means estimates from tidied
+#'   `rbmi` `pool` results.
 #' @export
 #'
 #' @examples

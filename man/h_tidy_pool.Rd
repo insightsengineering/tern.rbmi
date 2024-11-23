@@ -11,6 +11,9 @@ h_tidy_pool(x)
 \item{x}{(\code{pool}) is a list of pooled object from \code{rbmi} analysis results. This list includes
 analysis results, confidence level, hypothesis testing type.}
 }
+\value{
+Data frame with results of pool for a single visit.
+}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

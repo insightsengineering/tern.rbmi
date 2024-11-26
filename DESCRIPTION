@@ -1,17 +1,18 @@
 Package: tern.rbmi
 Title: Create Interface for RBMI and TERN
-Version: 0.1.4
-Date: 2024-11-18
+Version: 0.1.4.9000
+Date: 2024-11-26
 Authors@R: c(
     person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
     person("Jana", "Stoilova", , "jana.stoilova@roche.com", role = "aut"),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )
-Description: 'RBMI' implements standard and reference based multiple imputation
-    methods for continuous longitudinal endpoints (Gower-Page et al. (2022)
-    <doi:10.21105/joss.04251>). This package provides an interface for 'RBMI'
-    uses the 'tern' <https://cran.r-project.org/package=tern> framework by Zhu
-    et al. (2023) and tabulate results easily using 'rtables'
+Description: 'RBMI' implements standard and reference based multiple
+    imputation methods for continuous longitudinal endpoints (Gower-Page
+    et al. (2022) <doi:10.21105/joss.04251>). This package provides an
+    interface for 'RBMI' uses the 'tern'
+    <https://cran.r-project.org/package=tern> framework by Zhu et al.
+    (2023) and tabulate results easily using 'rtables'
     <https://cran.r-project.org/package=rtables> by Becker et al. (2023).
 License: Apache License 2.0
 URL: https://github.com/insightsengineering/tern.rbmi,

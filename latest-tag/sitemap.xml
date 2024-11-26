@@ -1,60 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/404.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/SECURITY.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/articles/tern-rbmi.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/index.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/pull_request_template.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/reference/a_rbmi_lsmeans.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/reference/h_tidy_pool.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/reference/rbmi_test_data.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/reference/s_rbmi_lsmeans.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/reference/summarize_rbmi.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/reference/tern.rbmi-package.html</loc>
-  </url>
-  <url>
-    <loc>https://insightsengineering.github.io/tern.rbmi/reference/tidy.pool.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/404.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/CONTRIBUTING.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/LICENSE-text.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/SECURITY.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/articles/index.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/articles/tern-rbmi.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/authors.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/index.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/news/index.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/reference/a_rbmi_lsmeans.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/reference/h_tidy_pool.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/reference/index.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/reference/rbmi_test_data.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/reference/s_rbmi_lsmeans.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/reference/summarize_rbmi.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/reference/tern.rbmi-package.html</loc></url>
+<url><loc>https://insightsengineering.github.io/tern.rbmi/reference/tidy.pool.html</loc></url>
 </urlset>
+

@@ -1,5 +1,5 @@
 Package: tern.rbmi
-Title: Create Interface for RBMI and TERN
+Title: Create Interface for 'RBMI' and 'tern'
 Version: 0.1.4.9000
 Date: 2024-11-26
 Authors@R: c(

@@ -15,6 +15,9 @@ s_rbmi_lsmeans(df, .in_ref_col, show_relative = c("reduction", "increase"))
 \item{show_relative}{"reduction" if (\code{control - treatment}, default) or "increase"
 (\code{treatment - control}) of relative change from baseline?}
 }
+\value{
+A list of statistics extracted from a tidied LS means data frame.
+}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

@@ -31,6 +31,10 @@ to avoid warnings from \code{rtables}.}
 
 \item{.labels}{(named \code{character})\cr labels for the statistics (without indent).}
 }
+\value{
+\code{rtables} layout for tabulating LS means estimates from tidied
+\code{rbmi} \code{pool} results.
+}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

@@ -34,12 +34,13 @@ vignette(topic = "quickstart", package = "rbmi")
 
 ## Installation
 
-```r
-# install.packages("pak")
-pak::pak("insightsengineering/tern.rbmi@*release")
+`tern.rbmi` is available on CRAN and you can install the latest released version with:
+
+``` r
+install.packages("tern.rbmi")
 ```
 
-Alternatively, you might want to use the development version.
+or you can install the latest development version directly from GitHub by running the following:
 
 ```r
 # install.packages("pak")

@@ -1,5 +1,7 @@
 # `tern.rbmi` 0.1.4.9001
 
+# `tern.rbmi` 0.1.4
+
 * CRAN release.
 
 # `tern.rbmi` 0.1.3

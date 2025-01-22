@@ -3,7 +3,8 @@ Title: Create Interface for 'RBMI' and 'tern'
 Version: 0.1.4.9002
 Date: 2024-12-02
 Authors@R: c(
-    person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
+    person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0001-7566-2787")),
     person("Jana", "Stoilova", , "jana.stoilova@roche.com", role = "aut"),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )

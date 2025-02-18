@@ -1,9 +1,10 @@
 Package: tern.rbmi
 Title: Create Interface for 'RBMI' and 'tern'
 Version: 0.1.5
-Date: 2024-11-26
+Date: 2025-02-19
 Authors@R: c(
-    person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
+    person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7566-2787")),
     person("Jana", "Stoilova", , "jana.stoilova@roche.com", role = "aut"),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )
@@ -21,14 +22,14 @@ BugReports: https://github.com/insightsengineering/tern.rbmi/issues
 Depends:
     R (>= 3.6),
     rbmi (>= 1.2.5),
-    tern (>= 0.9.4)
+    tern (>= 0.9.7)
 Imports:
     broom (>= 0.5.4),
     checkmate (>= 2.1.0),
-    formatters (>= 0.5.6),
+    formatters (>= 0.5.10),
     lifecycle (>= 0.2.0),
     magrittr (>= 1.5),
-    rtables (>= 0.6.7)
+    rtables (>= 0.6.11)
 Suggests:
     BH,
     dplyr (>= 1.0.3),

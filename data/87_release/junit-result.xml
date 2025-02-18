@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="h_tidy_pool" timestamp="2025-02-18T16:27:52Z" hostname="e5cedb93e9d6" tests="1" skipped="0" failures="0" errors="0" time="0.044">
+    <testcase time="0.044" classname="h_tidy_pool" name="h_tidy_pool_is_produced_correctly"/>
+  </testsuite>
+  <testsuite name="tabulate_rbmi" timestamp="2025-02-18T16:27:52Z" hostname="e5cedb93e9d6" tests="5" skipped="1" failures="0" errors="0" time="0.539">
+    <testcase time="0.05" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_TRUE"/>
+    <testcase time="0.022" classname="tabulate_rbmi" name="s_rbmi_lsmeans_works_with_as_expected_with_.in_ref_col_FALSE"/>
+    <testcase time="0.014" classname="tabulate_rbmi" name="s_rbmi_lsmeans_also_works_with_show_relative_increase"/>
+    <testcase time="0.012" classname="tabulate_rbmi" name="a_rbmi_lsmeans_functions_as_expected_with_valid_input"/>
+    <testcase time="0.441" classname="tabulate_rbmi" name="summarize_rbmi_works_as_expected_with_valid_input">
+      <skipped message="Reason: On CRAN ('test-tabulate_rbmi.R:80:3')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="tidypool" timestamp="2025-02-18T16:27:53Z" hostname="e5cedb93e9d6" tests="1" skipped="0" failures="0" errors="0" time="0.054">
+    <testcase time="0.0539999999999998" classname="tidypool" name="tidy.pool_is_produced_correctly"/>
+  </testsuite>
+</testsuites>

@@ -17,7 +17,7 @@ editor_options:
 ---
 
 ```{r setup, include = FALSE}
-suggested_dependent_pkgs <- c("rstan")
+suggested_dependent_pkgs <- c("rstan", "V8")
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -161,7 +161,7 @@ Define which imputation method to use, then create samples for the imputation
 parameters by running the `draws()` function.
 
 ```{r}
-draws_method <- method_bayes()
+draws_method <- rbmi::method_bayes()
 
 draws_obj <- rbmi::draws(
   data = data_full,

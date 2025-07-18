@@ -1,6 +1,6 @@
 # `tern.rbmi` 0.1.6
 
-* Skip vignette build when using `clang`.
+* Build vignette only if using `gcc`.
 
 # `tern.rbmi` 0.1.5
 

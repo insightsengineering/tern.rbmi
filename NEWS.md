@@ -1,4 +1,8 @@
-# `tern.rbmi` 0.1.5.9000
+# `tern.rbmi` 0.1.6
+
+* Skip vignette build when using `clang`.
+
+# `tern.rbmi` 0.1.5
 
 * Adding `V8` to suggests.
 

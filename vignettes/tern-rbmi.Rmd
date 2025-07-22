@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
     requireNamespace,
     logical(1),
     quietly = TRUE
-  ), grepl("gcc", system("R CMD config CC", intern = T))) # had issue when using clang (skip)
+  ), grepl("gcc", system("R CMD config CC", intern = TRUE))) # had issue when using clang (skip)
 )
 ```
 
@@ -240,6 +240,3 @@ basic_table() %>%
   summarize_rbmi() %>%
   build_table(df)
 ```
-
-
-

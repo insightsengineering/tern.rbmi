@@ -1,4 +1,4 @@
-# `tern.rbmi` 0.1.6
+# `tern.rbmi` 0.1.6.9000
 
 * Build vignette only if using `gcc`.
 

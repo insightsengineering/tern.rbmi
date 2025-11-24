@@ -44,6 +44,8 @@ Suggests:
 VignetteBuilder:
     knitr,
     rmarkdown
+Remotes:
+    insightsengineering/rbmi@main
 Config/Needs/verdepcheck: insightsengineering/rbmi,
     insightsengineering/tern, tidymodels/broom, mllg/checkmate,
     insightsengineering/formatters, r-lib/lifecycle, tidyverse/magrittr,

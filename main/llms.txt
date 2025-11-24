@@ -1,0 +1,165 @@
+# `tern.rbmi`
+
+[![Check
+🛠](https://github.com/insightsengineering/tern.rbmi/actions/workflows/check.yaml/badge.svg)](https://insightsengineering.github.io/tern.rbmi/main/unit-test-report/)
+[![Docs
+📚](https://github.com/insightsengineering/tern.rbmi/actions/workflows/docs.yaml/badge.svg)](https://insightsengineering.github.io/tern.rbmi/)
+[![Code Coverage
+📔](https://raw.githubusercontent.com/insightsengineering/tern.rbmi/_xml_coverage_reports/data/main/badge.svg)](https://insightsengineering.github.io/tern.rbmi/main/coverage-report/)
+
+![GitHub
+forks](https://img.shields.io/github/forks/insightsengineering/tern.rbmi?style=social)![GitHub
+Repo
+stars](https://img.shields.io/github/stars/insightsengineering/tern.rbmi?style=social)
+
+![GitHub commit
+activity](https://img.shields.io/github/commit-activity/m/insightsengineering/tern.rbmi)![GitHub
+contributors](https://img.shields.io/github/contributors/insightsengineering/tern.rbmi)![GitHub
+last
+commit](https://img.shields.io/github/last-commit/insightsengineering/tern.rbmi)![GitHub
+pull
+requests](https://img.shields.io/github/issues-pr/insightsengineering/tern.rbmi)![GitHub
+repo
+size](https://img.shields.io/github/repo-size/insightsengineering/tern.rbmi)![GitHub
+language
+count](https://img.shields.io/github/languages/count/insightsengineering/tern.rbmi)[![Project
+Status: Active – The project has reached a stable, usable state and is
+being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Current
+Version](https://img.shields.io/github/r-package/v/insightsengineering/tern.rbmi/main?color=purple&label=package%20version)](https://github.com/insightsengineering/tern.rbmi/tree/main)
+[![Open
+Issues](https://img.shields.io/github/issues-raw/insightsengineering/tern.rbmi?color=red&label=open%20issues)](https://github.com/insightsengineering/tern.rbmi/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+
+## Overview
+
+`tern.rbmi` provides an interface for Reference Based Multiple
+Imputation (`rbmi`) within the `tern` framework.
+
+## Background
+
+For details of the `rbmi` package, please see [Reference Based Multiple
+Imputation (rbmi)](https://github.com/insightsengineering/rbmi). The
+basic usage of `rbmi` core functions is described in the `quickstart`
+vignette:
+
+``` r
+vignette(topic = "quickstart", package = "rbmi")
+```
+
+## Installation
+
+`tern.rbmi` is available on CRAN and you can install the latest released
+version with:
+
+``` r
+install.packages("tern.rbmi")
+```
+
+or you can install the latest development version directly from GitHub
+by running the following:
+
+``` r
+# install.packages("pak")
+pak::pak("insightsengineering/tern.rbmi")
+```
+
+## Usage
+
+To understand how to use this package, please refer to the [Introduction
+to
+`tern.rbmi`](https://insightsengineering.github.io/tern.rbmi/latest-tag/articles/tern-rbmi.html)
+article, which provides multiple examples of code implementation.
+
+## Stargazers and Forkers
+
+### Stargazers over time
+
+[![Stargazers over
+time](https://starchart.cc/insightsengineering/tern.rbmi.svg)](https://starchart.cc/insightsengineering/tern.rbmi)
+
+### Stargazers
+
+[![Stargazers repo roster for
+@insightsengineering/tern.rbmi](https://reporoster.com/stars/insightsengineering/tern.rbmi)](https://github.com/insightsengineering/tern.rbmi/stargazers)
+
+### Forkers
+
+[![Forkers repo roster for
+@insightsengineering/tern.rbmi](https://reporoster.com/forks/insightsengineering/tern.rbmi)](https://github.com/insightsengineering/tern.rbmi/network/members)
+
+# Package index
+
+## Statistics Functions
+
+Statistics functions should do the computation of the numbers that are
+tabulated later. In order to separate computation from formatting, they
+should not take care of `rcell` type formatting themselves.
+
+- [`s_rbmi_lsmeans()`](https://insightsengineering.github.io/tern.rbmi/reference/s_rbmi_lsmeans.md)
+  **\[experimental\]** : Statistics function which is extracting
+  estimates from a tidied LS means data frame.
+
+## Formatted Analysis functions
+
+These have the same arguments as the corresponding statistics functions,
+and can be further customized by calling
+[`rtables::make_afun()`](https://insightsengineering.github.io/rtables/latest-release/reference/make_afun.html)
+on them. They are used as `afun` in
+[`rtables::analyze()`](https://insightsengineering.github.io/rtables/latest-release/reference/analyze.html).
+
+- [`a_rbmi_lsmeans()`](https://insightsengineering.github.io/tern.rbmi/reference/a_rbmi_lsmeans.md)
+  **\[experimental\]** :
+
+  Formatted Analysis function which can be further customized by calling
+  [`rtables::make_afun()`](https://insightsengineering.github.io/rtables/latest-release/reference/make_afun.html)
+  on it. It is used as `afun` in
+  [`rtables::analyze()`](https://insightsengineering.github.io/rtables/latest-release/reference/analyze.html).
+
+## Analyze Functions
+
+Analyze Functions are used in combination with the rtables layout
+functions, in the pipeline which creates the table.
+
+- [`summarize_rbmi()`](https://insightsengineering.github.io/tern.rbmi/reference/summarize_rbmi.md)
+  **\[experimental\]** :
+
+  Analyze function for tabulating LS means estimates from tidied `rbmi`
+  `pool` results.
+
+## Analysis Helper Functions
+
+these functions are useful to help definining the analysis
+
+- [`h_tidy_pool()`](https://insightsengineering.github.io/tern.rbmi/reference/h_tidy_pool.md)
+  **\[experimental\]** : Helper function to produce data frame with
+  results of pool for a single visit
+
+## Helper method
+
+Helper method
+
+- [`tidy(`*`<pool>`*`)`](https://insightsengineering.github.io/tern.rbmi/reference/tidy.pool.md)
+  **\[experimental\]** :
+
+  Helper method (for
+  [`broom::tidy()`](https://broom.tidymodels.org/reference/reexports.html))
+  to prepare a data frame from an `pool` `rbmi` object containing the LS
+  means and contrasts and multiple visits
+
+## Test data
+
+Test data
+
+- [`rbmi_test_data`](https://insightsengineering.github.io/tern.rbmi/reference/rbmi_test_data.md)
+  **\[experimental\]** :
+
+  Example dataset for `tern.rbmi` package. This is an pool object from
+  the rbmi analysis, see `browseVignettes(package = "tern.rbmi")`
+
+# Articles
+
+### All vignettes
+
+- [Introduction to
+  tern.rbmi](https://insightsengineering.github.io/tern.rbmi/articles/tern-rbmi.md):

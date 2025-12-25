@@ -189,8 +189,8 @@ draws_obj <- rbmi::draws(
 #> 
 #> SAMPLING FOR MODEL 'rbmi_MMRM_us_default' NOW (CHAIN 1).
 #> Chain 1: 
-#> Chain 1: Gradient evaluation took 0.000235 seconds
-#> Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 2.35 seconds.
+#> Chain 1: Gradient evaluation took 0.000231 seconds
+#> Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 2.31 seconds.
 #> Chain 1: Adjust your expectations accordingly!
 #> Chain 1: 
 #> Chain 1: 
@@ -207,11 +207,11 @@ draws_obj <- rbmi::draws(
 #> Chain 1: Iteration: 1160 / 1200 [ 96%]  (Sampling)
 #> Chain 1: Iteration: 1200 / 1200 [100%]  (Sampling)
 #> Chain 1: 
-#> Chain 1:  Elapsed Time: 0.485 seconds (Warm-up)
-#> Chain 1:                2.136 seconds (Sampling)
-#> Chain 1:                2.621 seconds (Total)
+#> Chain 1:  Elapsed Time: 0.438 seconds (Warm-up)
+#> Chain 1:                1.569 seconds (Sampling)
+#> Chain 1:                2.007 seconds (Total)
 #> Chain 1:
-#> Warning in fit_mcmc(designmat = model_df_scaled[, -1, drop = FALSE], outcome = model_df_scaled[, : The largest R-hat is 1.16, indicating chains have not mixed.
+#> Warning in fit_mcmc(designmat = model_df_scaled[, -1, drop = FALSE], outcome = model_df_scaled[, : The largest R-hat is 1.22, indicating chains have not mixed.
 #> Running the chains for more iterations may help. See
 #> https://mc-stan.org/misc/warnings.html#r-hat
 ```
@@ -293,21 +293,21 @@ df
 #>   group       est    se_est lower_cl_est upper_cl_est   est_contr  se_contr
 #> 1   ref -1.615820 0.4862316    -2.575771   -0.6558685          NA        NA
 #> 2   alt -1.707626 0.4749573    -2.645319   -0.7699335 -0.09180645 0.6826279
-#> 3   ref -4.270193 0.6503640    -5.554640   -2.9857458          NA        NA
-#> 4   alt -2.802419 0.6324767    -4.051412   -1.5534254  1.46777407 0.9082524
-#> 5   ref -6.403203 0.7216269    -7.830060   -4.9763467          NA        NA
-#> 6   alt -4.158397 0.7121868    -5.567199   -2.7495962  2.24480602 1.0320175
-#> 7   ref -7.733487 0.7924143    -9.301010   -6.1659644          NA        NA
-#> 8   alt -4.846306 0.8093245    -6.450989   -3.2416243  2.88718077 1.1678115
+#> 3   ref -4.232449 0.6545980    -5.525319   -2.9395788          NA        NA
+#> 4   alt -2.755938 0.6376072    -4.015164   -1.4967127  1.47651061 0.9150973
+#> 5   ref -6.398943 0.7112831    -7.804702   -4.9931846          NA        NA
+#> 6   alt -4.096711 0.7014969    -5.483622   -2.7098009  2.30223161 1.0133119
+#> 7   ref -7.685237 0.8084819    -9.285536   -6.0849389          NA        NA
+#> 8   alt -4.768890 0.7826814    -6.317460   -3.2203197  2.91634721 1.1540718
 #>   lower_cl_contr upper_cl_contr    p_value relative_reduc visit conf_level
 #> 1             NA             NA         NA             NA     4       0.95
 #> 2     -1.4394968       1.255884 0.89317724     0.05681725     4       0.95
 #> 3             NA             NA         NA             NA     5       0.95
-#> 4     -0.3257789       3.261327 0.10803280    -0.34372549     5       0.95
+#> 4     -0.3306770       3.283698 0.10860056    -0.34885493     5       0.95
 #> 5             NA             NA         NA             NA     6       0.95
-#> 6      0.2025728       4.287039 0.03147549    -0.35057546     6       0.95
+#> 6      0.2984360       4.306027 0.02464870    -0.35978311     6       0.95
 #> 7             NA             NA         NA             NA     7       0.95
-#> 8      0.5711649       5.203197 0.01505850    -0.37333491     7       0.95
+#> 8      0.6300237       5.202671 0.01288127    -0.37947393     7       0.95
 ```
 
 Final product, reshape `rbmi` final results to nicely formatted `rtable`
@@ -329,24 +329,24 @@ basic_table() %>%
 #>     Relative Reduction (%)                                     5.7%      
 #>     p-value (RBMI)                                            0.8932     
 #> 5                                                                        
-#>   Adjusted Mean (SE)                   -4.270 (0.650)     -2.802 (0.632) 
-#>     95% CI                            (-5.555, -2.986)   (-4.051, -1.553)
-#>   Difference in Adjusted Means (SE)                       1.468 (0.908)  
-#>     95% CI                                               (-0.326, 3.261) 
-#>     Relative Reduction (%)                                    -34.4%     
-#>     p-value (RBMI)                                            0.1080     
+#>   Adjusted Mean (SE)                   -4.232 (0.655)     -2.756 (0.638) 
+#>     95% CI                            (-5.525, -2.940)   (-4.015, -1.497)
+#>   Difference in Adjusted Means (SE)                       1.477 (0.915)  
+#>     95% CI                                               (-0.331, 3.284) 
+#>     Relative Reduction (%)                                    -34.9%     
+#>     p-value (RBMI)                                            0.1086     
 #> 6                                                                        
-#>   Adjusted Mean (SE)                   -6.403 (0.722)     -4.158 (0.712) 
-#>     95% CI                            (-7.830, -4.976)   (-5.567, -2.750)
-#>   Difference in Adjusted Means (SE)                       2.245 (1.032)  
-#>     95% CI                                                (0.203, 4.287) 
-#>     Relative Reduction (%)                                    -35.1%     
-#>     p-value (RBMI)                                            0.0315     
+#>   Adjusted Mean (SE)                   -6.399 (0.711)     -4.097 (0.701) 
+#>     95% CI                            (-7.805, -4.993)   (-5.484, -2.710)
+#>   Difference in Adjusted Means (SE)                       2.302 (1.013)  
+#>     95% CI                                                (0.298, 4.306) 
+#>     Relative Reduction (%)                                    -36.0%     
+#>     p-value (RBMI)                                            0.0246     
 #> 7                                                                        
-#>   Adjusted Mean (SE)                   -7.733 (0.792)     -4.846 (0.809) 
-#>     95% CI                            (-9.301, -6.166)   (-6.451, -3.242)
-#>   Difference in Adjusted Means (SE)                       2.887 (1.168)  
-#>     95% CI                                                (0.571, 5.203) 
-#>     Relative Reduction (%)                                    -37.3%     
-#>     p-value (RBMI)                                            0.0151
+#>   Adjusted Mean (SE)                   -7.685 (0.808)     -4.769 (0.783) 
+#>     95% CI                            (-9.286, -6.085)   (-6.317, -3.220)
+#>   Difference in Adjusted Means (SE)                       2.916 (1.154)  
+#>     95% CI                                                (0.630, 5.203) 
+#>     Relative Reduction (%)                                    -37.9%     
+#>     p-value (RBMI)                                            0.0129
 ```

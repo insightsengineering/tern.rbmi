@@ -15,13 +15,13 @@ Source:
 [`DESCRIPTION`](https://github.com/insightsengineering/tern.rbmi/blob/main/DESCRIPTION)
 
 Zhu J, Stoilova J (2025). *tern.rbmi: Create Interface for 'RBMI' and
-'tern'*. R package version 0.1.6.9003,
+'tern'*. R package version 0.1.6.9005,
 <https://github.com/insightsengineering/tern.rbmi>.
 
     @Manual{,
       title = {tern.rbmi: Create Interface for 'RBMI' and 'tern'},
       author = {Joe Zhu and Jana Stoilova},
       year = {2025},
-      note = {R package version 0.1.6.9003},
+      note = {R package version 0.1.6.9005},
       url = {https://github.com/insightsengineering/tern.rbmi},
     }

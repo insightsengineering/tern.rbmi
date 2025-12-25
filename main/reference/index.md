@@ -14,17 +14,17 @@ should not take care of `rcell` type formatting themselves.
 
 These have the same arguments as the corresponding statistics functions,
 and can be further customized by calling
-[`rtables::make_afun()`](https://insightsengineering.github.io/rtables/latest-release/reference/make_afun.html)
+[`rtables::make_afun()`](https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html)
 on them. They are used as `afun` in
-[`rtables::analyze()`](https://insightsengineering.github.io/rtables/latest-release/reference/analyze.html).
+[`rtables::analyze()`](https://insightsengineering.github.io/rtables/latest-tag/reference/analyze.html).
 
 - [`a_rbmi_lsmeans()`](https://insightsengineering.github.io/tern.rbmi/reference/a_rbmi_lsmeans.md)
   **\[experimental\]** :
 
   Formatted Analysis function which can be further customized by calling
-  [`rtables::make_afun()`](https://insightsengineering.github.io/rtables/latest-release/reference/make_afun.html)
+  [`rtables::make_afun()`](https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html)
   on it. It is used as `afun` in
-  [`rtables::analyze()`](https://insightsengineering.github.io/rtables/latest-release/reference/analyze.html).
+  [`rtables::analyze()`](https://insightsengineering.github.io/rtables/latest-tag/reference/analyze.html).
 
 ## Analyze Functions
 

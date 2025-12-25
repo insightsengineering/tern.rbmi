@@ -1,6 +1,6 @@
 # Changelog
 
-## `tern.rbmi` 0.1.6.9003
+## `tern.rbmi` 0.1.6.9005
 
 ## `tern.rbmi` 0.1.6.9000
 

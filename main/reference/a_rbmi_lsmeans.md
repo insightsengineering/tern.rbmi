@@ -1,4 +1,4 @@
-# Formatted Analysis function which can be further customized by calling [`rtables::make_afun()`](https://insightsengineering.github.io/rtables/latest-release/reference/make_afun.html) on it. It is used as `afun` in [`rtables::analyze()`](https://insightsengineering.github.io/rtables/latest-release/reference/analyze.html).
+# Formatted Analysis function which can be further customized by calling [`rtables::make_afun()`](https://insightsengineering.github.io/rtables/latest-tag/reference/make_afun.html) on it. It is used as `afun` in [`rtables::analyze()`](https://insightsengineering.github.io/rtables/latest-tag/reference/analyze.html).
 
 **\[experimental\]**
 

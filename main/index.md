@@ -39,9 +39,8 @@ Imputation (`rbmi`) within the `tern` framework.
 ## Background
 
 For details of the `rbmi` package, please see [Reference Based Multiple
-Imputation (rbmi)](https://github.com/insightsengineering/rbmi). The
-basic usage of `rbmi` core functions is described in the `quickstart`
-vignette:
+Imputation (rbmi)](https://github.com/openpharma/rbmi). The basic usage
+of `rbmi` core functions is described in the `quickstart` vignette:
 
 ``` r
 

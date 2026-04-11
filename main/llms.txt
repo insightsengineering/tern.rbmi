@@ -44,6 +44,7 @@ basic usage of `rbmi` core functions is described in the `quickstart`
 vignette:
 
 ``` r
+
 vignette(topic = "quickstart", package = "rbmi")
 ```
 
@@ -53,6 +54,7 @@ vignette(topic = "quickstart", package = "rbmi")
 version with:
 
 ``` r
+
 install.packages("tern.rbmi")
 ```
 
@@ -60,6 +62,7 @@ or you can install the latest development version directly from GitHub
 by running the following:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("insightsengineering/tern.rbmi")
 ```

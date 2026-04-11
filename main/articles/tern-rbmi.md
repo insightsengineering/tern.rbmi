@@ -12,6 +12,7 @@ the `rbmi` package, please see [Reference Based Multiple Imputation
 `rbmi` core functions is described in the `quickstart` vignette:
 
 ``` r
+
 vignette(topic = "quickstart", package = "rbmi")
 ```
 
@@ -40,6 +41,7 @@ missing and there is a single additional intermittent missing
 observation.
 
 ``` r
+
 library(tern.rbmi)
 #> Loading required package: rbmi
 #> Loading required package: tern
@@ -71,6 +73,7 @@ library(dplyr)
 ```
 
 ``` r
+
 data <- antidepressant_data
 levels(data$THERAPY) <- c("PLACEBO", "DRUG") # This is important! The order defines the computation order later
 
@@ -93,6 +96,7 @@ data <- data %>%
 ```
 
 ``` r
+
 # Use expand_locf to add rows corresponding to visits with missing outcomes to the dataset
 data_full <- do.call(
   expand_locf,
@@ -126,6 +130,7 @@ Set the imputation strategy to MAR for each patient with at least one
 missing observation.
 
 ``` r
+
 data_ice <- data_full %>%
   dplyr::arrange(dplyr::across(.cols = c("TMP_ID", vars$visit))) %>%
   dplyr::filter(is.na(.data[[missing_var]])) %>%
@@ -139,11 +144,11 @@ data_ice <- data_full %>%
 ### Draws
 
 The
-[`rbmi::draws()`](https://insightsengineering.github.io/rbmi/latest-tag/reference/draws.html)
+[`rbmi::draws()`](https://openpharma.github.io/rbmi/latest-tag/reference/draws.html)
 function fits the imputation models and stores the corresponding
 parameter estimates or Bayesian posterior parameter draws. The three
 main inputs to the
-[`rbmi::draws()`](https://insightsengineering.github.io/rbmi/latest-tag/reference/draws.html)
+[`rbmi::draws()`](https://openpharma.github.io/rbmi/latest-tag/reference/draws.html)
 function are:
 
 - data - The primary longitudinal data.frame containing the outcome
@@ -159,10 +164,11 @@ function are:
 
 Define the names of key variables in our dataset and the covariates
 included in the imputation model using
-[`rbmi::set_vars()`](https://insightsengineering.github.io/rbmi/latest-tag/reference/set_vars.html).
+[`rbmi::set_vars()`](https://openpharma.github.io/rbmi/latest-tag/reference/set_vars.html).
 Note that the covariates argument can also include interaction terms.
 
 ``` r
+
 debug_mode <- FALSE
 
 draws_vars <- rbmi::set_vars(
@@ -178,6 +184,7 @@ Define which imputation method to use, then create samples for the
 imputation parameters by running the `draws()` function.
 
 ``` r
+
 draws_method <- rbmi::method_bayes()
 
 draws_obj <- rbmi::draws(
@@ -189,8 +196,8 @@ draws_obj <- rbmi::draws(
 #> 
 #> SAMPLING FOR MODEL 'rbmi_MMRM_us_default' NOW (CHAIN 1).
 #> Chain 1: 
-#> Chain 1: Gradient evaluation took 0.000231 seconds
-#> Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 2.31 seconds.
+#> Chain 1: Gradient evaluation took 0.000246 seconds
+#> Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 2.46 seconds.
 #> Chain 1: Adjust your expectations accordingly!
 #> Chain 1: 
 #> Chain 1: 
@@ -207,11 +214,11 @@ draws_obj <- rbmi::draws(
 #> Chain 1: Iteration: 1160 / 1200 [ 96%]  (Sampling)
 #> Chain 1: Iteration: 1200 / 1200 [100%]  (Sampling)
 #> Chain 1: 
-#> Chain 1:  Elapsed Time: 0.438 seconds (Warm-up)
-#> Chain 1:                1.569 seconds (Sampling)
-#> Chain 1:                2.007 seconds (Total)
+#> Chain 1:  Elapsed Time: 0.465 seconds (Warm-up)
+#> Chain 1:                1.85 seconds (Sampling)
+#> Chain 1:                2.315 seconds (Total)
 #> Chain 1:
-#> Warning in fit_mcmc(designmat = model_df_scaled[, -1, drop = FALSE], outcome = model_df_scaled[, : The largest R-hat is 1.22, indicating chains have not mixed.
+#> Warning in fit_mcmc(designmat = model_df_scaled[, -1, drop = FALSE], outcome = model_df_scaled[, : The largest R-hat is 1.2, indicating chains have not mixed.
 #> Running the chains for more iterations may help. See
 #> https://mc-stan.org/misc/warnings.html#r-hat
 ```
@@ -220,14 +227,15 @@ draws_obj <- rbmi::draws(
 
 The next step is to use the parameters from the imputation model to
 generate the imputed datasets. This is done via the
-[`rbmi::impute()`](https://insightsengineering.github.io/rbmi/latest-tag/reference/impute.html)
+[`rbmi::impute()`](https://openpharma.github.io/rbmi/latest-tag/reference/impute.html)
 function. The function only has two key inputs: the imputation model
 output from
-[`rbmi::draws()`](https://insightsengineering.github.io/rbmi/latest-tag/reference/draws.html)
+[`rbmi::draws()`](https://openpharma.github.io/rbmi/latest-tag/reference/draws.html)
 and the reference groups relevant to reference-based imputation methods.
 Its usage is thus:
 
 ``` r
+
 impute_references <- c("DRUG" = "PLACEBO", "PLACEBO" = "PLACEBO")
 
 impute_obj <- rbmi::impute(
@@ -240,10 +248,11 @@ impute_obj <- rbmi::impute(
 
 The next step is to run the analysis model on each imputed dataset. This
 is done by defining an analysis function and then calling
-[`rbmi::analyse()`](https://insightsengineering.github.io/rbmi/latest-tag/reference/analyse.html)
+[`rbmi::analyse()`](https://openpharma.github.io/rbmi/latest-tag/reference/analyse.html)
 to apply this function to each imputed dataset.
 
 ``` r
+
 # Define analysis model
 analyse_fun <- ancova
 
@@ -266,13 +275,14 @@ analyse_obj <- rbmi::analyse(
 ### Pool
 
 The
-[`rbmi::pool()`](https://insightsengineering.github.io/rbmi/latest-tag/reference/pool.html)
+[`rbmi::pool()`](https://openpharma.github.io/rbmi/latest-tag/reference/pool.html)
 function can be used to summarize the analysis results across multiple
 imputed datasets to provide an overall statistic with a standard error,
 confidence intervals and a p-value for the hypothesis test of the null
 hypothesis that the effect is equal to 0.
 
 ``` r
+
 pool_obj <- rbmi::pool(
   results = analyse_obj,
   conf.level = 0.95,
@@ -286,6 +296,7 @@ pool_obj <- rbmi::pool(
 Finally create output with `rtables` and `tern` packages
 
 ``` r
+
 library(broom)
 
 df <- tidy(pool_obj)
@@ -293,27 +304,28 @@ df
 #>   group       est    se_est lower_cl_est upper_cl_est   est_contr  se_contr
 #> 1   ref -1.615820 0.4862316    -2.575771   -0.6558685          NA        NA
 #> 2   alt -1.707626 0.4749573    -2.645319   -0.7699335 -0.09180645 0.6826279
-#> 3   ref -4.232449 0.6545980    -5.525319   -2.9395788          NA        NA
-#> 4   alt -2.755938 0.6376072    -4.015164   -1.4967127  1.47651061 0.9150973
-#> 5   ref -6.398943 0.7112831    -7.804702   -4.9931846          NA        NA
-#> 6   alt -4.096711 0.7014969    -5.483622   -2.7098009  2.30223161 1.0133119
-#> 7   ref -7.685237 0.8084819    -9.285536   -6.0849389          NA        NA
-#> 8   alt -4.768890 0.7826814    -6.317460   -3.2203197  2.91634721 1.1540718
+#> 3   ref -4.231351 0.6576457    -5.530387   -2.9323154          NA        NA
+#> 4   alt -2.757642 0.6352185    -4.012035   -1.5032488  1.47370929 0.9141279
+#> 5   ref -6.364401 0.7213676    -7.790809   -4.9379937          NA        NA
+#> 6   alt -4.121512 0.7036440    -5.512795   -2.7302299  2.24288911 1.0265959
+#> 7   ref -7.684177 0.8038733    -9.275512   -6.0928422          NA        NA
+#> 8   alt -4.827833 0.8049743    -6.423476   -3.2321889  2.85634433 1.1509257
 #>   lower_cl_contr upper_cl_contr    p_value relative_reduc visit conf_level
 #> 1             NA             NA         NA             NA     4       0.95
 #> 2     -1.4394968       1.255884 0.89317724     0.05681725     4       0.95
 #> 3             NA             NA         NA             NA     5       0.95
-#> 4     -0.3306770       3.283698 0.10860056    -0.34885493     5       0.95
+#> 4     -0.3315085       3.278927 0.10888699    -0.34828337     5       0.95
 #> 5             NA             NA         NA             NA     6       0.95
-#> 6      0.2984360       4.306027 0.02464870    -0.35978311     6       0.95
+#> 6      0.2117429       4.274035 0.03071175    -0.35241164     6       0.95
 #> 7             NA             NA         NA             NA     7       0.95
-#> 8      0.6300237       5.202671 0.01288127    -0.37947393     7       0.95
+#> 8      0.5756222       5.137067 0.01457634    -0.37171767     7       0.95
 ```
 
 Final product, reshape `rbmi` final results to nicely formatted `rtable`
 object.
 
 ``` r
+
 basic_table() %>%
   split_cols_by("group", ref_group = levels(df$group)[1]) %>%
   split_rows_by("visit", split_label = "Visit", label_pos = "topleft") %>%
@@ -329,24 +341,24 @@ basic_table() %>%
 #>     Relative Reduction (%)                                     5.7%      
 #>     p-value (RBMI)                                            0.8932     
 #> 5                                                                        
-#>   Adjusted Mean (SE)                   -4.232 (0.655)     -2.756 (0.638) 
-#>     95% CI                            (-5.525, -2.940)   (-4.015, -1.497)
-#>   Difference in Adjusted Means (SE)                       1.477 (0.915)  
-#>     95% CI                                               (-0.331, 3.284) 
-#>     Relative Reduction (%)                                    -34.9%     
-#>     p-value (RBMI)                                            0.1086     
+#>   Adjusted Mean (SE)                   -4.231 (0.658)     -2.758 (0.635) 
+#>     95% CI                            (-5.530, -2.932)   (-4.012, -1.503)
+#>   Difference in Adjusted Means (SE)                       1.474 (0.914)  
+#>     95% CI                                               (-0.332, 3.279) 
+#>     Relative Reduction (%)                                    -34.8%     
+#>     p-value (RBMI)                                            0.1089     
 #> 6                                                                        
-#>   Adjusted Mean (SE)                   -6.399 (0.711)     -4.097 (0.701) 
-#>     95% CI                            (-7.805, -4.993)   (-5.484, -2.710)
-#>   Difference in Adjusted Means (SE)                       2.302 (1.013)  
-#>     95% CI                                                (0.298, 4.306) 
-#>     Relative Reduction (%)                                    -36.0%     
-#>     p-value (RBMI)                                            0.0246     
+#>   Adjusted Mean (SE)                   -6.364 (0.721)     -4.122 (0.704) 
+#>     95% CI                            (-7.791, -4.938)   (-5.513, -2.730)
+#>   Difference in Adjusted Means (SE)                       2.243 (1.027)  
+#>     95% CI                                                (0.212, 4.274) 
+#>     Relative Reduction (%)                                    -35.2%     
+#>     p-value (RBMI)                                            0.0307     
 #> 7                                                                        
-#>   Adjusted Mean (SE)                   -7.685 (0.808)     -4.769 (0.783) 
-#>     95% CI                            (-9.286, -6.085)   (-6.317, -3.220)
-#>   Difference in Adjusted Means (SE)                       2.916 (1.154)  
-#>     95% CI                                                (0.630, 5.203) 
-#>     Relative Reduction (%)                                    -37.9%     
-#>     p-value (RBMI)                                            0.0129
+#>   Adjusted Mean (SE)                   -7.684 (0.804)     -4.828 (0.805) 
+#>     95% CI                            (-9.276, -6.093)   (-6.423, -3.232)
+#>   Difference in Adjusted Means (SE)                       2.856 (1.151)  
+#>     95% CI                                                (0.576, 5.137) 
+#>     Relative Reduction (%)                                    -37.2%     
+#>     p-value (RBMI)                                            0.0146
 ```

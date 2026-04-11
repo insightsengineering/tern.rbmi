@@ -20,7 +20,7 @@ summarize_rbmi(
 
 - lyt:
 
-  (`layout`)  
+  (`layout`)\
   input layout where analyses will be added to.
 
 - ...:
@@ -29,28 +29,28 @@ summarize_rbmi(
 
 - table_names:
 
-  (`character`)  
+  (`character`)\
   this can be customized in case that the same `vars` are analyzed
   multiple times, to avoid warnings from `rtables`.
 
 - .stats:
 
-  (`character`)  
+  (`character`)\
   statistics to select for the table.
 
 - .formats:
 
-  (named `character` or `list`)  
+  (named `character` or `list`)\
   formats for the statistics.
 
 - .indent_mods:
 
-  (named `integer`)  
+  (named `integer`)\
   indent modifiers for the labels.
 
 - .labels:
 
-  (named `character`)  
+  (named `character`)\
   labels for the statistics (without indent).
 
 ## Value

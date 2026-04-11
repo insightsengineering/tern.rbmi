@@ -36,7 +36,7 @@ knitr::opts_chunk$set(
 ---------
 
 This vignette shows the general purpose and syntax of the `tern.rbmi` R package.
-The `tern.rbmi` provides an interface for Reference Based Multiple Imputation (`rbmi`) within the tern framework. For details of the `rbmi` package, please see [Reference Based Multiple Imputation (rbmi)](https://github.com/insightsengineering/rbmi). The basic usage of `rbmi` core functions is described
+The `tern.rbmi` provides an interface for Reference Based Multiple Imputation (`rbmi`) within the tern framework. For details of the `rbmi` package, please see [Reference Based Multiple Imputation (rbmi)](https://github.com/openpharma/rbmi). The basic usage of `rbmi` core functions is described
 in the `quickstart` vignette:
 
 ```{r eval=FALSE}

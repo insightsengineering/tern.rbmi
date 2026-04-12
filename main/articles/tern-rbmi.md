@@ -196,8 +196,8 @@ draws_obj <- rbmi::draws(
 #> 
 #> SAMPLING FOR MODEL 'rbmi_MMRM_us_default' NOW (CHAIN 1).
 #> Chain 1: 
-#> Chain 1: Gradient evaluation took 0.000224 seconds
-#> Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 2.24 seconds.
+#> Chain 1: Gradient evaluation took 0.000267 seconds
+#> Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 2.67 seconds.
 #> Chain 1: Adjust your expectations accordingly!
 #> Chain 1: 
 #> Chain 1: 
@@ -214,9 +214,9 @@ draws_obj <- rbmi::draws(
 #> Chain 1: Iteration: 1160 / 1200 [ 96%]  (Sampling)
 #> Chain 1: Iteration: 1200 / 1200 [100%]  (Sampling)
 #> Chain 1: 
-#> Chain 1:  Elapsed Time: 0.475 seconds (Warm-up)
-#> Chain 1:                1.875 seconds (Sampling)
-#> Chain 1:                2.35 seconds (Total)
+#> Chain 1:  Elapsed Time: 0.473 seconds (Warm-up)
+#> Chain 1:                1.867 seconds (Sampling)
+#> Chain 1:                2.34 seconds (Total)
 #> Chain 1:
 #> Warning in fit_mcmc(designmat = model_df_scaled[, -1, drop = FALSE], outcome = model_df_scaled[, : The largest R-hat is 1.2, indicating chains have not mixed.
 #> Running the chains for more iterations may help. See
